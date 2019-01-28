@@ -162,6 +162,7 @@
     <Compile Include="Areas\HelpPage\SampleGeneration\TextSample.cs" />
     <Compile Include="Areas\HelpPage\XmlDocumentationProvider.cs" />
     <Compile Include="Controllers\HomeController.cs" />
+    <Compile Include="Controllers\PlaneController.cs" />
     <Compile Include="Controllers\ValuesController.cs" />
     <Compile Include="Global.asax.cs">
       <DependentUpon>Global.asax</DependentUpon>
@@ -251,6 +252,16 @@
     <None Include="packages.config" />
     <Content Include="Scripts\jquery-3.3.1.slim.min.map" />
     <Content Include="Scripts\jquery-3.3.1.min.map" />
+  </ItemGroup>
+  <ItemGroup>
+    <ProjectReference Include="..\WeChat.Model\WeChat.Model.csproj">
+      <Project>{b474bff5-6e9a-4663-aa2f-a07b8ff13e40}</Project>
+      <Name>WeChat.Model</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\WeChat.Respository\WeChat.Respository.csproj">
+      <Project>{67c0c019-523b-4a0d-b24d-1f2351d5604f}</Project>
+      <Name>WeChat.Respository</Name>
+    </ProjectReference>
   </ItemGroup>
   <PropertyGroup>
     <VisualStudioVersion Condition="'$(VisualStudioVersion)' == ''">10.0</VisualStudioVersion>

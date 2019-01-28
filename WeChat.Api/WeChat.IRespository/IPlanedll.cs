@@ -4,10 +4,12 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace WeChat.Model
+namespace WeChat.IRespository
 {
-    public class Class1
+    using Model;
+    public interface IPlanedll
     {
-
+        List<PlaneModels> PlaneIndex();
+        
     }
 }
