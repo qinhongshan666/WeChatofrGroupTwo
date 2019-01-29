@@ -1,0 +1,53 @@
+<!--pages/airticket/airticket.wxml-->
+<view class="containers">
+<!--头部-->
+  <view class='headtime'>
+      <text class="citys">{{leavecity}}-{{arrivecity}}</text>
+      <view class='alltimes'>
+          <picker mode="date" value="{{dateday}}" end="2019-06-01" bindchange="bindDateChange">
+              <text>更多日期</text>
+          </picker>
+      </view>
+      <text class="times">{{dateday}}</text>
+  </view>
+    <view class="wrap">
+        <scroll-view scroll-y="true">
+        <!--机票信息start-->
+            <view class="ticketList" wx:for="{{list1}}" wx:key="id" bindtap="go" id="{{list1.id}}">
+                <view class="ticketList_top">
+                    <view class="flight_info">
+                        <view class="flight_info_t">
+                          <text>10:30</text>
+                            <view class="timeLine"></view>
+                          <text>09:10</text>
+                        </view>
+                        <view class="flight_info_b">
+                            <text>上海虹桥T1</text>
+                              <view class="timeLine"></view>
+                            <text>北京首都T3</text>
+                        </view>
+                    </view>
+                    <view class="flight_price">
+                        <view class="price">
+                            <text class='zhangshu'>2张</text>
+                            <text style="color:#FF7F00">¥</text>
+                            <text style="font-size:22px; color:#FF7F00">388</text>
+                            <text>起</text>
+                        </view>
+                        <view>经济舱4.1折</view>
+                    </view>
+                </view>
+                <view class="ticketList_btm">
+                    <view>
+                        <text>东航MU5101</text>
+                    </view>  
+                </view>
+            </view>
+        <!--wrap结束-->
+        </scroll-view>
+    </view>
+    <view>
+            <button type='primary' style="background-color:#5495E6;">返回上一层</button>
+  </view>
+<!--尾部-->
+</view>

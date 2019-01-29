@@ -1,0 +1,46 @@
+
+<!--汽车购票信息-->
+<view class="container">
+  <view class="pannel dateNum">
+    <view class="date">
+      <text>1月31日</text>
+      <text class="small">出发</text>
+    </view>
+    <view class="num">
+      <text>1成人</text>
+      <text>0儿童</text>
+    </view>
+  </view>
+
+
+    <view class="backFlight">
+      <view class="flightDate">
+        <view>
+          <text>上海</text>
+          <text class="time">08:30</text>
+        </view>
+        <view>
+          <text class="date">2019/01/31</text>
+          <text class="flightPic"></text>
+          <text>--------------------</text>
+          <text class="date">2小时1分</text>
+        </view>
+        <view>
+          <text>北京</text>
+          <text class="time">10:31</text>
+        </view>
+      </view>
+
+</view>
+
+
+  <view class="tabBar">
+    <text class="name">套餐总价</text>
+    <text class="totalPrice">￥311</text>
+    <view class="nextStep">付款</view>
+  </view>
+</view>
+
+
+
+

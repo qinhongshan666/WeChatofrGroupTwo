@@ -1,0 +1,8 @@
+<!--pages/Hotel/hotel.wxml-->
+<!--酒店列表-->
+<view>
+    <image class='img0' src="../../image/更换酒店.png" bindtap='jiu'></image>
+  </view>
+  <view>
+    <image class='img0' src="../../image/更换酒店.png" bindtap='jiu'></image>
+  </view>
