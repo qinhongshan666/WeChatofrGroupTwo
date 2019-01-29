@@ -41,8 +41,6 @@ namespace WebApplicationAutofac
         public static void SetupResolveRules(ContainerBuilder container)
         {
             container.RegisterType<BusRespository>().As<IBusRespository>();
-
-            container.RegisterType<BusRespository>().As<IBusRespository>();
         }
     }
 }
