@@ -1,0 +1,76 @@
+<!--汽车购票首页-->
+<!--pages/Bus/Bus.wxml-->
+
+<view>
+    <image class='img' src="../../image/top/coach.jpg"></image>
+  </view>
+
+<view class="bg">
+    <view class="container">
+        <view class="query-box">
+            <view class="query-row query-city">
+                <view class="begin-city">
+                    <text class="city-descript">出发城市</text> 
+  <picker mode="region" bindchange="bindRegionChange" value="{{region}}" custom-item="{{customItem}}">
+    <view class="picker">
+    {{region[2]}}
+    </view>
+  </picker>
+                </view> 
+<view class="section {{reply?'on':'off'}}">
+    <input name="other" placeholder="请输入所预约项目" type="text"/>
+  </view>
+                <view class="switch">
+                    <image class="switch-img" src="../../image/switch.png"></image>
+                </view>
+                <view class="end-city">
+                    <text class="city-descript">到达城市</text>
+                      <picker mode="region" bindchange="bindRegionChange1" value="{{region1}}" custom-item="{{customItem}}">
+    <view class="picker">
+    {{region1[2]}}
+    </view>
+  </picker>
+                </view>
+            </view> 
+            <view class="query-row query-date">
+                <view>
+                    <text class="city-descript">出发日期</text>
+                     <picker mode="date" value="{{date}}"                                    bindchange="bindDateChange">
+                  <view class="picker">
+                          {{date}}
+                   </view>
+                  </picker>
+                </view>
+                <view>
+                    <text class="day">明天</text>
+                </view>
+            </view>
+            <view class="query-row btn-query">
+                <button type="primary" style="background-color:#5495E6" bindtap="navigateDetail">查询</button>
+            </view>
+            <view class="query-history">
+                <scroll-view scroll-x="true">
+                    <text wx:for="{{coachHistories}}">{{item.begin}} -> {{item.end}}</text>             
+                </scroll-view>
+            </view>
+        </view>
+        <view class="query-box extension">
+        <view class="query-row">
+            <view class="extension-item">
+                <image src="../../image/extension/coach-extension2.png" bindtap="bus"></image>
+                <text>机场巴士</text>
+            </view>
+            <view class="extension-item">
+                <image src="../../image/extension/coach-extension3.png" bindtap="area"></image>
+                <text>景区直达</text>
+            </view>
+            <view class="extension-item">
+                <image src="../../image/extension/coach-extension4.png"bindtap="hotel"></image>
+                <text>酒店</text>
+            </view>
+        </view>
+    </view>
+    </view>
+    </view>
+
+  

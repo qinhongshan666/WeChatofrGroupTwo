@@ -1,0 +1,93 @@
+<!--pages/train/train.wxml-->
+
+<view class="page-top">
+  <swiper indicator-dots="{{indicatorDots}}" autoplay="{{autoplay}}" interval="{{interval}}" duration="{{duration}}" indicator-dots="true" style="width:100%;height:100%;">
+        <swiper-item>
+            <image src="../../image/top/train.jpg"></image>
+        </swiper-item>
+        <swiper-item>
+            <image src="../../image/top/coach.jpg"></image>
+        </swiper-item>
+        <swiper-item>
+            <image src="../../image/top/totoro2.jpg"></image>
+        </swiper-item>
+        <swiper-item>
+            <image src="../../image/top/totoro3.jpg"></image>
+        </swiper-item>
+    </swiper>
+</view>
+<view class="bg">
+<view class="container" style="z-index:1000;">
+    <view class="query-head" >
+        <view class="tab tag">
+            <text>火车票</text>
+        </view>
+    </view>
+    <view class="query-box">
+        <view class="query-row query-city">
+            <view class="begin-city"> 
+                <text class="city" bindtap='city'>茂名</text>
+            </view>
+            
+             <view catchtap="rotate_img" animation="{{animation}}">
+            <image class="changeCity_bg" src="/image/switch.png"></image>
+            
+          </view>
+            <view class="end-city">
+                <text class="city" bindtap='city'>广州</text>
+            </view>
+        </view>
+        <view class="query-row query-date">
+            <view>
+                <text class="date">11月28日</text>
+            </view>
+            <view>
+                <text class="day">明天</text>
+            </view>
+        </view>
+        <view class="query-row">
+            <view class="train-checked">
+                <text>高铁动车</text><switch type="switch" />
+            </view>
+            <view class="train-checked">
+                <text>学生票</text><switch type="switch" />
+            </view>
+        </view>
+        <view class="query-row btn-query">
+            <button type="primary" style="background-color:#5495E6" bindtap='ChaXun'>查询</button>
+        </view>
+        <view class="query-history">
+            <scroll-view scroll-x="true">
+                <text wx:for="{{trainHistories}}">{{item.begin}} -> {{item.end}}</text>                
+            </scroll-view>
+        </view>
+    </view>
+    <view class="query-box extension">
+        <view class="query-row">
+            <view class="extension-item">
+                <image src="../../image/extension/train-extension1.png"></image>
+                <text>极速抢票</text>
+            </view>
+            <view class="extension-item">
+                <image src="../../image/extension/train-extension2.png"></image>
+                <text>在线选座</text>
+            </view>
+            <view class="extension-item">
+                <image src="../../image/extension/train-extension3.png"></image>
+                <text>一元夺宝</text>
+            </view>
+            <view class="extension-item">
+                <image src="../../image/extension/train-extension4.png"></image>
+                <text>超值酒店</text>
+            </view>
+        </view>
+    </view>
+</view>
+</view>
+
+
+
+
+
+
+
