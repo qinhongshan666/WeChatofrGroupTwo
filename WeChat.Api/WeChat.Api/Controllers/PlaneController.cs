@@ -28,5 +28,10 @@ namespace WeChat.Api.Controllers
 
             return planes;
         }
+        [HttpGet]
+        public Plane GetPlane(int id)
+        {
+            return planeRespository.GetPlane(id);
+        }
     }
 }

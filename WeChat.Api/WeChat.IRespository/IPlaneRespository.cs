@@ -10,5 +10,6 @@ namespace WeChat.IRespository
     public interface IPlaneRespository
     {
         List<Plane> GetPlanes();
+        Plane GetPlane(int id);
     }
 }
