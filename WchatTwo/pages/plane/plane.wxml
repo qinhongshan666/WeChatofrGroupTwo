@@ -1,0 +1,47 @@
+<!--pages/plane/plane.wxml-->
+<view>
+  <image class='headPlane' src='../../image/top/plane.jpg'></image>
+</view>
+<view>
+  <view class="query-box">
+    <view class="query-row query-city">
+      <view class="begin-city">
+        <text class="city-descript">出发城市</text>
+    <picker mode="region" bindchange="bindRegionChange" value="{{region}}">
+    <view class="picker">
+      {{region[1]}}
+    </view>
+  </picker>
+      </view>
+      <view class="switch">
+        <image class="switch-img" src="../../image/switch.png"></image>
+      </view>
+      <view class="end-city">
+  <view class="begin-city">
+    <text class="city-descript">到达城市</text>
+    <picker mode="region" bindchange="bindRegionChanges" value="{{regions}}" custom-item="{{customItem}}">
+    <view class="picker">
+      {{regions[1]}}
+    </view>
+  </picker>
+</view>
+      </view>
+    </view>
+    <view class="query-row query-date">
+      <view>
+        <text class="city-descript" bindtap='Departuredate'>出发日期</text>
+        <picker mode="date" value="{{date}}" end="2019-06-01"                                bindchange="bindDateChange">
+          <view class="picker">
+            {{date}}
+          </view>
+        </picker>
+      </view>
+      <view>
+        <text class="day" bindtap='Tomorrow'>明天</text>
+      </view>
+    </view>      
+    <view class="query-row btn-query">
+      <button type="primary" style="background-color:#5495E6" bindtap='SelectPlane'>查询</button>
+    </view>
+  </view>
+</view>

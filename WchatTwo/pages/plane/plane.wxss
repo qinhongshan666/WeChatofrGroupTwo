@@ -1,0 +1,11 @@
+/* pages/plane/plane.wxss */
+.headPlane{
+  width:100%;
+  height: 100px;
+}
+.query-box {
+    padding-bottom: 50rpx;
+}
+.query-date {
+    border: none;
+}

@@ -1,0 +1,47 @@
+
+<!--汽车购票列表-->
+<!--pages/airticket/airticket.wxml-->
+<view class="container">
+<!--头部-->
+  <view class="head">
+            <text class="city1">上海-北京</text>
+            <text class="time1">09月15日</text>
+  </view>
+    <view class="wrap">
+        <scroll-view scroll-y="true">
+        <!--机票信息start-->
+            <view class="ticketList" wx:for="{{list1}}" wx:key="id"  id="{{list1.id}}">
+                <view class="ticketList_top">
+                    <view class="flight_info">
+                        <view class="flight_info_t">
+                            <text>10:30</text>
+                            <text>\n上海</text>
+                            <view>
+                                <view class="timeLine">
+                                </view>
+                            </view>
+                            <text>09:10</text>
+                            <text>\n北京</text>
+                        </view>
+                    </view>
+                    <view class="flight_price">
+                        <view class="price">
+                            <text style="color:#FF7F00">¥</text>
+                            <text style="font-size:22px; color:#FF7F00">388</text>
+                            <text>起</text>
+                        </view>
+                    </view>
+                </view>
+                <view><button bindtap='info' class='col'>购票</button></view>
+                <view class="ticketList_btm">
+                </view>
+                 </view>
+        <!--wrap结束-->
+        </scroll-view>
+    </view>
+<!--尾部-->
+  <view class="foot">
+            <text class="city1">北京-上海</text>
+            <text class="time1">09月15日</text>
+  </view>
+</view>

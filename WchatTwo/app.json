@@ -1,12 +1,57 @@
 {
   "pages":[
+    "pages/train/train",
+    "pages/Bus/Bus",
+    "pages/plane/plane",
     "pages/index/index",
-    "pages/logs/logs"
+    "pages/planeorder/planeorder",
+    "pages/planedetails/planedetails",
+    "pages/Bus_details/Bus_details",
+    "pages/Airport_bus/Airport_bus",
+    "pages/Scenic_area/Scenic_area",
+    "pages/Hotel/hotel",
+    "pages/Hotel_info/Hotel_info",
+    "pages/inquire",
+    "pages/inquire/inquire",
+    "pages/switchcity/switchcity"
   ],
   "window":{
     "backgroundTextStyle":"light",
     "navigationBarBackgroundColor": "#fff",
     "navigationBarTitleText": "WeChat",
     "navigationBarTextStyle":"black"
+  },
+  "tabBar": {
+    "selectedColor": "#59A5F0",
+    "backgroundColor": "#fff",
+    "borderStyle": "black",
+    "list": [
+      {
+        "pagePath": "pages/train/train",
+        "text": "火车票",
+        "iconPath": "image/tabbar/train.png",
+        "selectedIconPath": "image/tabbar/train-selected.png"
+      },
+      {
+        "pagePath": "pages/plane/plane",
+        "text": "飞机票",
+        "iconPath": "image/tabbar/plane.png",
+        "selectedIconPath": "image/tabbar/plane-selected.png"
+      },
+      {
+        "pagePath": "pages/Bus/Bus",
+        "text": "汽车票",
+        "iconPath": "image/tabbar/coach.png",
+        "selectedIconPath": "image/tabbar/coach-selected.png"
+      },
+      {
+        "pagePath": "pages/index/index",
+        "text": "我的订单",
+        "iconPath": "image/tabbar/personnel.png",
+        "selectedIconPath": "image/tabbar/personnel-selected.png"
+      }
+    ]
   }
 }
+  
+
