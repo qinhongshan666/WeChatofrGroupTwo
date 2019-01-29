@@ -11,7 +11,7 @@ namespace WeChat.Api.Controllers
     using Respository;
     public class PlaneController : ApiController
     {
-        Planedll planedll = new Planedll();
+        PlaneRespository planeRespository = new PlaneRespository();
         /// <summary>
         /// 根据条件查票
         /// </summary>
@@ -20,13 +20,13 @@ namespace WeChat.Api.Controllers
         /// <param name="dateDay"></param>
         /// <returns></returns>
         [HttpGet]
-        public List<PlaneModels> PlaneIndex(string leaveCity, string arriveCity, string dateDay)
+        public List<Plane> GetPlanes(string leaveCity, string arriveCity, string dateDay)
         {
-            var planeModels = planedll.PlaneIndex();
+            List<Plane> planes = planeRespository.GetPlanes().ToList();
 
-            planeModels = planeModels.Where(m => !string.IsNullOrEmpty(leaveCity) ? m.LeaveCity.Equals(leaveCity) : true).Where(m => !string.IsNullOrEmpty(arriveCity) ? m.ArriveCity.Equals(arriveCity) : true).Where(m => !string.IsNullOrEmpty(dateDay) ? m.LeaveDate.Equals(dateDay) : true).ToList();
+            planes = planes.Where(m => !string.IsNullOrEmpty(leaveCity) ? m.LeaveCity.Equals(leaveCity) : true).Where(m => !string.IsNullOrEmpty(arriveCity) ? m.ArriveCity.Equals(arriveCity) : true).Where(m => !string.IsNullOrEmpty(dateDay) ? m.LeaveDate.Equals(dateDay) : true).ToList();
 
-            return planeModels;
+            return planes;
         }
     }
 }
