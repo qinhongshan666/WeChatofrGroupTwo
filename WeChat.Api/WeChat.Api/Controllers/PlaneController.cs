@@ -12,6 +12,19 @@ namespace WeChat.Api.Controllers
     public class PlaneController : ApiController
     {
         PlaneRespository planeRespository = new PlaneRespository();
+
+        /// <summary>
+        /// 添加到订单
+        /// </summary>
+        /// <param name="planeOrder"></param>
+        /// <returns></returns>
+        [HttpPost]
+        public int AddPlaneOrder(PlaneOrder planeOrder)
+        {
+            int i= planeRespository.AddPlaneOrder(planeOrder);
+            return i;
+        }
+
         /// <summary>
         /// 根据条件查票
         /// </summary>

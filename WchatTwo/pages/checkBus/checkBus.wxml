@@ -22,22 +22,21 @@
     <view class="orderListTitle">
 
 
-        <text class="userName" >{{item.BusName}}</text>
+        <text class="userName" >{{item.StartingStation}}</text>
+        <text class="userName" >---到达---</text>
 
-        <text class="orderStatus">{{item.BusStatus}}</text>
+        <text class="orderStatus">{{item.DestinationStation}}</text>
 
     </view>
     <text>{{item.BusType}}</text>
 <view>
 
-<text>{{item.STARTTime}}</text>---
-<text>{{item.CloseTime}}</text>
 
 </view>
 <text>购票数量{{item.Number}}</text>
     <view class="productCount">
 
-        <view>合计：￥<text>{{item.Moeny}}</text></view>
+        <view>合计：￥<text>{{item.BusPrice}}</text></view>
 
     </view>
 
