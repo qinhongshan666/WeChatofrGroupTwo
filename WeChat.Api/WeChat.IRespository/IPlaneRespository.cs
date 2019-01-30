@@ -9,7 +9,11 @@ namespace WeChat.IRespository
     using Model;
     public interface IPlaneRespository
     {
+        //机票
         List<Plane> GetPlanes();
         Plane GetPlane(int id);
+
+        //订单
+        int AddPlaneOrder(PlaneOrder planeOrder);
     }
 }
