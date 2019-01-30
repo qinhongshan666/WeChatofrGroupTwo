@@ -26,7 +26,7 @@ Page({
   onLoad: function (options) {
     var that = this;
     wx.request({
-      url: 'http://localhost:56751/api/bus/Getbus',
+      url: 'http://localhost:61984/api/ShoppingCart/BusIndents',
       dataType: 'json',
       method: 'get',
       success: function (options) {
