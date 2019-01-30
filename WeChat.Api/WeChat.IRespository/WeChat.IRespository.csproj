@@ -42,6 +42,7 @@
   </ItemGroup>
   <ItemGroup>
     <Compile Include="IBusRespository.cs" />
+    <Compile Include="IBusTicketRepository.cs" />
     <Compile Include="IPlaneRespository.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>

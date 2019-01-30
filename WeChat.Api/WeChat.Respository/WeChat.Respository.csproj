@@ -60,8 +60,13 @@
   </ItemGroup>
   <ItemGroup>
     <Compile Include="BusRespository.cs" />
+    <Compile Include="BusTicketRepository.cs" />
+
     <Compile Include="PlaneRespository.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="packages.config" />
   </ItemGroup>
   <ItemGroup>
     <ProjectReference Include="..\WeChat.IRespository\WeChat.IRespository.csproj">
@@ -72,9 +77,6 @@
       <Project>{b474bff5-6e9a-4663-aa2f-a07b8ff13e40}</Project>
       <Name>WeChat.Model</Name>
     </ProjectReference>
-  </ItemGroup>
-  <ItemGroup>
-    <None Include="packages.config" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
 </Project>
