@@ -28,7 +28,7 @@ namespace WeChat.Api.Controllers
         }
 
         /// <summary>
-        /// 获取订单为待付款状态的汽车票订单
+        /// 获取订单为待付款状态的汽车票订 单
         /// </summary>
         /// <returns></returns>
         [HttpGet]
