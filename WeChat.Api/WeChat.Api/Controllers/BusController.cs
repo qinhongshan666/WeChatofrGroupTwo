@@ -18,9 +18,9 @@ namespace WeChat.Api.Controllers
         public List<BusIndent> ShowBus( string leavecity,string arrivecity)
         {
             var busmessage = respository.ShowBus();
-
+             
             busmessage = busmessage.Where(m => !string.IsNullOrEmpty(leavecity) ? m.StartingStation.Equals(leavecity) : true).Where(m => !string.IsNullOrEmpty(arrivecity) ? m.DestinationStation.Equals(arrivecity):true).ToList();
             return busmessage;
-        }
+        }    
     }
 }

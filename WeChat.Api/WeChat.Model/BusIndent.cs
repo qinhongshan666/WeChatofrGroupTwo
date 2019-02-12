@@ -8,6 +8,7 @@ namespace WeChat.Model
 {
     public class BusIndent
     {
+       
         /// <summary>
         /// 汽车主键ID
         /// </summary>
