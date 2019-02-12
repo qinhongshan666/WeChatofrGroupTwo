@@ -38,7 +38,7 @@ namespace WeChat.Api.Controllers
             List<Plane> planes = planeRespository.GetPlanes().ToList();
 
             planes = planes.Where(m => !string.IsNullOrEmpty(leaveCity) ? m.LeaveCity.Equals(leaveCity) : true).Where(m => !string.IsNullOrEmpty(arriveCity) ? m.ArriveCity.Equals(arriveCity) : true).Where(m => !string.IsNullOrEmpty(dateDay) ? m.LeaveDate.Equals(dateDay) : true).ToList();
-
+              
             return planes;
         }
         [HttpGet]
