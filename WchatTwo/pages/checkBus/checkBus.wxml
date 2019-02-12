@@ -10,57 +10,70 @@
 
 
 
-<view class="nav-tabs">
-    <view class="tab-list  {{currentTab == idx?'active':'default'}}" wx:for="{{tabArray}}" wx:for-index="idx" wx:for-item="itemName" data-current="{{idx}}" bindtap="swichNav">{{itemName}}</view>
+<!-- <view class="nav-tabs">
+    <view class="tab-list  {{currentTab == idx?'active':'default'}}" wx:for="{{tabArray}}" wx:for-index="idx" wx:for-item="itemName" data-current="{{idx}}" wx:key="unique" bindtap="swichNav">{{itemName}}</view>
 </view>
 <swiper current="{{currentTab}}" class="tab-content" duration="300"  bindchange="bindChange">  
-<swiper-item wx:for="{{tabArray}}" wx:for-index="idx" wx:for-item="itemName" class="">
-    
-    
+<swiper-item wx:for="{{tabArray}}" wx:for-index="idx" wx:for-item="itemName" class=""> -->
+<!--导航条-->
+<view class="navbar"> 
+ <text wx:for="{{navbar}}" data-idx="{{index}}" class="item {{currentTab==index ? 'active' : ''}}" wx:key="unique" bindtap="navbarTap">{{item}}</text> 
+</view> 
+
+    <!-- 汽车票订单   已完成 -->
+   <view hidden="{{currentTab!==0}}">
     <view bindtap="toOrderDetail" class="orderDetails" wx:for="{{infos}}" >
-
     <view class="orderListTitle">
-
-
         <text class="userName" >{{item.StartingStation}}</text>
-        <text class="userName" >--------到达---</text>
-
+         <text class="userName" >---到达---</text>
         <text class="orderStatus">{{item.DestinationStation}}</text>
-
     </view>
     <text>{{item.BusType}}</text>
 <view>
-
-
 </view>
-<text>购票数量{{item.Number}}</text>
+<text>购票数量:{{item.Count}}</text>
     <view class="productCount">
-
         <view>合计：￥<text>{{item.BusPrice}}</text></view>
-
     </view>
+</view>
+</view>
+<!-- 汽车票订单   待付款 -->
+<view hidden="{{currentTab!==1}}" bindtap="findNoPay">
+  <view bindtap="toOrderDetail" class="orderDetails" wx:for="{{NoPays}}" >
+    <view class="orderListTitle">
+        <text class="userName" >{{item.StartingStation}}</text>
+         <text class="userName" >---到达---</text>
+        <text class="orderStatus">{{item.DestinationStation}}</text>
+    </view>
+    <text>{{item.BusType}}</text>
+  <view>
+  </view>
+<text>购票数量:{{item.Count}}</text>
+    <view class="productCount">
+        <view>合计：￥<text>{{item.BusPrice}}</text></view>
+    </view>
+</view>
 
-</view>  
+ <!-- <view bindtap="toOrderDetail" class="orderDetails" wx:for="{{NoPays}}" >
+    <view class="orderListTitle">
+        <text class="userName" >{{item.StartingStation}}</text>
+         <text class="userName" >---到达---</text>
+        <text class="orderStatus">{{item.DestinationStation}}</text>
+    </view>
+    <text>{{item.BusType}}</text>
+<view>
+</view>
+<text>购票数量{{item.Count}}</text>
+    <view class="productCount">
+        <view>合计：￥<text>{{item.BusPrice}}</text></view>
+    </view>
+</view> -->
+</view>
+<!-- 汽车票订单   退款中 -->
+<view hidden="{{currentTab!==2}}">
+田思琪
+</view>
 
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
- 
-</swiper-item>
-</swiper>  
 
 
 
