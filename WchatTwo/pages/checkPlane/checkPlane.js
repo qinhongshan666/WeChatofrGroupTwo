@@ -5,15 +5,15 @@ Page({
    * 页面的初始数据
    */
   data: {
-    navbar: ["已完成", "代付款", "退款中"],
-    currentTab:0
+    currentTab: 0,
+    tabArray: ["已完成", "代付款", "退款中"],
+    winWidth: 0,
+    winHeight: 0,
+    // tab切换
+    currentTab: 0,
   },
 
-  navbarTap: function (e) {
-    this.setData({
-      currentTab: e.currentTarget.dataset.idx
-    })
-  },
+
   // bindChange:function(e)
   // {
   //   var that=this;
@@ -23,36 +23,21 @@ Page({
   /**
    * 生命周期函数--监听页面加载
    */
-  onLoad: function (options) 
-  {
+  onLoad: function (options) {
     var that = this;
     wx.request({
-      url: 'http://localhost:61984/api/ShoppingCart/busIndents',
+      url: 'http://localhost:61984/api/ShoppingCart/BusIndents',
       dataType: 'json',
       method: 'get',
-      async: false,
       success: function (options) {
         console.log(options.data);
         that.setData({
           infos: options.data,
         })
       }
-    }),
-     
-        wx.request({
-          url: 'http://localhost:61984/api/ShoppingCart/getBusIndents',
-          dataType: 'json',
-          method: 'get',
-          async: false,
-          success: function (options) {
-            console.log(options.data);
-            that.setData({
-              NoPays: options.data,
-            })
-          }
-        })   
+
+    })
   },
- 
   bindChange: function (e) {
 
     var that = this;
@@ -62,18 +47,24 @@ Page({
   /**
    * 点击tab切换
    */
-  // swichNav: function (e) {
+  swichNav: function (e) {
 
-  //   var that = this;
+    var that = this;
 
-  //   if (this.data.currentTab === e.target.dataset.current) {
-  //     return false;
-  //   } else {
-  //     that.setData({
-  //       currentTab: e.target.dataset.current
-  //     })
-  //   }
-  // },   
+    if (this.data.currentTab === e.target.dataset.current) {
+      return false;
+    } else {
+      that.setData({
+        currentTab: e.target.dataset.current
+      })
+    }
+  },
+
+
+
+
+
+
   /**
    * 生命周期函数--监听页面初次渲染完成
    */

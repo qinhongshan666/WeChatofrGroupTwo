@@ -10,13 +10,13 @@
   </view>
   </view>
   <view class="nav_top">
-<view class="nav_top_items active_red"data-id="1"data-index="0"data-title="火车票订单">
+<view bindtap="train" class="nav_top_items active_red"data-id="1"data-index="0"data-title="火车票订单">
 <image src="/image/extension/personnel-extension1.png " ></image>
 <text>
 火车票订单
 </text>
 </view>
-<view class="nav_top_items active_red"data-id="1"data-index="0"data-title="机票订单" >
+<view bindtap="plane" class="nav_top_items active_red"data-id="1"data-index="0"data-title="机票订单" >
 <image src="/image/extension/personnel-extension2.png" ></image>
 <text>
 机票订单
