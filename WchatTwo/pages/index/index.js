@@ -56,6 +56,16 @@ Page({
       url: '../checkBus/checkBus',
 
     })
+  },
+  train:function(){
+    wx.navigateTo({
+      url: '../checkTrain/checkTrain',
+    })
+  }
+  ,plane:function(){
+    wx.navigateTo({
+      url: '../checkPlane/checkPlane',
+    })
   }
   
 })

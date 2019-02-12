@@ -49,6 +49,15 @@ namespace WeChat.Respository
         }
 
         /// <summary>
+        /// 获取机票的订单信息
+        /// </summary>
+        /// <returns></returns>
+        public List<PlaneOrder> GetPlaneOrders()
+        {
+            throw new NotImplementedException();
+        }
+
+        /// <summary>
         /// 查询所有机票
         /// </summary>
         /// <returns></returns>
