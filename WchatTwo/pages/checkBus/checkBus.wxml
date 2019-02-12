@@ -23,7 +23,7 @@
 
 
         <text class="userName" >{{item.StartingStation}}</text>
-        <text class="userName" >---到达---</text>
+        <text class="userName" >--------到达---</text>
 
         <text class="orderStatus">{{item.DestinationStation}}</text>
 

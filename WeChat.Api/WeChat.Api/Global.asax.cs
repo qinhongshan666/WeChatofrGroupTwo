@@ -1,15 +1,15 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Web;
-using System.Web.Http;
-using System.Web.Mvc;
-using System.Web.Optimization;
-using System.Web.Routing;
-using WebApplicationAutofac;
-
-namespace WeChat.Api
+﻿namespace WeChat.Api
 {
+    using System;
+    using System.Collections.Generic;
+    using System.Linq;
+    using System.Web;
+    using System.Web.Http;
+    using System.Web.Mvc;
+    using System.Web.Optimization;
+    using System.Web.Routing;
+    using WebApplicationAutofac;
+
     public class WebApiApplication : System.Web.HttpApplication
     {
         protected void Application_Start()
