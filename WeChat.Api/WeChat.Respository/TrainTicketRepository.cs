@@ -1,10 +1,15 @@
 ﻿using Dapper;
 using MySql.Data.MySqlClient;
+using System;
 using System.Collections.Generic;
 using System.Data;
 using System.Linq;
+using System.Text;
+using System.Threading.Tasks;
 using WeChat.IRespository;
 using WeChat.Model;
+
+using System.Linq;
 
 namespace WeChat.Respository
 {
@@ -12,63 +17,57 @@ namespace WeChat.Respository
     {
         private string connStr = "Data Source=169.254.240.201;Database=wechat;User ID=root;Pwd=10086";
 
+
         /// <summary>
+        /// 退款
         /// 获取所有火车票信息
         /// </summary>
         /// <returns></returns>
-        public List<TrainTicketInfo> ShowTrainInfo()
+        public List<TrainTicketInfo> NonPayment()
+
         {
             using (IDbConnection con = new MySqlConnection(connStr))
             {
-                string str = "select * from TrainTicketInfo";
-                var ShowTrainInfo = con.Query<TrainTicketInfo>(str).ToList();
-                return ShowTrainInfo;
+                string str = "select * from TrainTicketInfo where States = 2";
+                var lists = con.Query<TrainTicketInfo>(str).ToList();
+                return lists;
             }
         }
 
+
         /// <summary>
+        /// 待支付
         /// 根据ID查询火车票 然后跳转到支付页面
         /// </summary>
         /// <param name="id"></param>
         /// <returns></returns>
-        public TrainTicketInfo FindTrain(int ID)
+        public List<TrainTicketInfo> Obligation()
         {
             using (IDbConnection conn = new MySqlConnection(connStr))
             {
-                string sql = "select * from TrainTicketInfo where ID=" + ID;
-                TrainTicketInfo plane = conn.Query<TrainTicketInfo>(sql).FirstOrDefault();
-                return plane;
+                string str = "select * from TrainTicketInfo where States = 1";
+                var lists = conn.Query<TrainTicketInfo>(str).ToList();
+                return lists;
             }
         }
 
+
         /// <summary>
-        /// 添加订单 信息
+        /// 已支付
+        /// 添加订单信息
         /// </summary>
         /// <param name="m"></param>
         /// <returns></returns>
-        public int TrainOrderInfo(TrainTicketOrders m)
+        public List<TrainTicketInfo> Paid()
         {
             using (IDbConnection conn = new MySqlConnection(connStr))
             {
-                string sql = string.Format("insert into TrainTicketOrders values(ID,'{0}','{1}','{2}','{3}','{4}','{5}','{6}','{7}','{8}','{9}','{10}')", m.TrainNumber, m.BeginTime, m.BeginSite, m.ArriveTime, m.ArriveSite, m.SeatGrade, m.Price, m.SumMoney, m.Iphone, m.UserID, m.OrdersState);
-                int result = conn.Execute(sql);
-                return result;
+                string str = "select * from TrainTicketInfo where States = 0";
+                var lists = conn.Query<TrainTicketInfo>(str).ToList();
+                return lists;
             }
         }
-
-        public List<TrainTicketInfo> Paid()
-        {
-            throw new System.NotImplementedException();
-        }
-
-        public List<TrainTicketInfo> Obligation()
-        {
-            throw new System.NotImplementedException();
-        }
-
-        public List<TrainTicketInfo> NonPayment()
-        {
-            throw new System.NotImplementedException();
-        }
     }
+
 }
+
