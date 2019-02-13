@@ -12,7 +12,7 @@ namespace WeChat.Api.Controllers
     using WeChat.Respository;
     public class TrainInfoController : ApiController
     {
-       public ITrainTicketRepository Traininfo { get; set; }
+       public ITrainInfoRepository Traininfo { get; set; }
 
         /// <summary>
         /// 添加订单信息
@@ -49,9 +49,10 @@ namespace WeChat.Api.Controllers
         /// <param name="id"></param>
         /// <returns></returns>
         [HttpGet]
-        public TrainTicketInfo FindTrain(int ID)
+        public TrainTicketInfo FindTrain(int id)
         {
-            return Traininfo.FindTrain(ID);
+            
+            return Traininfo.FindTrain(id);
         }
 
 
