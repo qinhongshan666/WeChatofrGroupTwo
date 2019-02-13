@@ -6,12 +6,13 @@ using System.Web.Mvc;
 
 namespace WeChat.Api.Controllers
 {
+    using WeChat.IRespository;
     using Model;
     using System.Web.Http;
     using WeChat.Respository;
     public class TrainInfoController : ApiController
     {
-        TrainInfo traininfo = new TrainInfo();
+       public ITrainTicketRepository Traininfo { get; set; }
 
         /// <summary>
         /// 添加订单信息
@@ -21,7 +22,7 @@ namespace WeChat.Api.Controllers
         [HttpPost]
         public int TrainOrderInfo(TrainTicketOrders m)
         {
-            int i = traininfo.TrainOrderInfo(m);
+            int i = Traininfo.TrainOrderInfo(m);
             return i;
         }
 
@@ -35,7 +36,7 @@ namespace WeChat.Api.Controllers
         [HttpGet]
         public List<TrainTicketInfo> GetTrainInfo(string BeginSite, string ArriveSite )
         {
-            List<TrainTicketInfo> trainInfos = traininfo.ShowTrainInfo().ToList();
+            List<TrainTicketInfo> trainInfos = Traininfo.ShowTrainInfo().ToList();
 
             trainInfos = trainInfos.Where(m => !string.IsNullOrEmpty(BeginSite) ? m.BeginSite.Equals(BeginSite) : true).Where(m => !string.IsNullOrEmpty(ArriveSite) ? m.ArriveSite.Equals(ArriveSite) : true).ToList();
             return trainInfos;
@@ -50,7 +51,7 @@ namespace WeChat.Api.Controllers
         [HttpGet]
         public TrainTicketInfo FindTrain(int ID)
         {
-            return traininfo.FindTrain(ID);
+            return Traininfo.FindTrain(ID);
         }
 
 
