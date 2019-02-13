@@ -18,6 +18,8 @@ namespace WeChat.Model
         /// </summary>
         public DateTime StartTime { get; set; }
 
+
+        public string EndTime { get; set; }
         /// <summary>
         /// 起始站
         /// </summary>
@@ -32,6 +34,12 @@ namespace WeChat.Model
         /// 汽车票类型
         /// </summary>
         public int BusTypeID { get; set; }
+
+
+        public string BusType { get; set; }
+
+
+
 
         /// <summary>
         /// 汽车票单价
@@ -53,6 +61,6 @@ namespace WeChat.Model
         /// </summary>
         public string OrderState { get; set; }
 
-
+        public int Count { get; set; }
     }
 }

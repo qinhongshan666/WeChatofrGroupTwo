@@ -61,8 +61,8 @@
   <ItemGroup>
     <Compile Include="BusRespository.cs" />
     <Compile Include="BusTicketRepository.cs" />
-
     <Compile Include="PlaneRespository.cs" />
+    <Compile Include="PlaneTicketRepository.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="TrainInfo.cs" />
   </ItemGroup>
