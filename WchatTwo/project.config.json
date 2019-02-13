@@ -1,4 +1,4 @@
-{
+﻿{
 	"description": "项目配置文件",
 	"packOptions": {
 		"ignore": []
@@ -13,7 +13,7 @@
 	},
 	"compileType": "miniprogram",
 	"libVersion": "2.5.1",
-	"appid": "wx2cfa463127512c08",
+	"appid": "wxac540bf3653375a2",
 	"projectname": "WchatTwo",
 	"debugOptions": {
 		"hidedInDevtools": []
