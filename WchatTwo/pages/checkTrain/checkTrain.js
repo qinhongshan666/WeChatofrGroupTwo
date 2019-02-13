@@ -5,11 +5,8 @@ Page({
    * 页面的初始数据
    */
   data: {
-    currentTab: 0,
-    tabArray: ["已完成", "代付款", "退款中"],
-    winWidth: 0,
-    winHeight: 0,
-    // tab切换
+
+    navbar: ["已完成", "代付款", "退款中"],
     currentTab: 0,
   },
 
@@ -26,9 +23,10 @@ Page({
   onLoad: function (options) {
     var that = this;
     wx.request({
-      url: 'http://localhost:61984/api/ShoppingCart/BusIndents',
+      url: 'http://localhost:61984/api/ShoppingCart/GetPaidTrain',
       dataType: 'json',
       method: 'get',
+      async: false,
       success: function (options) {
         console.log(options.data);
         that.setData({
@@ -36,13 +34,48 @@ Page({
         })
       }
 
-    })
+    }),
+      wx.request({
+      url: 'http://localhost:61984/api/ShoppingCart/GetObligationTrain',
+        dataType: 'json',
+        method: 'get',
+        async: false,
+        success: function (options) {
+          console.log(options.data)
+          that.setData({
+            loading: options.data,
+
+          })
+        }
+      }),
+      wx.request({
+      url: 'http://localhost:61984/api/ShoppingCart/GetNonPaymentTrain',
+        dataType: 'json',
+        method: 'get',
+        async: false,
+        success: function (options) {
+          console.log(options.data)
+          that.setData({
+            baclk: options.data,
+
+          })
+        }
+      })
+
+
+
+
   },
   bindChange: function (e) {
 
     var that = this;
     that.setData({ currentTab: e.detail.current });
 
+  },
+  navbarTap: function (e) {
+    this.setData({
+      currentTab: e.currentTarget.dataset.idx
+    })
   },
   /**
    * 点击tab切换
@@ -59,6 +92,12 @@ Page({
       })
     }
   },
+
+
+
+
+
+
   /**
    * 生命周期函数--监听页面初次渲染完成
    */

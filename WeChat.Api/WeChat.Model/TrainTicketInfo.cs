@@ -40,5 +40,9 @@ namespace WeChat.Model
 
         //余票
         public string SurplusTicket { get; set; }
+
+        public int Number { get; set; }
+
+        public int States { get; set; }
     }
 }

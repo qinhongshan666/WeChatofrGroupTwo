@@ -23,6 +23,12 @@
         /// 获取订单状态为已付款的汽车票订 单
         /// </summary>
         /// <returns></returns>
+        public ITrainTicketRepository TrainTicketRepository { get; set; }
+
+        /// <summary>
+        /// 获取订单状态为已付款的汽车票订 单
+        /// </summary>
+        /// <returns>已付款returns>
         [HttpGet]
         [ActionName("busIndents")]
         public List<BusIndent> BusIndents()
@@ -34,7 +40,7 @@
         /// <summary>
         /// 获取订单为待付款状态的汽车票订 单
         /// </summary>
-        /// <returns>代付款</returns>
+        /// <returns>待付款</returns>
         [HttpGet]
         [ActionName("getBusIndents")]
         public List<BusIndent> GetBusIndents()
@@ -43,6 +49,10 @@
             return busIndent;
         }
 
+        /// <summary>
+        /// 退款
+        /// </summary>
+        /// <returns>退款中</returns>
         [HttpGet]
         [ActionName("getBusIndent")]
         public List<BusIndent> GetBusIndent()
@@ -85,6 +95,42 @@
         {
             var planeOrder = this.PlaneTicketRepository.NonPayment();
             return planeOrder;
+        }
+
+        /// <summary>
+        /// 已付款
+        /// </summary>
+        /// <returns>状态为0</returns>
+        [HttpGet]
+        [ActionName("GetPaidTrain")]
+        public List<TrainTicketInfo> GetPaidTrain()
+        {
+            var trainTicketInfo = this.TrainTicketRepository.Paid();
+            return trainTicketInfo;
+        }
+
+        /// <summary>
+        /// 待付款
+        /// </summary>
+        /// <returns>返回状态为1</returns>
+        [HttpGet]
+        [ActionName("GetObligationTrain")]
+        public List<TrainTicketInfo> GetObligationTrain()
+        {
+            var trainTicketInfo = this.TrainTicketRepository.Obligation();
+            return trainTicketInfo;
+        }
+
+        /// <summary>
+        /// 退款
+        /// </summary>
+        /// <returns>返回状态为2</returns>
+        [HttpGet]
+        [ActionName("GetNonPaymentTrain")]
+        public List<TrainTicketInfo> GetNonPaymentTrain()
+        {
+            var trainTicketInfo = this.TrainTicketRepository.NonPayment();
+            return trainTicketInfo;
         }
     }
 }
