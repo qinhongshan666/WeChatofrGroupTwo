@@ -1,10 +1,4 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
-
-namespace WeChat.Model
+﻿namespace WeChat.Model
 {
     public class BusTicketInfo
     {
@@ -48,7 +42,9 @@ namespace WeChat.Model
         /// </summary>
         public decimal BusPrice { get; set; }
 
-
+        /// <summary>
+        /// 购票状态
+        /// </summary>
         public string OrderState { get; set; }
     }
 }

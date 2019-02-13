@@ -1,15 +1,9 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
-
-namespace WeChat.Model
+﻿namespace WeChat.Model
 {
     /// <summary>
     /// 火车票信息表
     /// </summary>
-   public class TrainTicketInfo
+    public class TrainTicketInfo
     {
         /// <summary>
         /// 火车票信息表主键ID

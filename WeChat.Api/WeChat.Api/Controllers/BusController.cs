@@ -1,13 +1,8 @@
-﻿using System;
-using System.Collections.Generic;
+﻿using System.Collections.Generic;
 using System.Linq;
-using System.Net;
-using System.Net.Http;
 using System.Web.Http;
 using WeChat.IRespository;
 using WeChat.Model;
-using WeChat.Respository;
-
 
 namespace WeChat.Api.Controllers
 {
@@ -17,11 +12,11 @@ namespace WeChat.Api.Controllers
 
         //显示车票的时间日期
         [HttpGet]
-        public List<BusIndent> ShowBus( string leavecity,string arrivecity)
+        public List<BusIndent> ShowBus(string leavecity, string arrivecity)
         {
             List<BusIndent> busIndents = this.ibusrespostitory.ShowBus().ToList();
 
-            busIndents = busIndents.Where(m => !string.IsNullOrEmpty(leavecity) ? m.StartingStation.Equals(leavecity) : true).Where(m => !string.IsNullOrEmpty(arrivecity) ? m.DestinationStation.Equals(arrivecity):true).ToList();
+            busIndents = busIndents.Where(m => !string.IsNullOrEmpty(leavecity) ? m.StartingStation.Equals(leavecity) : true).Where(m => !string.IsNullOrEmpty(arrivecity) ? m.DestinationStation.Equals(arrivecity) : true).ToList();
             return busIndents;
         }
 
@@ -30,7 +25,7 @@ namespace WeChat.Api.Controllers
         [ActionName("addbuss")]
         public int AddBus(BusTicketInfo busTicketInfo)
         {
-            int i= ibusrespostitory.AddBus(busTicketInfo);
+            int i = ibusrespostitory.AddBus(busTicketInfo);
             return i;
         }
 
@@ -38,7 +33,7 @@ namespace WeChat.Api.Controllers
         [HttpGet]
         public BusIndent GetBus(int id)
         {
-            var busIndent= ibusrespostitory.GetBus(id);
+            var busIndent = ibusrespostitory.GetBus(id);
             return busIndent;
         }
     }

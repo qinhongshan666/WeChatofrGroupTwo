@@ -35,7 +35,7 @@
         </view>
 
         <view catchtap="rotate_img" animation="{{animation}}">
-          <image class="changeCity_bg" src="/images/switch.png"></image>
+          <image class="changeCity_bg" src="../../image/switch.png"></image>
 
         </view>
         <view class="end-city">

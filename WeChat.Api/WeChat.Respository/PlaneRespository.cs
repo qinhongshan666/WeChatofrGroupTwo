@@ -1,16 +1,14 @@
 ﻿using System;
 using System.Collections.Generic;
 using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 
 namespace WeChat.Respository
 {
-    using IRespository;
-    using WeChat.Model;
     using Dapper;
+    using IRespository;
     using MySql.Data.MySqlClient;
     using System.Data;
+    using WeChat.Model;
 
     public class PlaneRespository : IPlaneRespository
     {
@@ -27,7 +25,6 @@ namespace WeChat.Respository
             {
                 string sql = string.Format("INSERT into planeorder VALUES(ID,'{0}','{1}','{2}','{3}','{4}','{5}','{6}','{7}','{8}','{9}','{10}','{11}')", planeOrder.OrderUnitPrice, planeOrder.OrderLeaveCity, planeOrder.OrderArriveCity, planeOrder.OrderLeaveDate, planeOrder.OrderTypeID, planeOrder.OrderTicket, planeOrder.OrderLeaveTime, planeOrder.OrderArriveTime, planeOrder.OrderPhone, planeOrder.OrderState, planeOrder.OrderTotalsum, planeOrder.AccountName);
                 int result = conn.Execute(sql);
-
                 return result;
             }
         }

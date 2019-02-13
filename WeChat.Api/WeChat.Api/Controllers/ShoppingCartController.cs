@@ -1,14 +1,9 @@
 ﻿namespace WeChat.Api.Controllers
 {
-    using System;
     using System.Collections.Generic;
-    using System.Linq;
-    using System.Net;
-    using System.Net.Http;
     using System.Web.Http;
     using WeChat.IRespository;
     using WeChat.Model;
-    using WeChat.Respository;
 
     public class ShoppingCartController : ApiController
     {
@@ -64,9 +59,9 @@
         /// <returns></returns>
         [HttpGet]
         [ActionName("DeleteById")]
-        public int DeleteById(int id)
+        public int DeleteBusById(int id)
         {
-            int i = this.BusTicketRepository.Delete(id);
+            int i = this.BusTicketRepository.DeleteBusById(id);
             return i;
         }
 
@@ -88,14 +83,14 @@
         /// <param name="id"></param>
         /// <returns></returns>
 
-            [HttpGet]
-            [ActionName("Delete")]
-        public int Delete(int id)
+        [HttpGet]
+        [ActionName("Delete")]
+        public int DeletePlaneById(int id)
         {
-            var i = this.PlaneTicketRepository.DeleteById(id);
+            var i = this.PlaneTicketRepository.DeletePlaneById(id);
             return i;
         }
-       
+
         /// <summary>
         /// 飞机票订单查询
         /// </summary>
@@ -156,7 +151,6 @@
             return trainTicketInfo;
         }
 
-
         /// <summary>
         /// 火车根据Id删除
         /// </summary>
@@ -164,13 +158,10 @@
         /// <returns></returns>
         [HttpGet]
         [ActionName("DeleteTrainId")]
-        public int DeleteTrainId(int id)
+        public int DeleteTrainById(int id)
         {
-            int i = this.TrainTicketRepository.Delete(id);
+            int i = this.TrainTicketRepository.DeleteTrainById(id);
             return i;
         }
-
-
-
     }
 }
