@@ -15,6 +15,7 @@ namespace WeChat.Api.Controllers
     {
         public IBusRespository ibusrespostitory { get; set; }
 
+        //显示车票的时间日期
         [HttpGet]
         public List<BusIndent> ShowBus( string leavecity,string arrivecity)
         {
@@ -23,6 +24,8 @@ namespace WeChat.Api.Controllers
             busIndents = busIndents.Where(m => !string.IsNullOrEmpty(leavecity) ? m.StartingStation.Equals(leavecity) : true).Where(m => !string.IsNullOrEmpty(arrivecity) ? m.DestinationStation.Equals(arrivecity):true).ToList();
             return busIndents;
         }
+
+        //添加汽车票的订单
         [HttpPost]
         public int AddBus(BusTicketInfo busTicketInfo)
         {
@@ -30,6 +33,7 @@ namespace WeChat.Api.Controllers
             return i;
         }
 
+        //获取所有汽车票的信息
         [HttpGet]
         public BusIndent GetBus(int id)
         {
