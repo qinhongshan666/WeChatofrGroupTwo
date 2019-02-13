@@ -12,7 +12,7 @@ namespace WeChat.Api.Controllers
     using WeChat.Respository;
     public class TrainInfoController : ApiController
     {
-       public ITrainTicketRepository Traininfo { get; set; }
+       public ITrainInfoRepository Traininfo { get; set; }
 
         /// <summary>
         /// 添加订单信息
