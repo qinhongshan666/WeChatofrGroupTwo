@@ -8,8 +8,10 @@ using WeChat.Model;
 
 namespace WeChat.IRespository
 {
-   public interface IBusTicketRepository
+    public interface IBusTicketRepository
     {
-        List<BusIndent> BusIndents(); 
+        List<BusIndent> BusIndents();
+
+        List<BusIndent> GetBusIndentsByState();
     }
 }
