@@ -16,7 +16,7 @@ namespace WeChat.Api.Controllers
         public IBusTicketRepository BusTicketRepository { get; set; }
 
         /// <summary>
-        /// 获取订单状态为已付款的汽车票订单
+        /// 获取订单状态为已付款的汽车票订 单
         /// </summary>
         /// <returns></returns>
         [HttpGet]
