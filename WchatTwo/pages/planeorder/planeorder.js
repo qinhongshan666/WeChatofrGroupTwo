@@ -2,43 +2,33 @@
 
 Page({
   data: {
-    list1: [{
-      id: 0,
-      list2: [{}, {}, {}, {}]
-    }, {
-      id: 1,
-      list2: [{}, {}, {}, {}]
-    }, {
-      id: 2,
-      list2: [{}, {}]
-    }, {}, {}, {}, {}, {}],
-
+    list: [],
     startDate: '',
     date: '',
     Sweek: '',
     hidden: true,
-    leavecity:'',
-    arrivecity:'',
-    dateday:'',
+    leavecity: '',
+    arrivecity: '',
+    dateday: '',
   },
 
   onLoad: function (options) {
-    var leavecity=options.region;
+    var leavecity = options.region;
     var arrivecity = options.regions;
     var dateday = options.date;
+    var that = this;
     wx.request({
-      url: 'http://localhost:61272/api/Default/PlaneIndex', // 仅为示例，并非真实的接口地址
-      method: 'GET',
+      url: 'http://localhost:61984/api/Plane/GetPlanes', // 仅为示例，并非真实的接口地址
+      method: 'get',
       data: {
         leaveCity: leavecity,
         arriveCity: arrivecity,
         dateDay: dateday
       },
-      header: {
-        'content-type': 'application/json' // 默认值
-      },
       success(res) {
-        console.log(res.data)
+        that.setData({
+          list: res.data,
+        })
       }
     })
     this.setData({
@@ -50,18 +40,17 @@ Page({
 
   bindDateChange: function (e) {
     wx.request({
-      url: 'http://localhost:61272/api/Default/PlaneIndex', // 仅为示例，并非真实的接口地址
+      url: 'http://localhost:61984/api/Plane/GetPlanes', // 仅为示例，并非真实的接口地址
       method: 'GET',
       data: {
         leaveCity: this.data.leavecity,
         arriveCity: this.data.arrivecity,
         dateDay: this.data.dateday
       },
-      header: {
-        'content-type': 'application/json' // 默认值
-      },
       success(res) {
-        console.log(res.data)
+        that.setData({
+          list: res.data,
+        })
       }
     })
     this.setData({
@@ -78,8 +67,9 @@ Page({
 
   // 机票预订页面
   go: function (ev) {
+    var planeid = ev.currentTarget.id;
     wx.navigateTo({
-      url: '../planedetails/planedetails',
+      url: '../planedetails/planedetails?planeid=' + planeid,
     })
   },
 

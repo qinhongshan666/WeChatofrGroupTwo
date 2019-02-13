@@ -1,2 +1,66 @@
-<!--pages/planedetails/planedetails.wxml-->
-<text>pages/planedetails/planedetails.wxml</text>
+<view class="container">
+  
+  <view class="pannel flight">
+    <view class="goFlight">
+      <view class="flightDate">
+        <view>
+          <text>{{leaveCity}}</text>
+          <text class="time">{{leaveTime}}</text>
+        </view>
+        <view>
+          <text class="flightPic"></text>
+        </view>
+        <view>
+          <text>{{arriveCity}}</text>
+          <text class="time">{{arriveTime}}</text>
+        </view>
+      </view>
+
+      <view class="flightLine flightDetail">
+        <text class="flightName">{{typeID}}</text>
+      </view>
+    </view>
+
+    <view class="pannel dateNum">
+
+    <view class="date">
+      <text>{{leaveDate}}</text>
+      <text class="small">出发</text>
+    </view>
+    <view class="date">
+      <text>剩余:</text>
+      <text>{{inventory}}</text>
+      <text>张</text>
+    </view>
+    <view class="date">
+      <text>票价:</text>
+      <text>¥</text>
+      <text style="font-size:22px; color:#FF7F00">{{unitPrice}}</text>
+    </view>
+
+    </view>
+  </view>
+
+  <view class="pannel dateNum">
+  <text>距离飞机起飞前1小时可退票</text>
+  </view>
+
+  <view>
+    <text>
+      购买票数:
+    </text>
+     <input type='number' value='{{ticket}}' bindinput='ticNum'></input>
+     <button size='mini' bindtap='Plus'>＋</button>
+  </view>
+
+  <view>
+    <text>取票手机号:</text>
+    <input type='number' maxlength='11' placeholder='输入手机号' bindinput='ticPhone'></input>
+  </view>
+
+  <view class="tabBar">
+    <text class="name">套餐总价</text>
+    <text class="totalPrice">{{totalsum}}</text>
+    <view class="nextStep" bindtap='toPay'>订单支付</view>
+  </view>
+</view>
