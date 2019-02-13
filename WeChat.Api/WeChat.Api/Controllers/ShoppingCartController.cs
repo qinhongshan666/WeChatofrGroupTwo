@@ -160,7 +160,7 @@
         [ActionName("DeleteTrainId")]
         public int DeleteTrainById(int id)
         {
-            int i = this.TrainTicketRepository.DeleteTrainById(id);
+            int i = this.TrainTicketRepository.Delete(id);
             return i;
         }
     }
