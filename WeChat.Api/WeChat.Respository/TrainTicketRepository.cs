@@ -55,5 +55,20 @@ namespace WeChat.Respository
                 return result;
             }
         }
+
+        public List<TrainTicketInfo> Paid()
+        {
+            throw new System.NotImplementedException();
+        }
+
+        public List<TrainTicketInfo> Obligation()
+        {
+            throw new System.NotImplementedException();
+        }
+
+        public List<TrainTicketInfo> NonPayment()
+        {
+            throw new System.NotImplementedException();
+        }
     }
 }
