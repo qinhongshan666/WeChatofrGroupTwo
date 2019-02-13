@@ -39,6 +39,7 @@ namespace WebApplicationAutofac
             container.RegisterType<PlaneRespository>().As<IPlaneRespository>();
             container.RegisterType<BusTicketRepository>().As<IBusTicketRepository>();
             container.RegisterType<PlaneTicketRepository>().As<IPlaneTicketRepository>();
+            container.RegisterType<TrainTicketRepository>().As<ITrainTicketRepository>();
         }
     }
 }
