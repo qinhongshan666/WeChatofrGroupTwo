@@ -33,11 +33,11 @@ namespace WeChat.Api.Controllers
         /// <param name="BeginTime">出发日期</param>
         /// <returns></returns>
         [HttpGet]
-        public List<TrainTicketInfo> GetTrainInfo(string BeginSite, string ArriveSite,string BeginTime)
+        public List<TrainTicketInfo> GetTrainInfo(string BeginSite, string ArriveSite )
         {
             List<TrainTicketInfo> trainInfos = traininfo.ShowTrainInfo().ToList();
 
-            trainInfos = trainInfos.Where(m => !string.IsNullOrEmpty(BeginSite) ? m.BeginSite.Equals(BeginSite) : true).Where(m => !string.IsNullOrEmpty(ArriveSite) ? m.ArriveSite.Equals(ArriveSite) : true).Where(m => !string.IsNullOrEmpty(BeginTime) ? m.BeginTime.Equals(BeginTime) : true).ToList();
+            trainInfos = trainInfos.Where(m => !string.IsNullOrEmpty(BeginSite) ? m.BeginSite.Equals(BeginSite) : true).Where(m => !string.IsNullOrEmpty(ArriveSite) ? m.ArriveSite.Equals(ArriveSite) : true).ToList();
             return trainInfos;
         }
 
@@ -48,9 +48,9 @@ namespace WeChat.Api.Controllers
         /// <param name="id"></param>
         /// <returns></returns>
         [HttpGet]
-        public TrainTicketInfo Find(int ID)
+        public TrainTicketInfo FindTrain(int ID)
         {
-            return traininfo.Find(ID);
+            return traininfo.FindTrain(ID);
         }
 
 

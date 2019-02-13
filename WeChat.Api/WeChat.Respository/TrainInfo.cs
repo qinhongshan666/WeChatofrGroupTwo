@@ -37,7 +37,7 @@ namespace WeChat.Respository
         /// </summary>
         /// <param name="id"></param>
         /// <returns></returns>
-        public TrainTicketInfo Find(int ID)
+        public TrainTicketInfo FindTrain(int ID)
         {
             using (IDbConnection conn = new MySqlConnection(connStr))
             {

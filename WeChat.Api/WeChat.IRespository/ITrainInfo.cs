@@ -23,7 +23,7 @@ namespace WeChat.IRespository
         /// </summary>
         /// <param name="ID"></param>
         /// <returns></returns>
-        TrainTicketInfo Find(int ID);
+        TrainTicketInfo FindTrain(int ID);
 
         /// <summary>
         /// 订单信息
