@@ -109,7 +109,7 @@ Page({
         var i = res.data;
         if (i == 1) {
           wx.navigateTo({
-            url: '../planeTobepaid/planeTobepaid',
+            url: '../checkTrain/checkTrain',
           })
         }
       }
