@@ -10,7 +10,7 @@ namespace WeChat.IRespository
     /// <summary>
     /// 火车信息接口
     /// </summary>
-    public interface ITrainInfo
+    public interface ITrainInfoRepository
     {
         /// <summary>
         /// 查询所有票数信息
@@ -30,7 +30,6 @@ namespace WeChat.IRespository
         /// </summary>
         /// <param name="m"></param>
         /// <returns></returns>
-        int TrainOrderInfo(TrainTicketOrders m);
-
+        int TrainOrderInfo(TrainTicketOrders trainTicketOrders);
     }
 }

@@ -10,8 +10,6 @@ using MySql.Data;
 using System.Data;
 using MySql.Data.MySqlClient;
 
-
-
 namespace WeChat.Respository
 {
     public class BusRespository : IBusRespository
@@ -47,7 +45,6 @@ namespace WeChat.Respository
                 return con.Query<BusIndent>(str).ToList();
             }
         }
-
    
     }
 }

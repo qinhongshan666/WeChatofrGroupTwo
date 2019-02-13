@@ -7,9 +7,10 @@ Page({
    */
   data: {
     
-    region: ['北京市', '北京市','全部'],
-    regions: ['北京市', '北京市','全部'],
-
+    //region: ['北京市', '北京市','全部'],
+    //regions: ['北京市', '北京市','全部'],
+    region: ['', '', ''],
+    regions: ['', '', ''],
 
 
     date: '',
@@ -33,10 +34,10 @@ Page({
    * 生命周期函数--监听页面加载
    */
   onLoad: function (options) {
-    var time = util.formatDate(new Date());
-    this.setData({
-      date:time,
-    });
+    //var time = util.formatDate(new Date());
+    //this.setData({
+      //date:time,
+    //});
 
   },
   

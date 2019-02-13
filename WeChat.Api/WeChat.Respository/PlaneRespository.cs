@@ -66,7 +66,7 @@ namespace WeChat.Respository
             using (IDbConnection conn = new MySqlConnection(connection))
             {
                 string sql = "select * from Plane";
-                List<Plane> planes = conn.Query<Plane>(sql).ToList();
+                var planes = conn.Query<Plane>(sql).ToList();
                 return planes;
             }
         }

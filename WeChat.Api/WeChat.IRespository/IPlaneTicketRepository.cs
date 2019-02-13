@@ -8,14 +8,12 @@ using WeChat.Model;
 
 namespace WeChat.IRespository
 {
-    public interface IBusTicketRepository
+   public interface IPlaneTicketRepository
     {
-        List<BusIndent> BusIndents();
+        List<PlaneOrder> Paid();
 
-        List<BusIndent> GetBusIndents();
+        List<PlaneOrder> Obligation();
 
-        List<BusIndent> GetBusIndentsByState();
-
-
+        List<PlaneOrder> NonPayment();
     }
 }

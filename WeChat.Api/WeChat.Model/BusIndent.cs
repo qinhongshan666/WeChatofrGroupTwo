@@ -44,6 +44,8 @@ namespace WeChat.Model
         /// </summary>
         public int BusTypeID { get; set; }
 
+        public string BusType { get; set; }
+
         /// <summary>
         /// 汽车票单价
         /// </summary>
@@ -64,9 +66,6 @@ namespace WeChat.Model
         /// </summary>
         public string OrderState { get; set; }
 
-        /// <summary>
-        /// 数量
-        /// </summary>
-        public int Count { get; set; }
+
     }
 }

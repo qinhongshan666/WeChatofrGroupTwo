@@ -8,18 +8,19 @@ namespace WeChat.Api.Controllers
 {
     using Model;
     using WeChat.Respository;
+
     public class TrainInfoController : Controller
     {
-        TrainInfo traininfo = new TrainInfo();
+        private TrainInfoRepository traininfo = new TrainInfoRepository();
 
         /// <summary>
         /// 添加订单信息
         /// </summary>
         /// <param name="m"></param>
         /// <returns></returns>
-        public int TrainOrderInfo(TrainTicketOrders m)
+        public int TrainOrderInfo(TrainTicketOrders trainTicketOrders)
         {
-            int i = traininfo.TrainOrderInfo(m);
+            int i = traininfo.TrainOrderInfo(trainTicketOrders);
             return i;
         }
 
@@ -32,9 +33,5 @@ namespace WeChat.Api.Controllers
         {
             return traininfo.Find(ID);
         }
-
-
-
-
     }
 }

@@ -6,36 +6,111 @@
     <text class="allOrder-right">查看全部订单</text>
 
 </view>
-<view class="nav-tabs">
+<!-- <view class="nav-tabs">
     <view class="tab-list  {{currentTab == idx?'active':'default'}}" wx:for="{{tabArray}}" wx:for-index="idx" wx:for-item="itemName" data-current="{{idx}}" bindtap="swichNav">{{itemName}}</view>
 </view>
 <swiper current="{{currentTab}}" class="tab-content" duration="300"  bindchange="bindChange">  
-<swiper-item wx:for="{{tabArray}}" wx:for-index="idx" wx:for-item="itemName" class="">
-    
-    
+<swiper-item wx:for="{{tabArray}}" wx:for-index="idx" wx:for-item="itemName" class=""> -->
+    <view class="navbar"> 
+ <text wx:for="{{navbar}}" data-idx="{{index}}" class="item {{currentTab==index ? 'active' : ''}}" wx:key="unique" bindtap="navbarTap">{{item}}</text> 
+</view> 
+    <view hidden="{{currentTab!==0}}">
     <view bindtap="toOrderDetail" class="orderDetails" wx:for="{{infos}}" >
 
     <view class="orderListTitle">
 
 
-        <text class="userName" >{{item.StartingStation}}</text>
+        <text class="userName" >{{item.OrderLeaveCity}}</text>
         <text class="userName" >---到达---</text>
 
-        <text class="orderStatus">{{item.DestinationStation}}</text>
+        <text class="orderStatus">{{item.OrderArriveCity}}</text>
 
     </view>
-    <text>{{item.BusType}}</text>
+    <text>{{item.OrderTypeID}}</text>
 <view>
 
 
+    <view>
+    <text>发车时间:{{item.OrderLeaveTime}}</text>
+    </view>
+    <view>
+    <text>到站时间:{{item.OrderArriveTime}}</text>
+    </view>
 </view>
-<text>购票数量{{item.Number}}</text>
+<text>购票数量{{item.OrderTicket}}张</text>
     <view class="productCount">
 
-        <view>合计：￥<text>{{item.BusPrice}}</text></view>
+        <view>合计：￥<text>{{item.OrderTotalsum}}元</text></view>
 
     </view>
 
 </view>  
-</swiper-item>
-</swiper>  
+
+</view>
+
+ <view hidden="{{currentTab!==1}}">
+  <view bindtap="toOrderDetail" class="orderDetails" wx:for="{{loading}}" >
+
+    <view class="orderListTitle">
+
+
+        <text class="userName" >{{item.OrderLeaveCity}}</text>
+        <text class="userName" >---到达---</text>
+
+        <text class="orderStatus">{{item.OrderArriveCity}}</text>
+
+    </view>
+    <text>{{item.OrderTypeID}}</text>
+<view>
+
+
+    <view>
+    <text>发车时间:{{item.OrderLeaveTime}}</text>
+    </view>
+    <view>
+    <text>到站时间:{{item.OrderArriveTime}}</text>
+    </view>
+</view>
+<text>购票数量{{item.OrderTicket}}张</text>
+    <view class="productCount">
+
+        <view>合计：￥<text>{{item.OrderTotalsum}}元</text></view>
+
+    </view>
+
+
+
+</view>  
+</view>  
+
+<view hidden="{{currentTab!==2}}">
+  <view bindtap="toOrderDetail" class="orderDetails" wx:for="{{baclk}}" >
+
+    <view class="orderListTitle">
+
+
+        <text class="userName" >{{item.OrderLeaveCity}}</text>
+        <text class="userName" >---到达---</text>
+
+        <text class="orderStatus">{{item.OrderArriveCity}}</text>
+
+    </view>
+    <text>{{item.OrderTypeID}}</text>
+<view>
+
+
+    <view>
+    <text>发车时间:{{item.OrderLeaveTime}}</text>
+    </view>
+    <view>
+    <text>到站时间:{{item.OrderArriveTime}}</text>
+    </view>
+</view>
+<text>购票数量{{item.OrderTicket}}张</text>
+    <view class="productCount">
+
+        <view>合计：￥<text>{{item.OrderTotalsum}}元</text></view>
+
+    </view>
+</view>  
+</view>  
