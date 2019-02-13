@@ -12,7 +12,7 @@ namespace WeChat.Respository
     {
         private string connStr = "Data Source=169.254.240.201;Database=wechat;User ID=root;Pwd=10086";
 
-        public int Delete(int id)
+        public int DeleteTrainById(int id)
         {
             using (IDbConnection con = new MySqlConnection(connStr))
             {
