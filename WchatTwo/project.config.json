@@ -12,9 +12,9 @@
 		"autoAudits": false
 	},
 	"compileType": "miniprogram",
-	"libVersion": "2.5.1",
-	"appid": "wx2cfa463127512c08",
-	"projectname": "WchatTwo",
+	"libVersion": "2.5.2",
+	"appid": "wxa4dba70ace51bbc2",
+	"projectname": "X",
 	"debugOptions": {
 		"hidedInDevtools": []
 	},

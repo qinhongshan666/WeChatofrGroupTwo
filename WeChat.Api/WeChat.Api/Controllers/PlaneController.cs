@@ -9,19 +9,20 @@ namespace WeChat.Api.Controllers
 {
     using Model;
     using Respository;
+
     public class PlaneController : ApiController
     {
-        PlaneRespository planeRespository = new PlaneRespository();
+        private readonly PlaneRespository planeRespository = new PlaneRespository();
 
         /// <summary>
         /// 添加到订单
         /// </summary>
-        /// <param name="planeOrder"></param>
-        /// <returns></returns>
+        /// <param name="planeOrder">订单表</param>
+        /// <returns>受影响行数</returns>
         [HttpPost]
         public int AddPlaneOrder(PlaneOrder planeOrder)
         {
-            int i= planeRespository.AddPlaneOrder(planeOrder);
+            int i = this.planeRespository.AddPlaneOrder(planeOrder);
             return i;
         }
 
@@ -35,16 +36,17 @@ namespace WeChat.Api.Controllers
         [HttpGet]
         public List<Plane> GetPlanes(string leaveCity, string arriveCity, string dateDay)
         {
-            List<Plane> planes = planeRespository.GetPlanes().ToList();
+            List<Plane> planes = this.planeRespository.GetPlanes().ToList();
 
             planes = planes.Where(m => !string.IsNullOrEmpty(leaveCity) ? m.LeaveCity.Equals(leaveCity) : true).Where(m => !string.IsNullOrEmpty(arriveCity) ? m.ArriveCity.Equals(arriveCity) : true).Where(m => !string.IsNullOrEmpty(dateDay) ? m.LeaveDate.Equals(dateDay) : true).ToList();
-              
+
             return planes;
         }
+
         [HttpGet]
         public Plane GetPlane(int id)
         {
-            return planeRespository.GetPlane(id);
+            return this.planeRespository.GetPlane(id);
         }
     }
 }

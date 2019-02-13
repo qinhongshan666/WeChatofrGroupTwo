@@ -16,7 +16,7 @@ namespace WeChat.Respository
     /// </summary>
     public class TrainInfo : ITrainInfo
     {
-        private string connStr = "Data Source=169.254.240.201;Database=wechat;User ID=root;Pwd=10086";
+        private string connStr = "Data Source=Jack;Database=wechat;User ID=root;Pwd=199901";
 
         /// <summary>
         /// 获取所有火车票信息
@@ -27,8 +27,8 @@ namespace WeChat.Respository
             using (IDbConnection con = new MySqlConnection(connStr))
             {
                 string str = "select * from TrainTicketInfo";
-               List<TrainTicketInfo> w = con.Query<TrainTicketInfo>(str).ToList();
-                return w;
+                var ShowTrainInfo = con.Query<TrainTicketInfo>(str).ToList();
+                return ShowTrainInfo;
             }
         }
 
@@ -56,7 +56,7 @@ namespace WeChat.Respository
         {
             using (IDbConnection conn = new MySqlConnection(connStr))
             {
-                string sql = string.Format("insert into TrainTicketOrders values(ID,'{0}','{1}','{2}','{3}','{4}','{5}','{6}','{7}','{8}','{9}','{10}')", m.TrainNumber,m.BeginTime,m.BeginSite,m.ArriveTime,m.ArriveSite,m.SeatGrade,m.Price,m.SumMoney,m.Iphone,m.UserID,m.OrdersState);
+                string sql = string.Format("insert into TrainTicketOrders values(ID,'{0}','{1}','{2}','{3}','{4}','{5}','{6}','{7}','{8}','{9}','{10}')", m.TrainNumber, m.BeginTime, m.BeginSite, m.ArriveTime, m.ArriveSite, m.SeatGrade, m.Price, m.SumMoney, m.Iphone, m.UserID, m.OrdersState);
                 int result = conn.Execute(sql);
                 return result;
             }

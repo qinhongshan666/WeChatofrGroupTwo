@@ -5,7 +5,7 @@ Page({
    * 页面的初始数据
    */
   data: {
-    navbar: ["已完成", "代付款", "退款中"],
+    navbar: ["已完成", "待付款", "退款中"],
     currentTab:0
   },
 
@@ -51,6 +51,20 @@ Page({
             })
           }
         })   
+
+    wx.request({
+      url: 'http://localhost:61984/api/ShoppingCart/getBusIndent',
+      dataType: 'json',
+      method: 'get',
+      async: false,
+      success: function (options) {
+        console.log(options.data);
+        that.setData({
+          back: options.data,
+        })
+      }
+    })   
+
   },
  
   bindChange: function (e) {
