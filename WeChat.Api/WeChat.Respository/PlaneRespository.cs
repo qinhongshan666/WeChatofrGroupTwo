@@ -19,7 +19,7 @@ namespace WeChat.Respository
         /// <summary>
         /// 添加到订单
         /// </summary>
-        /// <param name="planeOrder"></param>
+        /// <param name="planeOrder">订单</param>
         /// <returns></returns>
         public int AddPlaneOrder(PlaneOrder planeOrder)
         {

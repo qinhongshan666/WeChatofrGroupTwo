@@ -8,13 +8,30 @@ using WeChat.Model;
 
 namespace WeChat.IRespository
 {
-   public interface ITrainTicketRepository
+    /// <summary>
+    /// 火车信息接口
+    /// </summary>
+    public interface ITrainTicketRepository
     {
 
-        List<TrainTicketInfo> Paid();
+        /// <summary>
+        /// 查询所有票数信息
+        /// </summary>
+        /// <returns></returns>
+        List<TrainTicketInfo> ShowTrainInfo();
 
-        List<TrainTicketInfo> Obligation();
+        /// <summary>
+        /// 根据ID查找火车票信息
+        /// </summary>
+        /// <param name="ID"></param>
+        /// <returns></returns>
+        TrainTicketInfo FindTrain(int ID);
 
-        List<TrainTicketInfo> NonPayment();
+        /// <summary>
+        /// 订单信息
+        /// </summary>
+        /// <param name="m"></param>
+        /// <returns></returns>
+        int TrainOrderInfo(TrainTicketOrders m);
     }
 }

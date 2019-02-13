@@ -1,18 +1,17 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Net;
-using System.Net.Http;
-using System.Web.Http;
-
-namespace WeChat.Api.Controllers
+﻿namespace WeChat.Api.Controllers
 {
-    using Model;
-    using Respository;
+    using System;
+    using System.Collections.Generic;
+    using System.Linq;
+    using System.Net;
+    using System.Net.Http;
+    using System.Web.Http;
+    using WeChat.IRespository;
+    using WeChat.Model;
 
     public class PlaneController : ApiController
     {
-        private readonly PlaneRespository planeRespository = new PlaneRespository();
+        public IPlaneRespository PlaneRespository { get; set; }
 
         /// <summary>
         /// 添加到订单
@@ -22,7 +21,7 @@ namespace WeChat.Api.Controllers
         [HttpPost]
         public int AddPlaneOrder(PlaneOrder planeOrder)
         {
-            int i = this.planeRespository.AddPlaneOrder(planeOrder);
+            int i = this.PlaneRespository.AddPlaneOrder(planeOrder);
             return i;
         }
 
@@ -36,17 +35,23 @@ namespace WeChat.Api.Controllers
         [HttpGet]
         public List<Plane> GetPlanes(string leaveCity, string arriveCity, string dateDay)
         {
-            List<Plane> planes = this.planeRespository.GetPlanes().ToList();
+            List<Plane> planes = this.PlaneRespository.GetPlanes().ToList();
 
             planes = planes.Where(m => !string.IsNullOrEmpty(leaveCity) ? m.LeaveCity.Equals(leaveCity) : true).Where(m => !string.IsNullOrEmpty(arriveCity) ? m.ArriveCity.Equals(arriveCity) : true).Where(m => !string.IsNullOrEmpty(dateDay) ? m.LeaveDate.Equals(dateDay) : true).ToList();
 
             return planes;
         }
 
+        /// <summary>
+        /// 根据id查询并反填
+        /// </summary>
+        /// <param name="id"></param>
+        /// <returns></returns>
         [HttpGet]
         public Plane GetPlane(int id)
         {
-            return this.planeRespository.GetPlane(id);
+            var plane = this.PlaneRespository.GetPlane(id);
+            return plane;
         }
     }
 }
