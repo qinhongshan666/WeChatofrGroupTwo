@@ -6,11 +6,10 @@ using System.Threading.Tasks;
 
 namespace WeChat.Model
 {
-    public class BusIndent
+    public class BusTicketInfo
     {
-       
         /// <summary>
-        /// 汽车主键ID
+        /// 主键ID
         /// </summary>
         public int ID { get; set; }
 
@@ -20,12 +19,12 @@ namespace WeChat.Model
         public string StartDate { get; set; }
 
         /// <summary>
-        /// 发车时间
+        /// 出发时间
         /// </summary>
         public string StartTime { get; set; }
 
         /// <summary>
-        /// 结束时间
+        /// 到达时间
         /// </summary>
         public string EndTime { get; set; }
 
@@ -40,33 +39,13 @@ namespace WeChat.Model
         public string DestinationStation { get; set; }
 
         /// <summary>
-        /// 汽车票类型
-        /// </summary>
-        public int BusTypeID { get; set; }
-
-        /// <summary>
-        /// 汽车票单价
-        /// </summary>
-        public decimal BusPrice { get; set; }
-
-        /// <summary>
-        /// 用户ID
-        /// </summary>
-        public int UserID { get; set; }
-
-        /// <summary>
-        /// 总价
-        /// </summary>
-        public decimal TotalPrice { get; set; }
-
-        /// <summary>
-        /// 状态
-        /// </summary>
-        public string OrderState { get; set; }
-
-        /// <summary>
         /// 数量
         /// </summary>
         public int Count { get; set; }
+
+        /// <summary>
+        /// 单价
+        /// </summary>
+        public decimal BusPrice { get; set; }
     }
 }
