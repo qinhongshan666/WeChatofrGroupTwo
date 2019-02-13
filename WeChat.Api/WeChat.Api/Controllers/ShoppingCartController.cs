@@ -12,10 +12,17 @@
 
     public class ShoppingCartController : ApiController
     {
+        /// <summary>
+        /// 属性注入
+        /// </summary>
         public IBusTicketRepository BusTicketRepository { get; set; }
 
         public IPlaneTicketRepository PlaneTicketRepository { get; set; }
 
+        /// <summary>
+        /// 获取订单状态为已付款的汽车票订 单
+        /// </summary>
+        /// <returns></returns>
         public ITrainTicketRepository TrainTicketRepository { get; set; }
 
         /// <summary>
@@ -26,7 +33,7 @@
         [ActionName("busIndents")]
         public List<BusIndent> BusIndents()
         {
-           var busIndents = this.BusTicketRepository.BusIndents();
+            var busIndents = this.BusTicketRepository.BusIndents();
             return busIndents;
         }
 
