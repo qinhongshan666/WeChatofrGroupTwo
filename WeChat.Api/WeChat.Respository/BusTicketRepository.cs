@@ -30,6 +30,16 @@ namespace WeChat.Respository
             }
         }
 
+        public int Delete(int id)
+        {
+            using (IDbConnection con = new MySqlConnection(connStr))
+            {
+                string str = "delete from BusIndent where Id = "+id;
+                var i = con.Execute(str);
+                return i;
+            }
+        }
+
         /// <summary>
         /// 获取退款票信息
         /// </summary>

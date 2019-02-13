@@ -66,7 +66,13 @@ Page({
     })   
 
   },
- 
+  del:function(e){
+    console.log(e);
+wx.request({
+  url: 'http://localhost:61984/api/ShoppingCart/DeleteById?ID='+id,
+
+})
+  },
   bindChange: function (e) {
 
     var that = this;
