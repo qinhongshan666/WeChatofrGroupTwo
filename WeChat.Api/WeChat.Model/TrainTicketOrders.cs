@@ -19,17 +19,17 @@ namespace WeChat.Model
         /// <summary>
         /// 车次
         /// </summary>
-        public int TrainNumber { get; set; }
+        public string TrainNumber { get; set; }
 
         /// <summary>
         /// 出发
         /// </summary>
-        public int BeginTime { get; set; }
+        public string BeginTime { get; set; }
 
         /// <summary>
         /// 出发地点
         /// </summary>
-        public int BeginSite { get; set; }
+        public string BeginSite { get; set; }
 
         /// <summary>
         /// 到站时间

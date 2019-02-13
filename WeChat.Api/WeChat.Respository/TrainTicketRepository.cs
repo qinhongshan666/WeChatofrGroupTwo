@@ -16,7 +16,7 @@ namespace WeChat.Respository
         {
             using (IDbConnection con = new MySqlConnection(connStr))
             {
-                string str = "delete from  TrainTicketInfo   where ID =" + id;
+                string str = "delete from  trainticketorders   where ID =" + id;
                 var i = con.Execute(str);
                 return i;
             }
@@ -27,13 +27,13 @@ namespace WeChat.Respository
         /// 获取所有火车票信息
         /// </summary>
         /// <returns></returns>
-        public List<TrainTicketInfo> NonPayment()
+        public List<TrainTicketOrders> NonPayment()
 
         {
             using (IDbConnection con = new MySqlConnection(connStr))
             {
-                string str = "select * from TrainTicketInfo where States = 2";
-                var lists = con.Query<TrainTicketInfo>(str).ToList();
+                string str = "select * from trainticketorders where OrdersState = 2";
+                var lists = con.Query<TrainTicketOrders>(str).ToList();
                 return lists;
             }
         }
@@ -44,12 +44,12 @@ namespace WeChat.Respository
         /// </summary>
         /// <param name="id"></param>
         /// <returns></returns>
-        public List<TrainTicketInfo> Obligation()
+        public List<TrainTicketOrders> Obligation()
         {
             using (IDbConnection conn = new MySqlConnection(connStr))
             {
-                string str = "select * from TrainTicketInfo where States = 1";
-                var lists = conn.Query<TrainTicketInfo>(str).ToList();
+                string str = "select * from trainticketorders where OrdersState = 1";
+                var lists = conn.Query<TrainTicketOrders>(str).ToList();
                 return lists;
             }
         }
@@ -59,12 +59,12 @@ namespace WeChat.Respository
         /// </summary>
         /// <param name="m"></param>
         /// <returns></returns>
-        public List<TrainTicketInfo> Paid()
+        public List<TrainTicketOrders> Paid()
         {
             using (IDbConnection conn = new MySqlConnection(connStr))
             {
-                string str = "select * from TrainTicketInfo where States = 0";
-                var lists = conn.Query<TrainTicketInfo>(str).ToList();
+                string str = "select * from trainticketorders where OrdersState = 0";
+                var lists = conn.Query<TrainTicketOrders>(str).ToList();
                 return lists;
             }
         }

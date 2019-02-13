@@ -126,7 +126,7 @@
         /// <returns>状态为0</returns>
         [HttpGet]
         [ActionName("GetPaidTrain")]
-        public List<TrainTicketInfo> GetPaidTrain()
+        public List<TrainTicketOrders> GetPaidTrain()
         {
             var trainTicketInfo = this.TrainTicketRepository.Paid();
             return trainTicketInfo;
@@ -138,7 +138,7 @@
         /// <returns>返回状态为1</returns>
         [HttpGet]
         [ActionName("GetObligationTrain")]
-        public List<TrainTicketInfo> GetObligationTrain()
+        public List<TrainTicketOrders> GetObligationTrain()
         {
             var trainTicketInfo = this.TrainTicketRepository.Obligation();
             return trainTicketInfo;
@@ -150,7 +150,7 @@
         /// <returns>返回状态 为2</returns>
         [HttpGet]
         [ActionName("GetNonPaymentTrain")]
-        public List<TrainTicketInfo> GetNonPaymentTrain()
+        public List<TrainTicketOrders> GetNonPaymentTrain()
         {
             var trainTicketInfo = this.TrainTicketRepository.NonPayment();
             return trainTicketInfo;
