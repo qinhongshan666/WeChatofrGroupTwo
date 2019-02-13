@@ -16,7 +16,7 @@ namespace WeChat.Respository
     /// </summary>
     public class TrainInfo : ITrainInfo
     {
-        private string connStr = "Data Source=Jack;Database=wechat;User ID=root;Pwd=199901";
+        private string connStr = "Data Source=169.254.240.201;Database=wechat;User ID=root;Pwd=10086";
 
         /// <summary>
         /// 获取所有火车票信息
@@ -27,7 +27,8 @@ namespace WeChat.Respository
             using (IDbConnection con = new MySqlConnection(connStr))
             {
                 string str = "select * from TrainTicketInfo";
-                return con.Query<TrainTicketInfo>(str).ToList();
+               List<TrainTicketInfo> w = con.Query<TrainTicketInfo>(str).ToList();
+                return w;
             }
         }
 
