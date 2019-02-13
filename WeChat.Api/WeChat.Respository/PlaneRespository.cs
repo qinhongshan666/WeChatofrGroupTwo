@@ -9,10 +9,11 @@ namespace WeChat.Respository
     using MySql.Data.MySqlClient;
     using System.Data;
     using WeChat.Model;
+    using WeChat.Common;
 
     public class PlaneRespository : IPlaneRespository
     {
-        private string connection = "Data Source=169.254.240.201;Database=wechat;User ID=root;Pwd=10086";
+        private string connection = ConfigHelper.GetConfigValue("sqlConnectionString");
 
         /// <summary>
         /// 添加到订单
