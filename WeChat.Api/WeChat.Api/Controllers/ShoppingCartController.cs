@@ -60,7 +60,8 @@
             var busIndent = this.BusTicketRepository.GetBusIndents();
             return busIndent;
         }
-
+        [HttpGet]
+        [ActionName("DeleteById")]
         public int DeleteById(int id)
         {
             int i = this.BusTicketRepository.Delete(id);

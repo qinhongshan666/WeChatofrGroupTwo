@@ -35,6 +35,7 @@ Page({
       }
 
     }),
+
     wx.request({
       url: 'http://localhost:61984/api/ShoppingCart/GetObligation',
       dataType:'json',
