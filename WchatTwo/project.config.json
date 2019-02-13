@@ -15,6 +15,8 @@
 	"libVersion": "2.5.1",
 	"appid": "wxa4dba70ace51bbc2",
 	"projectname": "WchatTwo2",
+	"appid": "wxac540bf3653375a2",
+	"projectname": "WchatTwo",
 	"debugOptions": {
 		"hidedInDevtools": []
 	},
