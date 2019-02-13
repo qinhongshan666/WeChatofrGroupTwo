@@ -99,7 +99,7 @@ Page({
         ArriveTime: that.ArriveTime,
         ArriveSite: that.ArriveSite,
         SeatGrade: that.SeatGrade,
-        Price: that.Price,
+        Price: that.SumMoney,
         SumMoney: that.SumMoney,
         Iphone: that.Iphone,
         UserName: username.nickName,
