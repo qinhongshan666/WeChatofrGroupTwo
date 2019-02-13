@@ -16,48 +16,48 @@ namespace WeChat.Respository
     public class TrainTicketRepository : ITrainTicketRepository
     {
         private string connStr = "Data Source=169.254.240.201;Database=wechat;User ID=root;Pwd=10086";
+
         /// <summary>
-        /// 退款
+        /// 获取所有火车票信息
         /// </summary>
         /// <returns></returns>
-        public List<TrainTicketInfo> NonPayment()
+        public List<TrainTicketInfo> ShowTrainInfo()
         {
             using (IDbConnection con = new MySqlConnection(connStr))
             {
-                string str = "select * from TrainTicketInfo where States = 2";
-                var lists = con.Query<TrainTicketInfo>(str).ToList();
-                return lists;
-
+                string str = "select * from TrainTicketInfo";
+                var ShowTrainInfo = con.Query<TrainTicketInfo>(str).ToList();
+                return ShowTrainInfo;
             }
         }
 
         /// <summary>
-        /// 待支付
+        /// 根据ID查询火车票 然后跳转到支付页面
         /// </summary>
+        /// <param name="id"></param>
         /// <returns></returns>
-        public List<TrainTicketInfo> Obligation()
+        public TrainTicketInfo FindTrain(int ID)
         {
-            using (IDbConnection con = new MySqlConnection(connStr))
+            using (IDbConnection conn = new MySqlConnection(connStr))
             {
-                string str = "select * from TrainTicketInfo where States = 1";
-                var lists = con.Query<TrainTicketInfo>(str).ToList();
-                return lists;
-
+                string sql = "select * from TrainTicketInfo where ID=" + ID;
+                TrainTicketInfo plane = conn.Query<TrainTicketInfo>(sql).FirstOrDefault();
+                return plane;
             }
         }
 
         /// <summary>
-        /// 已支付
+        /// 添加订单信息
         /// </summary>
+        /// <param name="m"></param>
         /// <returns></returns>
-        public List<TrainTicketInfo> Paid()
+        public int TrainOrderInfo(TrainTicketOrders m)
         {
-            using (IDbConnection con = new MySqlConnection(connStr))
+            using (IDbConnection conn = new MySqlConnection(connStr))
             {
-                string str = "select * from TrainTicketInfo where States = 0";
-                var lists = con.Query<TrainTicketInfo>(str).ToList();
-                return lists;
-
+                string sql = string.Format("insert into TrainTicketOrders values(ID,'{0}','{1}','{2}','{3}','{4}','{5}','{6}','{7}','{8}','{9}','{10}')", m.TrainNumber, m.BeginTime, m.BeginSite, m.ArriveTime, m.ArriveSite, m.SeatGrade, m.Price, m.SumMoney, m.Iphone, m.UserID, m.OrdersState);
+                int result = conn.Execute(sql);
+                return result;
             }
         }
     }

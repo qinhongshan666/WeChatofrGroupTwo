@@ -61,6 +61,12 @@
             return busIndent;
         }
 
+        public int DeleteById(int id)
+        {
+            int i = this.BusTicketRepository.Delete(id);
+            return i;
+        }
+
         /// <summary>
         /// 飞机票订单查询
         /// </summary>
@@ -124,7 +130,7 @@
         /// <summary>
         /// 退款
         /// </summary>
-        /// <returns>返回状态为2</returns>
+        /// <returns>返回状态 为2</returns>
         [HttpGet]
         [ActionName("GetNonPaymentTrain")]
         public List<TrainTicketInfo> GetNonPaymentTrain()

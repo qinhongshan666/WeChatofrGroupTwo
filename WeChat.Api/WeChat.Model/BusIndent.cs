@@ -18,6 +18,10 @@ namespace WeChat.Model
         /// </summary>
         public string StartTime { get; set; }
 
+
+
+
+
         public string EndTime { get; set; }
 
         /// <summary>

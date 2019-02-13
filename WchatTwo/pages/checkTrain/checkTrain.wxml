@@ -41,7 +41,7 @@
 </view>
 <text>购票数量{{item.Number}}张</text>
     <view class="productCount">
-
+<image class='HW' src="../../image/删除.png"></image>
         <view>合计：￥<text>{{item.Price}}元</text></view>
 
     </view>
@@ -75,7 +75,7 @@
 </view>
 <text>购票数量{{item.Number}}张</text>
     <view class="productCount">
-
+<image class='HW' src="../../image/删除.png"></image>
         <view>合计：￥<text>{{item.Price}}元</text></view>
 
     </view>
@@ -91,7 +91,8 @@
     <view class="orderListTitle">
 
 
-          <text class="userName" >{{item.BeginSite}}</text>
+        <text class="userName" >{{item.BeginSite}}</text>
+
         <text class="userName" >---到达---</text>
 
         <text class="orderStatus">{{item.ArriveSite}}</text>
@@ -111,7 +112,7 @@
 </view>
 <text>购票数量{{item.Number}}张</text>
     <view class="productCount">
-
+<image class='HW' src="../../image/删除.png"></image>
         <view>合计：￥<text>{{item.Price}}元</text></view>
 
     </view>
