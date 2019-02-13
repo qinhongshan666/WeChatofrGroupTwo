@@ -4,7 +4,7 @@
 		"ignore": []
 	},
 	"setting": {
-		"urlCheck": false,
+		"urlCheck": true,
 		"es6": true,
 		"postcss": true,
 		"minified": true,
@@ -12,9 +12,9 @@
 		"autoAudits": false
 	},
 	"compileType": "miniprogram",
-	"libVersion": "2.5.1",
+	"libVersion": "2.5.2",
 	"appid": "wxa4dba70ace51bbc2",
-	"projectname": "WchatTwo2",
+	"projectname": "%E6%88%91%E9%97%AE%E9%97%AE",
 	"debugOptions": {
 		"hidedInDevtools": []
 	},

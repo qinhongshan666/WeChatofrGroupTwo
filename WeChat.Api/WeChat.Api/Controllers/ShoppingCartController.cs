@@ -14,8 +14,15 @@
     {
         public IBusTicketRepository BusTicketRepository { get; set; }
 
+
         public IPlaneTicketRepository PlaneTicketRepository { get; set; }
 
+
+        /// <summary>
+        /// 获取订单状态为已付款的汽车票订 单
+        /// </summary>
+        /// <returns></returns>
+																																																																		
         [HttpGet]
         [ActionName("busIndents")]
         public List<BusIndent> BusIndents()
@@ -25,7 +32,7 @@
         }
 
         /// <summary>
-        /// 获取订单为待付款状态的汽车票订单
+        /// 获取订单为待付款状态的汽车票订 单
         /// </summary>
         /// <returns>代付款</returns>
         [HttpGet]
