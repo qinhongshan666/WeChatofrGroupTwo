@@ -11,34 +11,54 @@ namespace WeChat.Model
     /// </summary>
    public class TrainTicketInfo
     {
-        //火车票信息表主键ID
+        /// <summary>
+        /// 火车票信息表主键ID
+        /// </summary>
         public int ID { get; set; }
 
-        //车次
+        /// <summary>
+        /// 车次
+        /// </summary>
         public string TrainNumber { get; set; }
 
-        //火车类型
+        /// <summary>
+        /// 火车类型
+        /// </summary>
         public string TrainTypes { get; set; }
 
-        //出发时间
+        /// <summary>
+        /// 出发时间
+        /// </summary>
         public string BeginTime { get; set; }
 
-        //出发地点
+        /// <summary>
+        /// 出发地点
+        /// </summary>
         public string BeginSite { get; set; }
 
-        //到站时间
+        /// <summary>
+        /// 到站时间
+        /// </summary>
         public string ArriveTime { get; set; }
 
-        //到站地点
+        /// <summary>
+        /// 到站地点
+        /// </summary>
         public string ArriveSite { get; set; }
 
-        //座位等级
+        /// <summary>
+        /// 座位等级
+        /// </summary>
         public string SeatGrade { get; set; }
 
-        //价格
+        /// <summary>
+        /// 价格
+        /// </summary>
         public string Price { get; set; }
 
-        //余票
+        /// <summary>
+        /// 余票
+        /// </summary>
         public string SurplusTicket { get; set; }
 
         public int Number { get; set; }
