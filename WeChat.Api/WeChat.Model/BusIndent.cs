@@ -16,7 +16,7 @@ namespace WeChat.Model
         /// <summary>
         /// 发车时间
         /// </summary>
-        public DateTime StartTime { get; set; }
+        public string StartTime { get; set; }
 
 
         public string EndTime { get; set; }
