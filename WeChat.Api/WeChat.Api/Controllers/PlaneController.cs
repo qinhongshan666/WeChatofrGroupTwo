@@ -42,10 +42,16 @@
             return planes;
         }
 
+        /// <summary>
+        /// 根据id查询并反填
+        /// </summary>
+        /// <param name="id"></param>
+        /// <returns></returns>
         [HttpGet]
         public Plane GetPlane(int id)
         {
-            return this.PlaneRespository.GetPlane(id);
+            var plane = this.PlaneRespository.GetPlane(id);
+            return plane;
         }
     }
 }
