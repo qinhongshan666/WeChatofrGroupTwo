@@ -10,15 +10,16 @@ using MySql.Data;
 using System.Data;
 using MySql.Data.MySqlClient;
 
-
-
 namespace WeChat.Respository
 {
     public class BusRespository : IBusRespository
     {
-            
-            public List<BusIndent> ShowBus()
-           {
+        /// <summary>
+        /// 显示所有的汽车票信息
+        /// </summary>
+        /// <returns></returns>
+        public List<BusIndent> ShowBus()
+        {
             string connStr = "Data Source=169.254.240.201;Database=wechat;User ID=root;Pwd=10086";
             using (IDbConnection con = new MySqlConnection(connStr))
             {
@@ -26,6 +27,5 @@ namespace WeChat.Respository
                 return con.Query<BusIndent>(str).ToList();
             }
         }
-   
     }
 }

@@ -27,7 +27,8 @@ namespace WeChat.Respository
             using (IDbConnection con = new MySqlConnection(connStr))
             {
                 string str = "select * from TrainTicketInfo";
-                return con.Query<TrainTicketInfo>(str).ToList();
+                var ShowTrainInfo = con.Query<TrainTicketInfo>(str).ToList();
+                return ShowTrainInfo;
             }
         }
 
@@ -55,7 +56,7 @@ namespace WeChat.Respository
         {
             using (IDbConnection conn = new MySqlConnection(connStr))
             {
-                string sql = string.Format("insert into TrainTicketOrders values(ID,'{0}','{1}','{2}','{3}','{4}','{5}','{6}','{7}','{8}','{9}','{10}')", m.TrainNumber,m.BeginTime,m.BeginSite,m.ArriveTime,m.ArriveSite,m.SeatGrade,m.Price,m.SumMoney,m.Iphone,m.UserID,m.OrdersState);
+                string sql = string.Format("insert into TrainTicketOrders values(ID,'{0}','{1}','{2}','{3}','{4}','{5}','{6}','{7}','{8}','{9}','{10}')", m.TrainNumber, m.BeginTime, m.BeginSite, m.ArriveTime, m.ArriveSite, m.SeatGrade, m.Price, m.SumMoney, m.Iphone, m.UserID, m.OrdersState);
                 int result = conn.Execute(sql);
                 return result;
             }
