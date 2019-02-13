@@ -36,6 +36,7 @@ namespace WebApplicationAutofac
         public static void SetupResolveRules(ContainerBuilder container)
         {
             container.RegisterType<BusRespository>().As<IBusRespository>();
+            container.RegisterType<PlaneRespository>().As<IPlaneRespository>();
             container.RegisterType<BusTicketRepository>().As<IBusTicketRepository>();
             container.RegisterType<PlaneTicketRepository>().As<IPlaneTicketRepository>();
         }
