@@ -1,15 +1,10 @@
 ﻿using Dapper;
 using MySql.Data.MySqlClient;
-using System;
 using System.Collections.Generic;
 using System.Data;
 using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 using WeChat.IRespository;
 using WeChat.Model;
-
-using System.Linq;
 
 namespace WeChat.Respository
 {
@@ -53,7 +48,6 @@ namespace WeChat.Respository
 
 
         /// <summary>
-        /// 已支付
         /// 添加订单信息
         /// </summary>
         /// <param name="m"></param>
@@ -66,6 +60,21 @@ namespace WeChat.Respository
                 var lists = conn.Query<TrainTicketInfo>(str).ToList();
                 return lists;
             }
+        }
+
+        public List<TrainTicketInfo> Paid()
+        {
+            throw new System.NotImplementedException();
+        }
+
+        public List<TrainTicketInfo> Obligation()
+        {
+            throw new System.NotImplementedException();
+        }
+
+        public List<TrainTicketInfo> NonPayment()
+        {
+            throw new System.NotImplementedException();
         }
     }
 
