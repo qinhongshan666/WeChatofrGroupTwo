@@ -14,7 +14,7 @@ namespace WeChat.Respository
     /// <summary>
     /// 火车票信息类
     /// </summary>
-    public class TrainInfo : ITrainInfo
+    public class TrainInfoRepository : ITrainInfoRepository
     {
         private string connStr = "Data Source=Jack;Database=wechat;User ID=root;Pwd=199901";
 
