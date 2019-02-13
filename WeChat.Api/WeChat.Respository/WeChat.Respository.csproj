@@ -64,7 +64,6 @@
     <Compile Include="PlaneRespository.cs" />
     <Compile Include="PlaneTicketRepository.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
-    <Compile Include="TrainInfoRepository.cs" />
     <Compile Include="TrainTicketRepository.cs" />
   </ItemGroup>
   <ItemGroup>

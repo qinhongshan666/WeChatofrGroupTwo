@@ -124,7 +124,7 @@
         /// <summary>
         /// 退款
         /// </summary>
-        /// <returns>返回状态为2</returns>
+        /// <returns>返回状态 为2</returns>
         [HttpGet]
         [ActionName("GetNonPaymentTrain")]
         public List<TrainTicketInfo> GetNonPaymentTrain()

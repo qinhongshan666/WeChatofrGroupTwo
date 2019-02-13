@@ -11,40 +11,64 @@ namespace WeChat.Model
     /// </summary>
     public class TrainTicketOrders
     {
-        //火车票订单表Id主键
+        /// <summary>
+        /// 火车票订单表Id主键
+        /// </summary>
         public int ID { get; set; }
 
-        //车次
+        /// <summary>
+        /// 车次
+        /// </summary>
         public int TrainNumber { get; set; }
 
-        //出发
+        /// <summary>
+        /// 出发
+        /// </summary>
         public int BeginTime { get; set; }
 
-        //出发地点
+        /// <summary>
+        /// 出发地点
+        /// </summary>
         public int BeginSite { get; set; }
 
-        //到站时间
+        /// <summary>
+        /// 到站时间
+        /// </summary>
         public string ArriveTime { get; set; }
 
-        //到站地点
+        /// <summary>
+        /// 到站地点
+        /// </summary>
         public string ArriveSite { get; set; }
 
-        //座位等级
+        /// <summary>
+        /// 座位等级
+        /// </summary>
         public string SeatGrade { get; set; }
 
-        //价格
+        /// <summary>
+        /// 价格
+        /// </summary>
         public string Price { get; set; }
 
-        //总金额
+        /// <summary>
+        /// 总金额
+        /// </summary>
         public string SumMoney { get; set; }
 
-        //手机号
+        /// <summary>
+        /// 手机号
+        /// </summary>
         public string Iphone { get; set; }
 
-        //用户ID
+        /// <summary>
+        /// 用户ID
+        /// </summary>
         public string UserID { get; set; }
 
-        //订单状态
+        /// <summary>
+        /// 订单状态
+        /// </summary>
         public string OrdersState { get; set; }
 
 

@@ -11,13 +11,14 @@ namespace WeChat.Model
     /// </summary>
     public class TrainType
     {
-        //火车类型表主键ID
+        /// <summary>
+        /// 火车类型表主键ID
+        /// </summary>
         public int ID { get; set; }
 
         /// <summary>
         /// 火车类型
         /// </summary>
-
         public string TrainTypes { get; set; }
     }
 }
