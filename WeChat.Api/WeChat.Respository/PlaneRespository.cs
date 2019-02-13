@@ -17,6 +17,22 @@ namespace WeChat.Respository
         private string connection = "Data Source=169.254.240.201;Database=wechat;User ID=root;Pwd=10086";
 
         /// <summary>
+        /// 添加到订单
+        /// </summary>
+        /// <param name="planeOrder"></param>
+        /// <returns></returns>
+        public int AddPlaneOrder(PlaneOrder planeOrder)
+        {
+            using (IDbConnection conn = new MySqlConnection(connection))
+            {
+                string sql = string.Format("INSERT into planeorder VALUES(ID,'{0}','{1}','{2}','{3}','{4}','{5}','{6}','{7}','{8}','{9}','{10}','{11}')", planeOrder.OrderUnitPrice, planeOrder.OrderLeaveCity, planeOrder.OrderArriveCity, planeOrder.OrderLeaveDate, planeOrder.OrderTypeID, planeOrder.OrderTicket, planeOrder.OrderLeaveTime, planeOrder.OrderArriveTime, planeOrder.OrderPhone, planeOrder.OrderState, planeOrder.OrderTotalsum, planeOrder.AccountName);
+                int result = conn.Execute(sql);
+
+                return result;
+            }
+        }
+
+        /// <summary>
         /// 根据id查询机票
         /// </summary>
         /// <param name="id"></param>
@@ -30,6 +46,15 @@ namespace WeChat.Respository
 
                 return plane;
             }
+        }
+
+        /// <summary>
+        /// 获取机票的订单信息
+        /// </summary>
+        /// <returns></returns>
+        public List<PlaneOrder> GetPlaneOrders()
+        {
+            throw new NotImplementedException();
         }
 
         /// <summary>

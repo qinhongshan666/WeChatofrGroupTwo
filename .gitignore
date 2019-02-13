@@ -332,3 +332,6 @@ ASALocalRun/
 
 # Local History for Visual Studio
 .localhistory/
+WchatTwo/project.config.json
+*.json
+*.json
