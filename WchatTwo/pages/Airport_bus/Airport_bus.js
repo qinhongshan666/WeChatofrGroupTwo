@@ -2,36 +2,56 @@
 
 Page({
   data: {
-    list1: [{
-      id: 0,
-      list2: [{}, {}, {}, {}]
-    }, {
-      id: 1,
-      list2: [{}, {}, {}, {}]
-    }, {
-      id: 2,
-      list2: [{}, {}]
-    }, {}, {}, {}, {}, {}],
+    list: [],
+    starDate: '',
+    Sweek: '',
+    hidden: true,
+    leavecity: '',
+    arrivecity: '',
 
-  
   },
 
   onLoad: function (options) {
-    this.setData({
-      hidden: true,
+    var leavecity = options.region;
+    var arrivecity = options.regions;
+    var that = this;
+    wx.request({
+      url: 'http://localhost:61984/api/Bus/ShowBus',
+      method: 'GET',
+      data: {
+        leavecity: leavecity,
+        arrivecity: arrivecity,
+      },
+      success(res) {
+        that.setData({
+          list: res.data,
+        })
+      }
     })
-
+    this.setData({
+      leavecity: leavecity,
+      arrivecity: arrivecity,
+    })
   },
 
-  onShow: function () {
-    // 页面显示
+  bindDateChange: function (a) {
+    wx.request({
+      url: 'http://localhost:61984/api/Bus/GetBus',
+      method: 'GET',
+      data: {
+        leaveCity: this.data.leavecity,
+        arriveCity: this.data.arrivecity,
+      },
+      success: function (res) {
+        that.setData({
+          list: res.data,
+        })
 
-  },
-  onHide: function () {
-    // 页面隐藏
-  },
-  onUnload: function () {
-    // 页面关闭
+      }
+    })
+    this.setData({
+      dateday: a.detail.value
+    })
   },
   onReady: function () {
     this.animation = wx.createAnimation({
@@ -41,10 +61,11 @@ Page({
     })
   },
 
-  info: function () {
+  go: function (ev) {
+    console.log(ev);
+    var busid = ev.currentTarget.id;
     wx.navigateTo({
-      url: '../Bus_details/Bus_details'
+      url: '../Bus_details/Bus_details?busid=' + busid,
     })
-  }
-
+  },
 })

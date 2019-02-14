@@ -3,7 +3,7 @@
 <view class="container">
   <view class="pannel dateNum">
     <view class="date">
-      <text>1月31日</text>
+      <text>{{startDate}}</text>
       <text class="small">出发</text>
     </view>
     <view class="num">
@@ -16,28 +16,28 @@
     <view class="backFlight">
       <view class="flightDate">
         <view>
-          <text>上海</text>
-          <text class="time">08:30</text>
+          <text>{{startingStation}}</text>
+          <text class="time">{{startTime}}</text>
         </view>
         <view>
-          <text class="date">2019/01/31</text>
+          <text class="date">{{startDate}}</text>
           <text class="flightPic"></text>
           <text>--------------------</text>
           <text class="date">2小时1分</text>
         </view>
         <view>
-          <text>北京</text>
-          <text class="time">10:31</text>
+          <text>{{destinationStation}}</text>
+          <text class="time">{{endTime}}</text>
         </view>
       </view>
-
+     
 </view>
 
 
   <view class="tabBar">
     <text class="name">套餐总价</text>
-    <text class="totalPrice">￥311</text>
-    <view class="nextStep">付款</view>
+    <text class="totalPrice">￥{{busPrice}}</text>
+    <view class="nextStep"  bindtap='toPay'>付款</view>
   </view>
 </view>
 

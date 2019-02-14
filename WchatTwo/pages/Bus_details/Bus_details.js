@@ -1,74 +1,77 @@
 // pages/Bus_details/Bus_details.js
+const app = getApp();
 Page({
 
   data: {
-    picSrc: '../../images/hotelPic.png'
+
+    ticket: 1,
+    busPrice: '',
+    startingStation: '',
+    destinationStation: '',
+    startDate: '',
+    startTime: '',
+    endTime: '',
+    count: '',
   },
 
-
-
-  /**
-   * 页面的初始数据
-   */
-  data: {
-
-  },
-
-  /**
-   * 生命周期函数--监听页面加载
-   */
   onLoad: function (options) {
+    var id = options.busid;
+    var that = this;
 
+    wx.request({
+      url: 'http://localhost:61984/api/Bus/GetBus',
+      method: 'GET',
+      data: {
+        id: id
+      },
+
+      success(res) {
+        var list = res.data;
+        console.log(list.StartDate);
+        console.log(list.Count);
+        that.setData({
+
+          busPrice: list.BusPrice,
+          startingStation: list.StartingStation,
+          destinationStation: list.DestinationStation,
+          startDate: list.StartDate,
+          startTime: list.StartTime,
+          endTime: list.EndTime,
+          count: list.Count,
+
+        })
+      }
+    })
   },
 
-  /**
-   * 生命周期函数--监听页面初次渲染完成
-   */
-  onReady: function () {
+  toPay: function () {
+    var that = this.data;
 
-  },
 
-  /**
-   * 生命周期函数--监听页面显示
-   */
-  onShow: function () {
+    wx.request({
+      url: 'http://localhost:61984/api/Bus/addbuss',
+      method: 'POST',
+      data: {
+        BusPric: that.busPrice,
+        StartingStation: that.startingStation,
+        DestinationStation: that.destinationStation,
+        StartDate: that.startDate,
+        StartTime: that.startTime,
+        EndTime: that.endTime,
+        Count: that.count
 
-  },
+      },
+      success(res) {
+        var i = res.data;
+        if (i == 1) {
+          wx.navigateTo({
+            url: '../checkBus/checkBus',
+          })
+        }
 
-  /**
-   * 生命周期函数--监听页面隐藏
-   */
-  onHide: function () {
+      }
+    })
+  }
 
-  },
 
-  /**
-   * 生命周期函数--监听页面卸载
-   */
-  onUnload: function () {
-
-  },
-
-  /**
-   * 页面相关事件处理函数--监听用户下拉动作
-   */
-  onPullDownRefresh: function () {
-
-  },
-
-  /**
-   * 页面上拉触底事件的处理函数
-   */
-  onReachBottom: function () {
-
-  },
-
-  /**
-   * 用户点击右上角分享
-   */
-  onShareAppMessage: function () {
-
-  },
-
-  
 })
