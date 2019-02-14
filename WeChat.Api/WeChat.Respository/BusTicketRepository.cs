@@ -35,7 +35,7 @@ namespace WeChat.Respository
         /// </summary>
         /// <param name="id"></param>
         /// <returns></returns>
-        public int Delete(int id)
+        public int DeleteBusById(int id)
         {
             using (IDbConnection con = new MySqlConnection(connStr))
             {

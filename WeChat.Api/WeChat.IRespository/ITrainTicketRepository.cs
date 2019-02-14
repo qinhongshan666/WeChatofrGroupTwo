@@ -21,7 +21,7 @@ namespace WeChat.IRespository
 
         List<TrainTicketInfo> NonPayment();
 
-        int Delete(int id);
+        int DeleteTrainById(int id);
 
     }
 }
