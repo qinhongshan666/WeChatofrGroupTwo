@@ -55,7 +55,7 @@ namespace WeChat.Respository
         }
 
         /// <summary>
-        /// 获取订单状态为待付款的订单信息
+        /// 获取订单状态为待付款的订单信息 
         /// </summary>
         /// <returns></returns>
         public List<BusIndent> GetBusIndentsByState()
