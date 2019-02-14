@@ -15,11 +15,12 @@ namespace WeChat.IRespository
     {
 
         List<TrainTicketInfo> Paid();
-
+
         List<TrainTicketInfo> Obligation();
 
-
         List<TrainTicketInfo> NonPayment();
+
+        int Delete(int id);
 
     }
 }

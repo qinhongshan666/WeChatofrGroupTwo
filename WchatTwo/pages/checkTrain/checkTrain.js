@@ -61,10 +61,20 @@ Page({
           })
         }
       })
-
-
-
-
+  },
+  del: function (e) {
+    var that = this;
+    wx.request({
+      url: 'http://localhost:61984/api/ShoppingCart/DeleteTrainId?ID=' + e.target.id,
+      dataType: 'json',
+      method: 'get',
+      success: function (options) {
+        if (options.data > 0) {
+          content: '删除成功',
+            that.onLoad();
+        }
+      }
+    })
   },
   bindChange: function (e) {
 

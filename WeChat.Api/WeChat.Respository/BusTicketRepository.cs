@@ -30,6 +30,11 @@ namespace WeChat.Respository
             }
         }
 
+        /// <summary>
+        /// 删除
+        /// </summary>
+        /// <param name="id"></param>
+        /// <returns></returns>
         public int Delete(int id)
         {
             using (IDbConnection con = new MySqlConnection(connStr))
