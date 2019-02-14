@@ -41,7 +41,7 @@
 </view>
 <text>购票数量{{item.Number}}张</text>
     <view class="productCount">
-<image class='HW' src="../../image/删除.png"></image>
+<image class='HW' src="../../image/删除.png" bindtap='del' id="{{item.ID}}" ></image>
         <view>合计：￥<text>{{item.Price}}元</text></view>
 
     </view>
@@ -75,7 +75,7 @@
 </view>
 <text>购票数量{{item.Number}}张</text>
     <view class="productCount">
-<image class='HW' src="../../image/删除.png"></image>
+<image class='HW' src="../../image/删除.png" bindtap='del' id="{{item.ID}}" ></image>
         <view>合计：￥<text>{{item.Price}}元</text></view>
 
     </view>
@@ -112,7 +112,7 @@
 </view>
 <text>购票数量{{item.Number}}张</text>
     <view class="productCount">
-<image class='HW' src="../../image/删除.png"></image>
+<image class='HW' src="../../image/删除.png" bindtap='del' id="{{item.ID}}" ></image>
         <view>合计：￥<text>{{item.Price}}元</text></view>
 
     </view>
