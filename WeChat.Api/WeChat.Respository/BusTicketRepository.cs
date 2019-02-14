@@ -31,7 +31,7 @@ namespace WeChat.Respository
         }
 
         /// <summary>
-        /// 删除
+        /// 删 除
         /// </summary>
         /// <param name="id"></param>
         /// <returns></returns>
@@ -39,7 +39,7 @@ namespace WeChat.Respository
         {
             using (IDbConnection con = new MySqlConnection(connStr))
             {
-                string str = "delete from BusIndent where Id = "+id;
+                string str = "delete from BusIndent where Id = " + id;
                 var i = con.Execute(str);
                 return i;
             }
@@ -49,7 +49,7 @@ namespace WeChat.Respository
         /// 获取退款票信息
         /// </summary>
         /// <returns></returns>
-        public List<BusTicketInfo>  GetBusIndents()
+        public List<BusTicketInfo> GetBusIndents()
         {
             using (IDbConnection con = new MySqlConnection(connStr))
             {
