@@ -1,47 +1,52 @@
 
-<!--汽车购票列表-->
 <!--pages/airticket/airticket.wxml-->
-<view class="container">
+<view class="containers">
 <!--头部-->
-  <view class="head">
-            <text class="city1">上海-北京</text>
-            <text class="time1">09月15日</text>
+  <view class='headtime'>
+      <text class="citys">{{leavecity}}-{{arrivecity}}</text>
+      <view class='alltimes'>
+          <picker mode="date" value="{{dateday}}" end="2019-06-01" bindchange="bindDateChange">
+              <text>更多日期</text>
+          </picker>
+      </view>
+      <text class="times">{{dateday}}</text>
   </view>
     <view class="wrap">
         <scroll-view scroll-y="true">
         <!--机票信息start-->
-            <view class="ticketList" wx:for="{{list1}}" wx:key="id"  id="{{list1.id}}">
+            <view class="ticketList" wx:for="{{list}}" wx:key="item.id" bindtap="go" id="{{item.ID}}">
                 <view class="ticketList_top">
                     <view class="flight_info">
                         <view class="flight_info_t">
-                            <text>10:30</text>
-                            <text>\n上海</text>
-                            <view>
-                                <view class="timeLine">
-                                </view>
-                            </view>
-                            <text>09:10</text>
-                            <text>\n北京</text>
+                          <text class='start'>{{item.StartTime}}</text>
+                            <view class="timeLine"></view>
+                          <text class='end'>{{item.EndTime}}</text>
+                        </view>
+                        <view class="flight_info_b">
+                             <text>{{item.StartingStation}}</text>
+                              <view class="timeLine"></view>
+
+                             <text>{{item.DestinationStation}}</text>
+
                         </view>
                     </view>
                     <view class="flight_price">
                         <view class="price">
+                            <text class='zhangshu'>{{item.Count}}张</text>
                             <text style="color:#FF7F00">¥</text>
-                            <text style="font-size:22px; color:#FF7F00">388</text>
+                            <text style="font-size:22px; color:#FF7F00">{{item.BusPrice}}</text>
                             <text>起</text>
                         </view>
                     </view>
                 </view>
-                <view><button bindtap='info' class='col'>购票</button></view>
                 <view class="ticketList_btm">
+                <view>
+                <text>{{item.BusTypeID}}</text>
                 </view>
-                 </view>
+                </view>
+            </view>
         <!--wrap结束-->
         </scroll-view>
     </view>
 <!--尾部-->
-  <view class="foot">
-            <text class="city1">北京-上海</text>
-            <text class="time1">09月15日</text>
-  </view>
 </view>

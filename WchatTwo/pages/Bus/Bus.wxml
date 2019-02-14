@@ -13,10 +13,10 @@
                     <text class="city-descript">出发城市</text> 
   <picker mode="region" bindchange="bindRegionChange" value="{{region}}" custom-item="{{customItem}}">
     <view class="picker">
-    {{region[2]}}
+    {{region[1]}}
     </view>
   </picker>
-                </view> 
+                </view>
 <view class="section {{reply?'on':'off'}}">
     <input name="other" placeholder="请输入所预约项目" type="text"/>
   </view>
@@ -25,9 +25,9 @@
                 </view>
                 <view class="end-city">
                     <text class="city-descript">到达城市</text>
-                      <picker mode="region" bindchange="bindRegionChange1" value="{{region1}}" custom-item="{{customItem}}">
+                      <picker mode="region" bindchange="bindRegionChanges" value="{{regions}}" custom-item="{{customItem}}">
     <view class="picker">
-    {{region1[2]}}
+    {{regions[1]}}
     </view>
   </picker>
                 </view>
@@ -56,7 +56,7 @@
         </view>
         <view class="query-box extension">
         <view class="query-row">
-            <view class="extension-item">
+            <view class="extension-item">              
                 <image src="../../image/extension/coach-extension2.png" bindtap="bus"></image>
                 <text>机场巴士</text>
             </view>
