@@ -1,10 +1,4 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
-
-namespace WeChat.Model
+﻿namespace WeChat.Model
 {
     /// <summary>
     /// 火车类型表

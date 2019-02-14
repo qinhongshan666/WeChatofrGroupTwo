@@ -1,14 +1,9 @@
 ﻿namespace WeChat.Api.Controllers
 {
-    using System;
     using System.Collections.Generic;
-    using System.Linq;
-    using System.Net;
-    using System.Net.Http;
     using System.Web.Http;
     using WeChat.IRespository;
     using WeChat.Model;
-    using WeChat.Respository;
 
     public class ShoppingCartController : ApiController
     {
@@ -88,15 +83,14 @@
         /// <param name="id"></param>
         /// <returns></returns>
 
-            [HttpGet]
-            [ActionName("Delete")]
+        [HttpGet]
+        [ActionName("Delete")]
         public int DeletePlaneById(int id)
         {
-            
             var i = this.PlaneTicketRepository.DeletePlaneById(id);
             return i;
         }
-       
+
         /// <summary>
         /// 飞机票订单查询
         /// </summary>
@@ -127,7 +121,7 @@
         /// <returns>状态为0</returns>
         [HttpGet]
         [ActionName("GetPaidTrain")]
-        public List<TrainTicketInfo> GetPaidTrain()
+        public List<TrainTicketOrders> GetPaidTrain()
         {
             var trainTicketInfo = this.TrainTicketRepository.Paid();
             return trainTicketInfo;
@@ -139,7 +133,7 @@
         /// <returns>返回状态为1</returns>
         [HttpGet]
         [ActionName("GetObligationTrain")]
-        public List<TrainTicketInfo> GetObligationTrain()
+        public List<TrainTicketOrders> GetObligationTrain()
         {
             var trainTicketInfo = this.TrainTicketRepository.Obligation();
             return trainTicketInfo;
@@ -151,12 +145,11 @@
         /// <returns>返回状态 为2</returns>
         [HttpGet]
         [ActionName("GetNonPaymentTrain")]
-        public List<TrainTicketInfo> GetNonPaymentTrain()
+        public List<TrainTicketOrders> GetNonPaymentTrain()
         {
             var trainTicketInfo = this.TrainTicketRepository.NonPayment();
             return trainTicketInfo;
         }
-
 
         /// <summary>
         /// 火车根据Id删除
@@ -167,12 +160,8 @@
         [ActionName("DeleteTrainId")]
         public int DeleteTrainById(int id)
         {
-            
-            int i = this.TrainTicketRepository.DeleteTrainById(id);
+            int i = this.TrainTicketRepository.Delete(id);
             return i;
         }
-
-
-
     }
 }

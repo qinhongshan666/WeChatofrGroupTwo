@@ -1,8 +1,4 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
+﻿using System.Collections.Generic;
 using WeChat.Model;
 
 namespace WeChat.IRespository
@@ -16,7 +12,7 @@ namespace WeChat.IRespository
         List<BusIndent> ShowBus();
 
         /// <summary>
-        /// 根据ID获取所有的汽车票的信息 
+        /// 根据ID获取所有的汽车票的信息
         /// </summary>
         /// <param name="id"></param>
         /// <returns></returns>

@@ -71,6 +71,10 @@
     <None Include="packages.config" />
   </ItemGroup>
   <ItemGroup>
+    <ProjectReference Include="..\WeChat.Common\WeChat.Common.csproj">
+      <Project>{4a6a86c3-7dcd-41e5-8dc1-86c60de05358}</Project>
+      <Name>WeChat.Common</Name>
+    </ProjectReference>
     <ProjectReference Include="..\WeChat.IRespository\WeChat.IRespository.csproj">
       <Project>{6f39ca6b-c8c0-465c-ad72-75f4bb90f604}</Project>
       <Name>WeChat.IRespository</Name>

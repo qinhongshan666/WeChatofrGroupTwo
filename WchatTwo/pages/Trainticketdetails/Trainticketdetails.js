@@ -21,14 +21,13 @@ Page({
     SumMoney: '', //总金额
     Iphone: '', //手机号
     UserName: '', //用户名
-    OrdersState: '', //订单状态
+    OrdersState: 0, //订单状态
   },
 
   /**
    * 生命周期函数--监听页面加载
    */
   onLoad: function (options) {
-    console.log(options);
     var ID = options.ID;
     var that = this;
 
@@ -58,7 +57,6 @@ Page({
 
   Plus() {
     var tic = this.data.ticket + 1;
-    console.log(tic);
     var unitprice = this.data.Price;
     this.setData({
       ticket: tic,
@@ -90,7 +88,7 @@ Page({
   toPay: function () {
     var that = this.data;
     var username = app.globalData.userInfo;
-
+    console.log(that.BeginTime);
     wx.request({
       url: 'http://localhost:61984/api/TrainInfo/TrainOrderInfo',
       method: 'post',
@@ -101,7 +99,7 @@ Page({
         ArriveTime: that.ArriveTime,
         ArriveSite: that.ArriveSite,
         SeatGrade: that.SeatGrade,
-        Price: that.Price,
+        Price: that.SumMoney,
         SumMoney: that.SumMoney,
         Iphone: that.Iphone,
         UserName: username.nickName,
@@ -111,7 +109,7 @@ Page({
         var i = res.data;
         if (i == 1) {
           wx.navigateTo({
-            url: '../planeTobepaid/planeTobepaid',
+            url: '../checkTrain/checkTrain',
           })
         }
       }

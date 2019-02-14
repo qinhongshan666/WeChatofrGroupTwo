@@ -1,20 +1,19 @@
 ﻿using Dapper;
 using MySql.Data.MySqlClient;
-using System;
 using System.Collections.Generic;
 using System.Data;
 using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 
 using WeChat.IRespository;
 using WeChat.Model;
+using WeChat.Common;
 
 namespace WeChat.Respository
 {
     public class BusTicketRepository : IBusTicketRepository
     {
-        private string connStr = "Data Source=169.254.240.201;Database=wechat;User ID=root;Pwd=10086";
+        //private string connStr = "Data Source=169.254.240.201;Database=wechat;User ID=root;Pwd=10086";
+        private string connStr = ConfigHelper.GetConfigValue("sqlConnectionString");
 
         /// <summary>
         /// 获取 已经实现的汽车票订单
@@ -39,7 +38,7 @@ namespace WeChat.Respository
         {
             using (IDbConnection con = new MySqlConnection(connStr))
             {
-                string str = "delete from BusIndent where Id = " + id;
+                string str = "delete from BusTicketInfo where Id = " + id;
                 var i = con.Execute(str);
                 return i;
             }
