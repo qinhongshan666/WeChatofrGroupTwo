@@ -1,12 +1,10 @@
-﻿using System.Collections.Generic;
-using WeChat.IRespository;
-using WeChat.Model;
-
-using System.Data.SqlClient;
-using Dapper;
+﻿using Dapper;
 using MySql.Data.MySqlClient;
+using System.Collections.Generic;
 using System.Data;
 using System.Linq;
+using WeChat.IRespository;
+using WeChat.Model;
 
 namespace WeChat.Respository
 {
@@ -14,9 +12,11 @@ namespace WeChat.Respository
     {
         private string connStr = "Data Source=169.254.240.201;Database=wechat;User ID=root;Pwd=10086";
 
-        
-
-                
+        /// <summary>
+        ///
+        /// </summary>
+        /// <param name="id"></param>
+        /// <returns></returns>
         public int DeletePlaneById(int id)
         {
             using (IDbConnection con = new MySqlConnection(connStr))
@@ -24,7 +24,6 @@ namespace WeChat.Respository
                 string str = "delete from planeorder where ID = " + id;
                 var i = con.Execute(str);
                 return i;
-
             }
         }
 
@@ -37,9 +36,8 @@ namespace WeChat.Respository
             using (IDbConnection con = new MySqlConnection(connStr))
             {
                 string str = "select * from planeorder where OrderState = 2";
-                var lists =  con.Query<PlaneOrder>(str).ToList();
+                var lists = con.Query<PlaneOrder>(str).ToList();
                 return lists;
-
             }
         }
 
@@ -47,16 +45,16 @@ namespace WeChat.Respository
         /// 待付款
         /// </summary>
         /// <returns></returns>
-        public List<PlaneOrder> Obligation() 
+        public List<PlaneOrder> Obligation()
         {
             using (IDbConnection con = new MySqlConnection(connStr))
             {
                 string str = "select * from planeorder where OrderState = 1";
                 var lists = con.Query<PlaneOrder>(str).ToList();
                 return lists;
-
             }
         }
+
         /// <summary>
         /// 已付款
         /// </summary>
@@ -69,7 +67,6 @@ namespace WeChat.Respository
                 string str = "select * from planeorder where OrderState = 0";
                 var lists = con.Query<PlaneOrder>(str).ToList();
                 return lists;
-
             }
         }
     }

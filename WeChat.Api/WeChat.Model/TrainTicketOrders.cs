@@ -1,10 +1,4 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
-
-namespace WeChat.Model
+﻿namespace WeChat.Model
 {
     /// <summary>
     /// 火车票订单表
@@ -70,11 +64,5 @@ namespace WeChat.Model
         /// 订单状态
         /// </summary>
         public string OrdersState { get; set; }
-
-
-
-
-
-
     }
 }

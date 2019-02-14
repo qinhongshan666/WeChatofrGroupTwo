@@ -1,11 +1,8 @@
 ﻿using Dapper;
 using MySql.Data.MySqlClient;
-using System;
 using System.Collections.Generic;
 using System.Data;
 using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 using WeChat.IRespository;
 using WeChat.Model;
 
@@ -52,7 +49,7 @@ namespace WeChat.Respository
         /// </summary>
         /// <param name="m"></param>
         /// <returns></returns>
-        public int TrainOrderInfo(TrainTicketOrders  train)
+        public int TrainOrderInfo(TrainTicketOrders train)
         {
             using (IDbConnection conn = new MySqlConnection(connStr))
             {

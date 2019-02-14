@@ -1,14 +1,7 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
-
-namespace WeChat.Model
+﻿namespace WeChat.Model
 {
     public class BusIndent
     {
-       
         /// <summary>
         /// 汽车主键ID
         /// </summary>
@@ -64,9 +57,6 @@ namespace WeChat.Model
         /// </summary>
         public string OrderState { get; set; }
 
-
         public int Count { get; set; }
-
-
     }
 }

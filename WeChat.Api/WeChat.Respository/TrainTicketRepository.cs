@@ -28,7 +28,6 @@ namespace WeChat.Respository
         /// </summary>
         /// <returns></returns>
         public List<TrainTicketInfo> NonPayment()
-
         {
             using (IDbConnection con = new MySqlConnection(connStr))
             {

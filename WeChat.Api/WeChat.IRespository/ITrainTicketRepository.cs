@@ -1,8 +1,4 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
+﻿using System.Collections.Generic;
 
 using WeChat.Model;
 
@@ -13,8 +9,6 @@ namespace WeChat.IRespository
     /// </summary>
     public interface ITrainTicketRepository
     {
-
-         
         List<TrainTicketInfo> Paid();
 
         List<TrainTicketInfo> Obligation();
@@ -22,6 +16,5 @@ namespace WeChat.IRespository
         List<TrainTicketInfo> NonPayment();
 
         int DeleteTrainById(int id);
-
     }
 }
