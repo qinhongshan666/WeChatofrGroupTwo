@@ -12,7 +12,7 @@ namespace WeChat.Respository
     {
         private string connStr = "Data Source=169.254.240.201;Database=wechat;User ID=root;Pwd=10086";
 
-        public int Delete(int id)
+        public int DeleteTrainById(int id)
         {
             using (IDbConnection con = new MySqlConnection(connStr))
             {
@@ -21,7 +21,6 @@ namespace WeChat.Respository
                 return i;
             }
         }
-
 
         /// <summary>
         /// 退款
@@ -39,7 +38,6 @@ namespace WeChat.Respository
             }
         }
 
-
         /// <summary>
         /// 待支付
         /// 根据ID查询火车票 然后跳转到支付页面
@@ -56,7 +54,6 @@ namespace WeChat.Respository
             }
         }
 
-
         /// <summary>
         /// 添加订单信息
         /// </summary>
@@ -71,9 +68,5 @@ namespace WeChat.Respository
                 return lists;
             }
         }
-
-      
     }
-
 }
-

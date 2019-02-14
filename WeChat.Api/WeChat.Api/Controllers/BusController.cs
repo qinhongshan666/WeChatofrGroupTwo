@@ -6,10 +6,10 @@ using System.Net.Http;
 using System.Web.Http;
 using WeChat.IRespository;
 using WeChat.Model;
-using WeChat.Respository;
+using WeChat.Respository; 
 
 
-namespace WeChat.Api.Controllers
+namespace WeChat.Api.Controllers 
 {
     public class BusController : ApiController
     {

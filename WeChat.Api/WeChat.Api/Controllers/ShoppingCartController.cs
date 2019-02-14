@@ -64,9 +64,9 @@
         /// <returns></returns>
         [HttpGet]
         [ActionName("DeleteById")]
-        public int DeleteById(int id)
+        public int DeleteBusById(int id)
         {
-            int i = this.BusTicketRepository.Delete(id);
+            int i = this.BusTicketRepository.DeleteBusById(id);
             return i;
         }
 
@@ -90,9 +90,10 @@
 
             [HttpGet]
             [ActionName("Delete")]
-        public int Delete(int id)
+        public int DeletePlaneById(int id)
         {
-            var i = this.PlaneTicketRepository.DeleteById(id);
+            
+            var i = this.PlaneTicketRepository.DeletePlaneById(id);
             return i;
         }
        
@@ -164,9 +165,10 @@
         /// <returns></returns>
         [HttpGet]
         [ActionName("DeleteTrainId")]
-        public int DeleteTrainId(int id)
+        public int DeleteTrainById(int id)
         {
-            int i = this.TrainTicketRepository.Delete(id);
+            
+            int i = this.TrainTicketRepository.DeleteTrainById(id);
             return i;
         }
 

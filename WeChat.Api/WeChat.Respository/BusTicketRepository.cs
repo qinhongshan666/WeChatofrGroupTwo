@@ -17,7 +17,7 @@ namespace WeChat.Respository
         private string connStr = "Data Source=169.254.240.201;Database=wechat;User ID=root;Pwd=10086";
 
         /// <summary>
-        /// 获取已经实现的汽车票订单
+        /// 获取 已经实现的汽车票订单
         /// </summary>
         /// <returns></returns>
         public List<BusTicketInfo> BusIndents()
@@ -31,15 +31,15 @@ namespace WeChat.Respository
         }
 
         /// <summary>
-        /// 删除
+        /// 删 除
         /// </summary>
         /// <param name="id"></param>
         /// <returns></returns>
-        public int Delete(int id)
+        public int DeleteBusById(int id)
         {
             using (IDbConnection con = new MySqlConnection(connStr))
             {
-                string str = "delete from BusTicketInfo where Id = " + id;
+                string str = "delete from BusIndent where Id = " + id;
                 var i = con.Execute(str);
                 return i;
             }
@@ -49,7 +49,7 @@ namespace WeChat.Respository
         /// 获取退款票信息
         /// </summary>
         /// <returns></returns>
-        public List<BusTicketInfo>  GetBusIndents()
+        public List<BusTicketInfo> GetBusIndents()
         {
             using (IDbConnection con = new MySqlConnection(connStr))
             {
@@ -60,7 +60,7 @@ namespace WeChat.Respository
         }
 
         /// <summary>
-        /// 获取订单状态为待付款的订单信息 
+        /// 获取订单状态为待付款的订单信息
         /// </summary>
         /// <returns></returns>
         public List<BusTicketInfo> GetBusIndentsByState()
