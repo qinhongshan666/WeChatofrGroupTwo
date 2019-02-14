@@ -24,7 +24,7 @@ namespace WeChat.Respository
         {
             using (IDbConnection con = new MySqlConnection(connStr))
             {
-                string str = "select * from busindent a , bus_type b  where  a.ID=b.ID and a.OrderState = 1";
+                string str = "select * from busindent where OrderState = 1";
                 var BusIndents = con.Query<BusIndent>(str).ToList();
                 return BusIndents;
             }
@@ -48,7 +48,7 @@ namespace WeChat.Respository
         {
             using (IDbConnection con = new MySqlConnection(connStr))
             {
-                string str = "select * from busindent a , bus_type b  where  a.ID=b.ID and a.OrderState = 3";
+                string str = "select * from busindent where OrderState = 3";
                 var GetBusIndents = con.Query<BusIndent>(str).ToList();
                 return GetBusIndents;
             }
@@ -62,7 +62,7 @@ namespace WeChat.Respository
         {
             using (IDbConnection con = new MySqlConnection(connStr))
             {
-                string str = "select * from busindent a , bus_type b  where  a.ID=b.ID and a.OrderState = 2";
+                string str = "select * from busindent where OrderState = 2";
                 var GetBusIndentsByState = con.Query<BusIndent>(str).ToList();
                 return GetBusIndentsByState;
             }

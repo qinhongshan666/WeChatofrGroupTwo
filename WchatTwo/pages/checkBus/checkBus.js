@@ -67,9 +67,22 @@ Page({
 
   },
   del:function(e){
+   var that=this;
     console.log(e);
 wx.request({
-  url: 'http://localhost:61984/api/ShoppingCart/DeleteById?ID='+id,
+  url: 'http://localhost:61984/api/ShoppingCart/DeleteById?ID='+e.target.id,
+  dataType: 'json',
+  method: 'get',
+  content: '确定要删除吗？',
+  success: function (options){
+console.log(options);
+if(options.data>0)
+{
+  content: '删除成功',
+that.onLoad();
+}
+
+  }
 
 })
   },
