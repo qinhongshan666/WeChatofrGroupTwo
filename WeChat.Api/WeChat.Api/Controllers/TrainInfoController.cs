@@ -14,7 +14,7 @@ namespace WeChat.Api.Controllers
     {
        public ITrainInfoRepository Traininfo { get; set; }
 
-        /// <summary>
+        /// <summary>     
         /// 添加订单信息
         /// </summary>
         /// <param name="m"></param>
