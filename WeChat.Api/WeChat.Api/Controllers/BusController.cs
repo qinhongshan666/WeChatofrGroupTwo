@@ -9,7 +9,7 @@ using WeChat.Model;
 using WeChat.Respository; 
 
 
-namespace WeChat.Api.Controllers
+namespace WeChat.Api.Controllers 
 {
     public class BusController : ApiController
     {
