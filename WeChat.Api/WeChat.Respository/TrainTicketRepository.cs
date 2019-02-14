@@ -9,14 +9,11 @@ using System.Threading.Tasks;
 using WeChat.IRespository;
 using WeChat.Model;
 
-using System.Linq;
-
 namespace WeChat.Respository
 {
     public class TrainTicketRepository : ITrainTicketRepository
     {
         private string connStr = "Data Source=169.254.240.201;Database=wechat;User ID=root;Pwd=10086";
-
 
         /// <summary>
         /// 退款
@@ -34,7 +31,6 @@ namespace WeChat.Respository
             }
         }
 
-
         /// <summary>
         /// 待支付
         /// 根据ID查询火车票 然后跳转到支付页面
@@ -50,7 +46,6 @@ namespace WeChat.Respository
                 return lists;
             }
         }
-
 
         /// <summary>
         /// 已支付
@@ -68,6 +63,4 @@ namespace WeChat.Respository
             }
         }
     }
-
 }
-
