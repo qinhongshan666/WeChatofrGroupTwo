@@ -41,7 +41,7 @@
 </view>
 </view>
 <!-- 汽车票订单   待付款 -->
-<view hidden="{{currentTab!==1}}" bindtap="findNoPay">
+<view hidden="{{currentTab!==1}}">
   <view bindtap="toOrderDetail" class="orderDetails" wx:for="{{NoPays}}" >
     <view class="orderListTitle">
         <text class="userName" >{{item.StartingStation}}</text>
@@ -65,7 +65,7 @@
 </view>
 </view>
 <!-- 汽车票订单   退款中 -->
-<view hidden="{{currentTab!==2}}" bindtap="findNoPay">
+<view hidden="{{currentTab!==2}}">
   <view bindtap="toOrderDetail" class="orderDetails" wx:for="{{back}}" >
     <view class="orderListTitle">
         <text class="userName" >{{item.StartingStation}}</text>

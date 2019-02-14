@@ -38,7 +38,7 @@ namespace WeChat.Respository
         {
             using (IDbConnection con = new MySqlConnection(connStr))
             {
-                string str = "delete from BusIndent where Id = " + id;
+                string str = "delete from BusTicketInfo where Id = " + id;
                 var i = con.Execute(str);
                 return i;
             }
