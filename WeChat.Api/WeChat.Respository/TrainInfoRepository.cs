@@ -56,7 +56,7 @@ namespace WeChat.Respository
         {
             using (IDbConnection conn = new MySqlConnection(connStr))
             {
-                string sql = string.Format("insert into TrainTicketOrders values(ID,'{0}','{1}','{2}','{3}','{4}','{5}','{6}','{7}','{8}','{9}','{10}')", train.TrainNumber, train.BeginTime, train.BeginSite, train.ArriveTime, train.ArriveSite, train.SeatGrade, train.Price, train.SumMoney, train.Iphone, train.UserID, train.OrdersState);
+                string sql = string.Format("insert into TrainTicketOrders values(ID,'{0}','{1}','{2}','{3}','{4}','{5}','{6}','{7}','{8}','{9}','{10}')", train.TrainNumber, train.BeginTime, train.BeginSite, train.ArriveTime, train.ArriveSite, train.SeatGrade, train.Price, train.SumMoney, train.Iphone, train.UserName, train.OrdersState);
                 int result = conn.Execute(sql);
                 return result;
             }

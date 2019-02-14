@@ -1,0 +1,55 @@
+<!--pages/airticket/airticket.wxml-->
+<view class="containers">
+<!--头部-->
+  <view class='headtime'>
+      <text class="citys">{{BeginSite}}-{{ArriveSite}}</text>
+      <view class='alltimes'>
+          <picker mode="date" value="{{dateday}}" end="2019-06-01" bindchange="bindDateChange">
+              <text>更多日期</text>
+          </picker>
+      </view>
+      <text class="times">{{dateday}}</text>
+  </view>
+    <view class="wrap">
+        <scroll-view scroll-y="true">
+        <!--火车票信息start-->
+            <view class="ticketList" wx:for="{{list}}" wx:key="item.id" bindtap="go" id="{{item.ID}}">
+                <view class="ticketList_top">
+                    <view class="flight_info">
+                        <view class="flight_info_t">
+                        <!--出发时间-->
+                          <text>{{item.BeginTime}}</text>
+                            <view class="timeLine"></view>
+                            <!--到站时间-->
+                          <text>{{item.ArriveTime}}</text>
+                        </view>
+                        <view class="flight_info_b">
+                        <!--出发地点-->
+                            <text>{{item.BeginSite}}</text>
+                              <view class="timeLine"></view>
+                              <!--到站地点-->
+                            <text>{{item.ArriveSite}}</text>
+                        </view>
+                    </view>
+                    <view class="flight_price">
+                        <view class="price">
+                        <!--余票-->
+                            <text class='zhangshu'>{{item.SurplusTicket}}张</text>
+                            <text style="color:#FF7F00">¥</text>
+                            <!--单价-->
+                            <text style="font-size:22px; color:#FF7F00">{{item.Price}}</text>
+                            <text>起</text>
+                        </view>
+                    </view>
+                </view>
+                <view class="ticketList_btm">
+                    <view>
+                        <text>{{item.SeatGrade}}</text>
+                    </view>  
+                </view>
+            </view>
+        <!--wrap结束-->
+        </scroll-view>
+    </view>
+<!--尾部-->
+</view>

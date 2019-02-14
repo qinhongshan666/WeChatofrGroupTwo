@@ -62,9 +62,9 @@ namespace WeChat.Model
         public string Iphone { get; set; }
 
         /// <summary>
-        /// 用户ID
+        /// 用户名
         /// </summary>
-        public string UserID { get; set; }
+        public string UserName { get; set; }
 
         /// <summary>
         /// 订单状态
