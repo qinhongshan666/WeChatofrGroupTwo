@@ -14,6 +14,11 @@ namespace WeChat.Respository
 {
     public class BusRespository : IBusRespository
     {
+        /// <summary>
+        /// 添加购票订单信息
+        /// </summary>
+        /// <param name="busTicketInfo"></param>
+        /// <returns></returns>
         public int AddBus(BusTicketInfo  busTicketInfo)
         {
             string connStr = "Data Source=169.254.240.201;Database=wechat;User ID=root;Pwd=10086";
@@ -24,6 +29,11 @@ namespace WeChat.Respository
             }
         }
 
+        /// <summary>
+        /// 根据ID获取所有的汽车票的信息
+        /// </summary>
+        /// <param name="id"></param>
+        /// <returns></returns>
         public BusIndent GetBus(int id)
         {
             string connStr = "Data Source=169.254.240.201;Database=wechat;User ID=root;Pwd=10086";
@@ -36,6 +46,10 @@ namespace WeChat.Respository
             }
         }
 
+        /// <summary>
+        /// 显示车票信息
+        /// </summary>
+        /// <returns></returns>
         public List<BusIndent> ShowBus()
            {
             string connStr = "Data Source=169.254.240.201;Database=wechat;User ID=root;Pwd=10086";

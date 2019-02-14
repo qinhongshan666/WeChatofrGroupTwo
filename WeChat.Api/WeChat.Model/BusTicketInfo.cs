@@ -48,7 +48,9 @@ namespace WeChat.Model
         /// </summary>
         public decimal BusPrice { get; set; }
 
-
+        /// <summary>
+        /// 购票状态
+        /// </summary>
         public string OrderState { get; set; }
     }
 }
