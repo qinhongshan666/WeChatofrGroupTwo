@@ -20,9 +20,9 @@ namespace WeChat.Api.Controllers
         /// <param name="m"></param>
         /// <returns></returns>
         [HttpPost]
-        public int TrainOrderInfo(TrainTicketOrders m)
+        public int TrainOrderInfo(TrainTicketOrders train)
         {
-            int i = Traininfo.TrainOrderInfo(m);
+            int i = Traininfo.TrainOrderInfo(train);
             return i;
         }
 

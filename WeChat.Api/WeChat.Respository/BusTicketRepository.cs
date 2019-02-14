@@ -20,21 +20,26 @@ namespace WeChat.Respository
         /// 获取 已经实现的汽车票订单
         /// </summary>
         /// <returns></returns>
-        public List<BusIndent> BusIndents()
+        public List<BusTicketInfo> BusIndents()
         {
             using (IDbConnection con = new MySqlConnection(connStr))
             {
-                string str = "select * from busindent where OrderState = 1";
-                var BusIndents = con.Query<BusIndent>(str).ToList();
+                string str = "select * from BusTicketInfo where OrderState = 0";
+                var BusIndents = con.Query<BusTicketInfo>(str).ToList();
                 return BusIndents;
             }
         }
 
+        /// <summary>
+        /// 删除
+        /// </summary>
+        /// <param name="id"></param>
+        /// <returns></returns>
         public int Delete(int id)
         {
             using (IDbConnection con = new MySqlConnection(connStr))
             {
-                string str = "delete from BusIndent where Id = " + id;
+                string str = "delete from BusIndent where Id = "+id;
                 var i = con.Execute(str);
                 return i;
             }
@@ -44,12 +49,12 @@ namespace WeChat.Respository
         /// 获取退款票信息
         /// </summary>
         /// <returns></returns>
-        public List<BusIndent> GetBusIndents()
+        public List<BusTicketInfo>  GetBusIndents()
         {
             using (IDbConnection con = new MySqlConnection(connStr))
             {
-                string str = "select * from busindent where OrderState = 3";
-                var GetBusIndents = con.Query<BusIndent>(str).ToList();
+                string str = "select * from BusTicketInfo where OrderState = 2";
+                var GetBusIndents = con.Query<BusTicketInfo>(str).ToList();
                 return GetBusIndents;
             }
         }
@@ -58,12 +63,12 @@ namespace WeChat.Respository
         /// 获取订单状态为待付款的订单信息
         /// </summary>
         /// <returns></returns>
-        public List<BusIndent> GetBusIndentsByState()
+        public List<BusTicketInfo> GetBusIndentsByState()
         {
             using (IDbConnection con = new MySqlConnection(connStr))
             {
-                string str = "select * from busindent where OrderState = 2";
-                var GetBusIndentsByState = con.Query<BusIndent>(str).ToList();
+                string str = "select * from BusTicketInfo where OrderState = 1";
+                var GetBusIndentsByState = con.Query<BusTicketInfo>(str).ToList();
                 return GetBusIndentsByState;
             }
         }

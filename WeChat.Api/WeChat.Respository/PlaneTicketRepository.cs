@@ -14,6 +14,17 @@ namespace WeChat.Respository
     {
         private string connStr = "Data Source=169.254.240.201;Database=wechat;User ID=root;Pwd=10086";
 
+        public int DeleteById(int id)
+        {
+            using (IDbConnection con = new MySqlConnection(connStr))
+            {
+                string str = "delete from planeorder where ID = " + id;
+                var i = con.Execute(str);
+                return i;
+
+            }
+        }
+
         /// <summary>
         /// 未付款
         /// </summary>
@@ -33,7 +44,7 @@ namespace WeChat.Respository
         /// 待付款
         /// </summary>
         /// <returns></returns>
-        public List<PlaneOrder> Obligation()
+        public List<PlaneOrder> Obligation() 
         {
             using (IDbConnection con = new MySqlConnection(connStr))
             {

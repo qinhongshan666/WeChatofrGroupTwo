@@ -11,6 +11,8 @@ namespace WeChat.IRespository
     {
         List<BusIndent> ShowBus();
 
+        BusIndent GetBus(int id);
 
+        int AddBus(BusTicketInfo busTicketInfo);
     }
 }

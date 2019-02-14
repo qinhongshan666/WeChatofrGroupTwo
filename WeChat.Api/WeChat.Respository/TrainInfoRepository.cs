@@ -52,11 +52,11 @@ namespace WeChat.Respository
         /// </summary>
         /// <param name="m"></param>
         /// <returns></returns>
-        public int TrainOrderInfo(TrainTicketOrders m)
+        public int TrainOrderInfo(TrainTicketOrders  train)
         {
             using (IDbConnection conn = new MySqlConnection(connStr))
             {
-                string sql = string.Format("insert into TrainTicketOrders values(ID,'{0}','{1}','{2}','{3}','{4}','{5}','{6}','{7}','{8}','{9}','{10}')", m.TrainNumber, m.BeginTime, m.BeginSite, m.ArriveTime, m.ArriveSite, m.SeatGrade, m.Price, m.SumMoney, m.Iphone, m.UserID, m.OrdersState);
+                string sql = string.Format("insert into TrainTicketOrders values(ID,'{0}','{1}','{2}','{3}','{4}','{5}','{6}','{7}','{8}','{9}','{10}')", train.TrainNumber, train.BeginTime, train.BeginSite, train.ArriveTime, train.ArriveSite, train.SeatGrade, train.Price, train.SumMoney, train.Iphone, train.UserName, train.OrdersState);
                 int result = conn.Execute(sql);
                 return result;
             }

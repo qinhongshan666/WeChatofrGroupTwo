@@ -15,5 +15,7 @@ namespace WeChat.IRespository
         List<PlaneOrder> Obligation();
 
         List<PlaneOrder> NonPayment();
+
+        int DeleteById(int id);
     }
 }

@@ -19,10 +19,6 @@
 
         public IPlaneTicketRepository PlaneTicketRepository { get; set; }
 
-        /// <summary>
-        /// 获取订单状态为已付款的汽车票订 单
-        /// </summary>
-        /// <returns></returns>
         public ITrainTicketRepository TrainTicketRepository { get; set; }
 
         /// <summary>
@@ -31,7 +27,7 @@
         /// <returns>已付款returns>
         [HttpGet]
         [ActionName("busIndents")]
-        public List<BusIndent> BusIndents()
+        public List<BusTicketInfo> BusIndents()
         {
             var busIndents = this.BusTicketRepository.BusIndents();
             return busIndents;
@@ -43,23 +39,29 @@
         /// <returns>待付款</returns>
         [HttpGet]
         [ActionName("getBusIndents")]
-        public List<BusIndent> GetBusIndents()
+        public List<BusTicketInfo> GetBusIndents()
         {
             var busIndent = this.BusTicketRepository.GetBusIndentsByState();
             return busIndent;
         }
 
         /// <summary>
-        /// 退款
+        /// 汽车票退款
         /// </summary>
         /// <returns>退款中</returns>
         [HttpGet]
         [ActionName("getBusIndent")]
-        public List<BusIndent> GetBusIndent()
+        public List<BusTicketInfo> GetBusIndent()
         {
             var busIndent = this.BusTicketRepository.GetBusIndents();
             return busIndent;
         }
+
+        /// <summary>
+        /// 汽车根据Id删除
+        /// </summary>
+        /// <param name="id"></param>
+        /// <returns></returns>
         [HttpGet]
         [ActionName("DeleteById")]
         public int DeleteById(int id)
@@ -80,6 +82,20 @@
             return planeOrder;
         }
 
+        /// <summary>
+        /// 飞机票订单删除
+        /// </summary>
+        /// <param name="id"></param>
+        /// <returns></returns>
+
+            [HttpGet]
+            [ActionName("Delete")]
+        public int Delete(int id)
+        {
+            var i = this.PlaneTicketRepository.DeleteById(id);
+            return i;
+        }
+       
         /// <summary>
         /// 飞机票订单查询
         /// </summary>
@@ -105,7 +121,7 @@
         }
 
         /// <summary>
-        /// 已付款
+        /// 火车已付款
         /// </summary>
         /// <returns>状态为0</returns>
         [HttpGet]
@@ -139,5 +155,22 @@
             var trainTicketInfo = this.TrainTicketRepository.NonPayment();
             return trainTicketInfo;
         }
+
+
+        /// <summary>
+        /// 火车根据Id删除
+        /// </summary>
+        /// <param name="id"></param>
+        /// <returns></returns>
+        [HttpGet]
+        [ActionName("DeleteTrainId")]
+        public int DeleteTrainId(int id)
+        {
+            int i = this.TrainTicketRepository.Delete(id);
+            return i;
+        }
+
+
+
     }
 }
