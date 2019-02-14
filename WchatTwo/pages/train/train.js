@@ -1,72 +1,90 @@
 // pages/train/train.js
-
-var history = require('../../utils/history.js')
-
 Page({
-  data:{
+
+  /**
+   * 页面的初始数据
+   */
+  data: {
     indicatorDots: true,
     vertical: false,
     autoplay: true,
     interval: 3000,
     duration: 2000,
 
-    objectArray: [
-      {
-        id: 0,
-        name: '美国'
-      },
-      {
-        id: 1,
-        name: '中国'
-      },
-      {
-        id: 2,
-        name: '巴西'
-      },
-      {
-        id: 3,
-        name: '日本'
-      }
-    ],
-    index: 0,
-    date: '2016-09-01',
-
+    date: '2019-01-01',
+    BeginSite: ['北京西', '北京西', '海珠区'],
+    ArriveSite: ['临汾', '临汾', '海珠区'],
 
   },
-  onLoad:function(options){
-    // 页面初始化 options为页面跳转所带来的参数
+  bindDateChange: function (e) {
+    console.log('picker发送选择改变，携带值为', e.detail.value)
     this.setData({
-      trainHistories:history.train
+      date: e.detail.value
     })
   },
-  ChaXun:function(){
-    wx.navigateTo({
-      url: '../inquire/inquire',
+  bindRegionChange: function (e) {
+    console.log('picker发送选择改变，携带值为', e.detail.value)
+    this.setData({
+      BeginSite: e.detail.value
     })
   },
+  bindRegionChanges: function (e) {
+    console.log('picker发送选择改变，携带值为', e.detail.value)
+    this.setData({
+      ArriveSite: e.detail.value
+    })
+  },
+
+
+
+  /**
+   * 生命周期函数--监听页面加载
+   */
+  onLoad: function (options) {
+
+
+
+  },
+  setDateValue: function (num) {
+    return num < 10 ? "0" + num : num;
+  },
+
+
   //选择城市   跳转到城市页面
-city: function () {
-    wx.navigateTo({
-      url: '../switchcity/switchcity',
-    })
-  },
+  // city: function() {
+  //   wx.navigateTo({
+  //     url: '../switchcity/switchcity',
+  //   })
+  // },
 
-  rotate_img: function () {//旋转飞机图片
-    var animation = wx.createAnimation({
-      timingFunction: "ease",
-      duration: 400
-    })
-    this.animation = animation;
-    animation.rotateZ(this.data.rotate).step();
-
+  //明天
+  Tomorrow: function () {
+    var dd = this.data.date;
+    var d = new Date(dd);
+    d.setDate(d.getDate() + 1);
+    var year = d.getFullYear()
+    var month = d.getMonth() + 1
+    var day = d.getDate()
+    if (month < 10) {
+      month = '0' + month;
+    }
+    if (day < 10) {
+      day = '0' + day;
+    }
+    var de = year + '-' + month + '-' + day
     this.setData({
-      rotate: -1 * this.data.rotate,
-      startCity: this.data.endCity,
-      endCity: this.data.startCity,
-      animation: animation.export(),
-    })
-
+      date: de,
+    });
   },
+
+  //查询
+  cha() {
+    wx.navigateTo({
+      url: '../TrainTicketEnquiry/TrainTicketEnquiry?BeginSite=' + this.data.BeginSite[1] + "&ArriveSite=" + this.data.ArriveSite[1] + "&date=" + this.data.date,
+    })
+  }
+
+
 
 
 })

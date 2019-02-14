@@ -15,7 +15,9 @@
     "pages/inquire/inquire",
     "pages/switchcity/switchcity",
     "pages/checkPlane/checkPlane",
-    "pages/checkTrain/checkTrain"
+    "pages/checkTrain/checkTrain",
+    "pages/TrainTicketEnquiry/TrainTicketEnquiry",
+    "pages/Trainticketdetails/Trainticketdetails"
   ],
   "window": {
     "backgroundTextStyle": "light",

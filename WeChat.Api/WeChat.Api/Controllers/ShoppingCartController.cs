@@ -27,7 +27,7 @@
         /// <returns>已付款returns>
         [HttpGet]
         [ActionName("busIndents")]
-        public List<BusIndent> BusIndents()
+        public List<BusTicketInfo> BusIndents()
         {
             var busIndents = this.BusTicketRepository.BusIndents();
             return busIndents;
@@ -39,7 +39,7 @@
         /// <returns>待付款</returns>
         [HttpGet]
         [ActionName("getBusIndents")]
-        public List<BusIndent> GetBusIndents()
+        public List<BusTicketInfo> GetBusIndents()
         {
             var busIndent = this.BusTicketRepository.GetBusIndentsByState();
             return busIndent;
@@ -51,7 +51,7 @@
         /// <returns>退款中</returns>
         [HttpGet]
         [ActionName("getBusIndent")]
-        public List<BusIndent> GetBusIndent()
+        public List<BusTicketInfo> GetBusIndent()
         {
             var busIndent = this.BusTicketRepository.GetBusIndents();
             return busIndent;

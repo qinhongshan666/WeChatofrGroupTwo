@@ -10,11 +10,11 @@ namespace WeChat.IRespository
 {
     public interface IBusTicketRepository
     {
-        List<BusIndent> BusIndents();
+        List<BusTicketInfo> BusIndents();
 
-        List<BusIndent> GetBusIndents();
+        List<BusTicketInfo> GetBusIndents();
 
-        List<BusIndent> GetBusIndentsByState();
+        List<BusTicketInfo> GetBusIndentsByState();
 
         int Delete(int id);
     }
