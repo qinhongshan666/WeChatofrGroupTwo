@@ -14,18 +14,14 @@ namespace WeChat.IRespository
     public interface ITrainTicketRepository
     {
 
-            List<TrainTicketInfo> Paid();
-            /// <summary>
-            /// 查询所有票数信息
-            /// </summary>
-            /// <returns></returns>
-    
+         
+        List<TrainTicketInfo> Paid();
 
-            List<TrainTicketInfo> Obligation();
-  
-     
+        List<TrainTicketInfo> Obligation();
 
-            List<TrainTicketInfo> NonPayment();
-   
-        }
+        List<TrainTicketInfo> NonPayment();
+
+        int Delete(int id);
+
+    }
 }
