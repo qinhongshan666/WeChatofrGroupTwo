@@ -37,11 +37,11 @@ namespace WeChat.Respository
         /// </summary>
         /// <param name="id"></param>
         /// <returns></returns>
-        public TrainTicketInfo FindTrain(int ID)
+        public TrainTicketInfo FindTrain(int id)
         {
             using (IDbConnection conn = new MySqlConnection(connStr))
             {
-                string sql = "select * from TrainTicketInfo where ID=" + ID;
+                string sql = "select * from TrainTicketInfo where ID=" + id;
                 TrainTicketInfo plane = conn.Query<TrainTicketInfo>(sql).FirstOrDefault();
                 return plane;
             }

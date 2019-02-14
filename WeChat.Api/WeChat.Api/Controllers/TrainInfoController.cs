@@ -49,9 +49,10 @@ namespace WeChat.Api.Controllers
         /// <param name="id"></param>
         /// <returns></returns>
         [HttpGet]
-        public TrainTicketInfo FindTrain(int ID)
+        public TrainTicketInfo FindTrain(int id)
         {
-            return Traininfo.FindTrain(ID);
+            
+            return Traininfo.FindTrain(id);
         }
 
 

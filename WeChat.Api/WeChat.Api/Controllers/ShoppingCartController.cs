@@ -61,6 +61,12 @@
             return busIndent;
         }
 
+        public int DeleteById(int id)
+        {
+            int i = this.BusTicketRepository.Delete(id);
+            return i;
+        }
+
         /// <summary>
         /// 飞机票订单查询
         /// </summary>
