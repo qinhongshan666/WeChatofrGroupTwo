@@ -44,7 +44,7 @@ namespace WeChat.Respository
         /// 待付款
         /// </summary>
         /// <returns></returns>
-        public List<PlaneOrder> Obligation()
+        public List<PlaneOrder> Obligation() 
         {
             using (IDbConnection con = new MySqlConnection(connStr))
             {
