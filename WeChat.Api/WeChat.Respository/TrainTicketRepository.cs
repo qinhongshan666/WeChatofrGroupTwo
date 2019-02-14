@@ -62,20 +62,7 @@ namespace WeChat.Respository
             }
         }
 
-        public List<TrainTicketInfo> Paid()
-        {
-            throw new System.NotImplementedException();
-        }
-
-        public List<TrainTicketInfo> Obligation()
-        {
-            throw new System.NotImplementedException();
-        }
-
-        public List<TrainTicketInfo> NonPayment()
-        {
-            throw new System.NotImplementedException();
-        }
+      
     }
 
 }

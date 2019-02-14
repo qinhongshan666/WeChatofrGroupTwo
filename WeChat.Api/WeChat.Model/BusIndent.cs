@@ -67,5 +67,8 @@ namespace WeChat.Model
         public string OrderState { get; set; }
 
 
+        public int Count { get; set; }
+
+
     }
 }

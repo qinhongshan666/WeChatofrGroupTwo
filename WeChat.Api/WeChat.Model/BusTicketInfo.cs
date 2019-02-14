@@ -47,5 +47,8 @@ namespace WeChat.Model
         /// 单价
         /// </summary>
         public decimal BusPrice { get; set; }
+
+
+        public string OrderState { get; set; }
     }
 }

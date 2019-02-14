@@ -27,6 +27,7 @@ namespace WeChat.Api.Controllers
 
         //添加汽车票的订单
         [HttpPost]
+        [ActionName("addbuss")]
         public int AddBus(BusTicketInfo busTicketInfo)
         {
             int i= ibusrespostitory.AddBus(busTicketInfo);
@@ -37,7 +38,7 @@ namespace WeChat.Api.Controllers
         [HttpGet]
         public BusIndent GetBus(int id)
         {
-            BusIndent busIndent= ibusrespostitory.GetBus(id);
+            var busIndent= ibusrespostitory.GetBus(id);
             return busIndent;
         }
     }

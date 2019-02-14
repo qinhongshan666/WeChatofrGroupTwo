@@ -19,7 +19,7 @@ namespace WeChat.Respository
             string connStr = "Data Source=169.254.240.201;Database=wechat;User ID=root;Pwd=10086";
             using (IDbConnection con = new MySqlConnection(connStr))
             {
-                string str=string.Format("insert into BusTicketInfo values('{0}', '{1}', '{2}', '{3}', '{4}', '{5}', '{6}')", busTicketInfo.StartTime, busTicketInfo.EndTime, busTicketInfo.StartingStation, busTicketInfo.DestinationStation, busTicketInfo.BusPrice, busTicketInfo.Count, busTicketInfo.StartDate);
+                string str=string.Format("insert into BusTicketInfo values(null,'{0}', '{1}', '{2}', '{3}', '{4}', '{5}', '{6}','{7}')",busTicketInfo.StartDate,busTicketInfo.StartTime, busTicketInfo.EndTime, busTicketInfo.StartingStation, busTicketInfo.DestinationStation, busTicketInfo.BusPrice, busTicketInfo.Count,busTicketInfo.OrderState);
                 return con.Execute(str);
             }
         }
@@ -30,7 +30,7 @@ namespace WeChat.Respository
             using (IDbConnection con = new MySqlConnection(connStr))
             {
                 string sql = "select * from Busindent where ID=" + id;
-                BusIndent busIndent = con.Query<BusIndent>(sql).FirstOrDefault();
+                var busIndent = con.Query<BusIndent>(sql).FirstOrDefault();
 
                 return busIndent;
             }
