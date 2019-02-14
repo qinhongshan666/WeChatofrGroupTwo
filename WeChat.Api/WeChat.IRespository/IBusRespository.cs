@@ -16,7 +16,7 @@ namespace WeChat.IRespository
         List<BusIndent> ShowBus();
 
         /// <summary>
-        /// 根据ID获取所有的汽车票的信息
+        /// 根据ID获取所有的汽车票的信息 
         /// </summary>
         /// <param name="id"></param>
         /// <returns></returns>
