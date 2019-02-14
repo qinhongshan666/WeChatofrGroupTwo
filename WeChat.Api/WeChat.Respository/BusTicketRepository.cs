@@ -25,8 +25,8 @@ namespace WeChat.Respository
             using (IDbConnection con = new MySqlConnection(connStr))
             {
                 string str = "select * from BusTicketInfo where OrderState = 0";
-                var BusIndents = con.Query<BusTicketInfo>(str).ToList();
-                return BusIndents;
+                var busIndents = con.Query<BusTicketInfo>(str).ToList();
+                return busIndents;
             }
         }
 
