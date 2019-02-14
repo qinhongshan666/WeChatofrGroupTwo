@@ -16,9 +16,6 @@ background-color: #eee;
 }
 .navbar .item{ 
  position: relative; 
-}
-.navbar .item{ 
- position: relative; 
  flex: auto; 
  text-align: center; 
  line-height: 80rpx; 
