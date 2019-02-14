@@ -3,6 +3,7 @@ using MySql.Data.MySqlClient;
 using System.Collections.Generic;
 using System.Data;
 using System.Linq;
+using WeChat.Common;
 using WeChat.IRespository;
 using WeChat.Model;
 
@@ -10,7 +11,7 @@ namespace WeChat.Respository
 {
     public class PlaneTicketRepository : IPlaneTicketRepository
     {
-        private string connStr = "Data Source=169.254.240.201;Database=wechat;User ID=root;Pwd=10086";
+        private string connStr = ConfigHelper.GetConfigValue("sqlConnectionString");
 
         /// <summary>
         ///
