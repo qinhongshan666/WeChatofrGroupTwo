@@ -1,15 +1,10 @@
 ﻿using Dapper;
 using MySql.Data.MySqlClient;
-using System;
 using System.Collections.Generic;
 using System.Data;
 using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 using WeChat.IRespository;
 using WeChat.Model;
-
-using System.Linq;
 
 namespace WeChat.Respository
 {
@@ -21,7 +16,7 @@ namespace WeChat.Respository
         {
             using (IDbConnection con = new MySqlConnection(connStr))
             {
-                string str = "delete from  trainticketinfo  where ID ="+id;
+                string str = "delete from  TrainTicketInfo   where ID =" + id;
                 var i = con.Execute(str);
                 return i;
             }
