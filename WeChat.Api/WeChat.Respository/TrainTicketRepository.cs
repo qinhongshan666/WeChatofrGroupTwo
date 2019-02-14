@@ -22,7 +22,6 @@ namespace WeChat.Respository
             }
         }
 
-
         /// <summary>
         /// 退款
         /// 获取所有火车票信息
@@ -38,7 +37,6 @@ namespace WeChat.Respository
                 return lists;
             }
         }
-
 
         /// <summary>
         /// 待支付
@@ -56,7 +54,6 @@ namespace WeChat.Respository
             }
         }
 
-
         /// <summary>
         /// 添加订单信息
         /// </summary>
@@ -71,9 +68,5 @@ namespace WeChat.Respository
                 return lists;
             }
         }
-
-      
     }
-
 }
-
