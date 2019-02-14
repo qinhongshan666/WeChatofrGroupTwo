@@ -49,7 +49,7 @@ namespace WeChat.Respository
         /// 获取退款票信息
         /// </summary>
         /// <returns></returns>
-        public List<BusTicketInfo> GetBusIndents()
+        public List<BusTicketInfo>  GetBusIndents()
         {
             using (IDbConnection con = new MySqlConnection(connStr))
             {
