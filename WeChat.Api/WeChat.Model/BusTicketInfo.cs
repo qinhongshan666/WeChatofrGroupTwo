@@ -38,7 +38,7 @@
         public int Count { get; set; }
 
         /// <summary>
-        /// 单价
+        /// 单价 
         /// </summary>
         public decimal BusPrice { get; set; }
 
