@@ -12,6 +12,9 @@ Page({
     startTime: '',
     endTime: '',
     count: '',
+    name:'',
+    phone:'',
+    idnumber:'',
   },
 
   onLoad: function (options) {
@@ -36,7 +39,7 @@ Page({
           startTime: list.StartTime,
           endTime: list.EndTime,
           count: list.Count,
-
+          
         })
       }
     })
@@ -57,7 +60,9 @@ Page({
         EndTime: that.endTime,
         Count: that.count,
         OrderState:state,
-
+        Name:that.name,
+        Phone:that.phone,
+        IDnumber:that.idnumber,
       },
       success(res) {
         var i = res.data;
@@ -101,6 +106,23 @@ Page({
 
       }
     })
+  },
+  ticPhone: function (e) {
+    this.setData({
+      phone: e.detail.value,
+    })
+  },
+  ticName: function (e) {
+    this.setData({
+      name: e.detail.value,
+    })
+  },
+  ticidnumber: function (e) {
+    this.setData({
+      idnumber: e.detail.value,
+    })
   }
+
+
 
 })

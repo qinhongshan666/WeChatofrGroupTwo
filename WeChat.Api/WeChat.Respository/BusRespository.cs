@@ -22,7 +22,7 @@ namespace WeChat.Respository
         {
             using (IDbConnection con = new MySqlConnection(connection))
             {   
-                string str = string.Format("insert into BusTicketInfo values(null,'{0}', '{1}', '{2}', '{3}', '{4}', '{5}', '{6}','{7}')", busTicketInfo.StartDate, busTicketInfo.StartTime, busTicketInfo.EndTime, busTicketInfo.StartingStation, busTicketInfo.DestinationStation, busTicketInfo.BusPrice, busTicketInfo.Count, busTicketInfo.OrderState);
+                string str = string.Format("insert into BusTicketInfo values(null,'{0}', '{1}', '{2}', '{3}', '{4}', '{5}', '{6}','{7}','{8}','{9}','{10}')", busTicketInfo.StartDate, busTicketInfo.StartTime, busTicketInfo.EndTime, busTicketInfo.StartingStation, busTicketInfo.DestinationStation, busTicketInfo.BusPrice, busTicketInfo.Count, busTicketInfo.OrderState,busTicketInfo.Name,busTicketInfo.Phone,busTicketInfo.IDnumber);
                 int i = con.Execute(str);
                 return i;
             }
@@ -40,20 +40,6 @@ namespace WeChat.Respository
                 string sql = "select * from Busindent where ID=" + id;
                 var busIndent = con.Query<BusIndent>(sql).FirstOrDefault();
                 return busIndent;
-            }
-        }
-        /// <summary>
-        /// 获取未付款车票信息
-        /// </summary>
-        /// <param name="busIndent"></param>
-        /// <returns></returns>
-        public int GetBusInfo(BusIndent busIndent)
-        {
-            using (IDbConnection con = new MySqlConnection(connection))
-            {
-                string str = string.Format("insert into BusIndent values(null,'{0}', '{1}', '{2}', '{3}', '{4}', '{5}', '{6}','{7}')", busIndent.StartDate, busIndent.StartTime, busIndent.EndTime, busIndent.StartingStation, busIndent.DestinationStation, busIndent.BusPrice, busIndent.Count, busIndent.OrderState);
-                int i = con.Execute(str);
-                return i;
             }
         }
 
