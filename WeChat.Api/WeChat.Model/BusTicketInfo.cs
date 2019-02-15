@@ -42,7 +42,7 @@
         /// </summary>
         public decimal BusPrice { get; set; }
 
-        /// <summary>
+        /// <summary> 
         /// 购票状态
         /// </summary>
         public string OrderState { get; set; }
