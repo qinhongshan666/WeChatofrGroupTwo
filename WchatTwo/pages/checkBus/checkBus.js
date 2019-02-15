@@ -1,12 +1,12 @@
 // pages/checkBus/checkBus.js
 Page({
-
-  /**
-   * 页面的初始数据
-   */
   data: {
     navbar: ["已完成", "待付款", "退款中"],
-    currentTab:0
+    currentTab:0,
+
+
+
+
   },
 
   navbarTap: function (e) {
@@ -91,6 +91,11 @@ that.onLoad();
 
   },
 
+
+
+
+
+
   Gopaid: function (e) {
     var that = this;
     console.log(e);
@@ -100,6 +105,12 @@ that.onLoad();
       method: 'get',
       success: function (options) {
         if (options.data > 0) {
+
+
+
+
+
+
           that.onLoad();
         }
 
@@ -107,6 +118,13 @@ that.onLoad();
 
     })
   },
+
+
+
+
+
+
+  
   goNon: function (e) {
     var that = this;
     wx.request({
@@ -114,6 +132,17 @@ that.onLoad();
       dataType: 'json',
       method: 'get',
       success: function (options) {
+        wx.showModal({
+          title: '提示',
+          content: '确认退款吗?',
+          success: function (res) {
+            if (res.confirm) {
+              console.log('用户点击确定')
+            } else if (res.cancel) {
+              console.log('用户点击取消')
+            }
+          }
+        })
         if (options.data > 0) {
           that.onLoad();
         }
