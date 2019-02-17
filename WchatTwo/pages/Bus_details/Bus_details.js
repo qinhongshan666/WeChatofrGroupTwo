@@ -12,6 +12,7 @@ Page({
     startTime: '',
     endTime: '',
     count: '',
+    orderState:'',
   },
 
   onLoad: function (options) {
@@ -47,18 +48,20 @@ Page({
   toPay: function () {
     var that = this.data;
 
-
+    console.log(that.count),
+      console.log(that.busPrice)
     wx.request({
       url: 'http://localhost:61984/api/Bus/addbuss',
       method: 'POST',
       data: {
-        BusPric: that.busPrice,
+        BusPrice: that.busPrice,
         StartingStation: that.startingStation,
         DestinationStation: that.destinationStation,
         StartDate: that.startDate,
         StartTime: that.startTime,
         EndTime: that.endTime,
-        Count: that.count
+        Count: that.count,
+        OrderState:that.orderState,
 
       },
       success(res) {
