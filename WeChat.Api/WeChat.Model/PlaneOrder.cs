@@ -63,5 +63,10 @@
         /// 用户ID
         /// </summary>
         public string AccountName { get; set; }
+
+        /// <summary>
+        /// 飞机票ID
+        /// </summary>
+        public int PlaneID { get; set; }
     }
 }
