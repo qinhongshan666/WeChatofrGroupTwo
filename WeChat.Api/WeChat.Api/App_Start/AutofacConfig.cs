@@ -43,4 +43,4 @@ namespace WebApplicationAutofac
             container.RegisterType<TrainInfoRepository>().As<ITrainInfoRepository>();
         }
     }
-}
+}                              
