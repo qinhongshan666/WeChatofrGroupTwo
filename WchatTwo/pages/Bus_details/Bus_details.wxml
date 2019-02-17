@@ -7,8 +7,7 @@
       <text class="small">出发</text>
     </view>
     <view class="num">
-      <text>1成人</text>
-      <text>0儿童</text>
+      <text>{{count}}张成人票</text>
     </view>
   </view>
 
@@ -37,6 +36,7 @@
   <view class="tabBar">
     <text class="name">套餐总价</text>
     <text class="totalPrice">￥{{busPrice}}</text>
+    <view class="nextStep"  bindtap='toPay'>保存</view>
     <view class="nextStep"  bindtap='toPay'>付款</view>
   </view>
 </view>

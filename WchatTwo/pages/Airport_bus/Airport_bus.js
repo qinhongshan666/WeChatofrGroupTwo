@@ -68,4 +68,12 @@ Page({
       url: '../Bus_details/Bus_details?busid=' + busid,
     })
   },
+
+  bt:function()
+  {
+     wx.navigateTo({
+       url: '../ checkBus / checkBus',
+     })
+
+  }
 })
