@@ -12,6 +12,6 @@ namespace WeChat.IRespository
 
         List<BusTicketInfo> GetBusIndentsByState();
 
-        int DeleteBusById(int id);
+        int DeleteBusById(int id); 
     }
 }

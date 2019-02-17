@@ -19,7 +19,6 @@ Page({
     typeID: '',
     inventory: '',
     arriveTime: '',
-    orderState: 0,
   },
 
   /**
@@ -52,11 +51,11 @@ Page({
       }
     })
   },
-  //订单支付
+  //付款
   toPay: function () {
     var that = this.data;
     var username = app.globalData.userInfo;
-
+    var orderState = 0;
     wx.request({
       url: 'http://localhost:61984/api/Plane/AddPlaneOrder', // 仅为示例，并非真实的接口地址
       method: 'post',
@@ -72,7 +71,7 @@ Page({
         OrderTicket: that.ticket,
         OrderPhone: that.phone,
         AccountName: username.nickName,
-        OrderState: that.orderState
+        OrderState: orderState
       },
       success(res) {
         var i = res.data;
@@ -84,7 +83,37 @@ Page({
       }
     })
   },
-
+  toSave: function () {
+    var that = this.data;
+    var username = app.globalData.userInfo;
+    var orderState = 1;
+    wx.request({
+      url: 'http://localhost:61984/api/Plane/AddPlaneOrder', // 仅为示例，并非真实的接口地址
+      method: 'post',
+      data: {
+        OrderUnitPrice: that.unitPrice,
+        OrderLeaveCity: that.leaveCity,
+        OrderArriveCity: that.arriveCity,
+        OrderArriveTime: that.arriveTime,
+        OrderLeaveDate: that.leaveDate,
+        OrderLeaveTime: that.leaveTime,
+        OrderTypeID: that.typeID,
+        OrderTotalsum: that.totalsum,
+        OrderTicket: that.ticket,
+        OrderPhone: that.phone,
+        AccountName: username.nickName,
+        OrderState: orderState
+      },
+      success(res) {
+        var i = res.data;
+        if (i == 1) {
+          wx.navigateTo({
+            url: '../checkPlane/checkPlane',
+          })
+        }
+      }
+    })
+  },
 
   Plus() {
     var tic = this.data.ticket + 1;
