@@ -24,5 +24,7 @@ namespace WeChat.IRespository
         /// <param name="busTicketInfo"></param>
         /// <returns></returns>
         int AddBus(BusTicketInfo busTicketInfo);
+
+        int GetBusInfo(BusIndent busIndent);
     }
 }

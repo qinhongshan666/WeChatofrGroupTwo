@@ -7,13 +7,13 @@ using System.Linq;
 using WeChat.IRespository;
 using WeChat.Model;
 using WeChat.Common;
-
+ 
 namespace WeChat.Respository
 {
     public class BusTicketRepository : IBusTicketRepository
     {
         //private string connStr = "Data Source=169.254.240.201;Database=wechat;User ID=root;Pwd=10086";
-        private string connStr = ConfigHelper.GetConfigValue("sqlConnectionString");
+        private string connStr = ConfigHelper.GetConfigValue("sqlConnectionString"); 
 
         /// <summary>
         /// 获取 已经实现的汽车票订单

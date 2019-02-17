@@ -36,5 +36,17 @@ namespace WeChat.Api.Controllers
             var busIndent = ibusrespostitory.GetBus(id);
             return busIndent;
         }
+
+        /// <summary>
+        /// 获取未付款的车票信息
+        /// </summary>
+        /// <param name="busIndent"></param>
+        /// <returns></returns>
+        [HttpPost]
+        public int GetBusInfo(BusIndent busIndent)
+        {
+            int i = ibusrespostitory.GetBusInfo(busIndent);
+            return i;
+        }
     }
 }
