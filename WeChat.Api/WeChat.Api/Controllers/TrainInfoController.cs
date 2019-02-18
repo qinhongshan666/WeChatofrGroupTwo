@@ -38,7 +38,7 @@ namespace WeChat.Api.Controllers
             trainInfos = trainInfos.Where(m => !string.IsNullOrEmpty(BeginSite) ? m.BeginSite.Equals(BeginSite) : true).Where(m => !string.IsNullOrEmpty(ArriveSite) ? m.ArriveSite.Equals(ArriveSite) : true).Where(m => !string.IsNullOrEmpty(Times) ? m.Times.Equals(Times) : true).ToList();
             return trainInfos;
         }
-
+             
         /// <summary>
         /// 根据ID查询火车票 然后跳转到支付页面
         /// </summary>
