@@ -16,19 +16,19 @@ Page({
     ArriveSite: ['临汾', '临汾', '海珠区'],
 
   },
-  bindDateChange: function (e) {
+  bindDateChange: function(e) {
     console.log('picker发送选择改变，携带值为', e.detail.value)
     this.setData({
       date: e.detail.value
     })
   },
-  bindRegionChange: function (e) {
+  bindRegionChange: function(e) {
     console.log('picker发送选择改变，携带值为', e.detail.value)
     this.setData({
       BeginSite: e.detail.value
     })
   },
-  bindRegionChanges: function (e) {
+  bindRegionChanges: function(e) {
     console.log('picker发送选择改变，携带值为', e.detail.value)
     this.setData({
       ArriveSite: e.detail.value
@@ -40,12 +40,12 @@ Page({
   /**
    * 生命周期函数--监听页面加载
    */
-  onLoad: function (options) {
+  onLoad: function(options) {
 
 
 
   },
-  setDateValue: function (num) {
+  setDateValue: function(num) {
     return num < 10 ? "0" + num : num;
   },
 
@@ -58,7 +58,7 @@ Page({
   // },
 
   //明天
-  Tomorrow: function () {
+  Tomorrow: function() {
     var dd = this.data.date;
     var d = new Date(dd);
     d.setDate(d.getDate() + 1);
@@ -82,7 +82,21 @@ Page({
     wx.navigateTo({
       url: '../TrainTicketEnquiry/TrainTicketEnquiry?BeginSite=' + this.data.BeginSite[1] + "&ArriveSite=" + this.data.ArriveSite[1] + "&date=" + this.data.date,
     })
+  },
+  rotate() {
+    var that = this.data;
+    var chufa;
+    var daoda;
+    chufa = that.BeginSite;
+    daoda = that.ArriveSite;
+    this.setData({
+      BeginSite: daoda,
+      ArriveSite: chufa
+    })
   }
+
+
+
 
 
 

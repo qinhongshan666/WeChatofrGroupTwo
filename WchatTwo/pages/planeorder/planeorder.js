@@ -27,7 +27,6 @@ Page({
         dateDay: dateday
       },
       success(res) {
-        console.log(res.data);
         if(res.data.length==0){
           that.setData({
             nodata:'暂无数据'

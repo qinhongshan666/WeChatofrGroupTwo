@@ -8,6 +8,7 @@ Page({
    * 页面的初始数据
    */
   data: {
+    planeID:0,
     ticket: 1,
     totalsum: '',
     phone: '',
@@ -28,7 +29,6 @@ Page({
 
     var id = options.planeid;
     var that = this;
-
     wx.request({
       url: 'http://localhost:61984/api/Plane/GetPlane', // 仅为示例，并非真实的接口地址
       method: 'GET',
@@ -47,6 +47,7 @@ Page({
           leaveTime: list.LeaveTime,
           typeID: list.TypeID,
           totalsum: list.UnitPrice,
+          planeID:id
         })
       }
     })
@@ -71,7 +72,8 @@ Page({
         OrderTicket: that.ticket,
         OrderPhone: that.phone,
         AccountName: username.nickName,
-        OrderState: orderState
+        OrderState: orderState,
+        PlaneID: that.planeID
       },
       success(res) {
         var i = res.data;
@@ -102,7 +104,8 @@ Page({
         OrderTicket: that.ticket,
         OrderPhone: that.phone,
         AccountName: username.nickName,
-        OrderState: orderState
+        OrderState: orderState,
+        PlaneID: that.planeID
       },
       success(res) {
         var i = res.data;

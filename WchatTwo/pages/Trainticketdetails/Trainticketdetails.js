@@ -15,6 +15,11 @@ Page({
     BeginSite: '', //出发地
     ArriveTime: '', //到站时间
     ArriveSite: '', //终点
+
+
+
+
+    
     SeatGrade: '', //座位等级
     Price: '', //价格
     SurplusTicket: '', //余票

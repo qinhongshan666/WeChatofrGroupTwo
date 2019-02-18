@@ -21,7 +21,7 @@
     <input name="other" placeholder="请输入所预约项目" type="text"/>
   </view>
                 <view class="switch">
-                    <image class="switch-img" src="../../image/switch.png"></image>
+                    <image class="switch-img" src="../../image/switch.png" bindtap="reverse"></image>
                 </view>
                 <view class="end-city">
                     <text class="city-descript">到达城市</text>

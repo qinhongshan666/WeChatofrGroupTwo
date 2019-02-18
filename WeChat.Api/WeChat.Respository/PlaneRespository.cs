@@ -26,6 +26,22 @@ namespace WeChat.Respository
             {
                 string sql = string.Format("INSERT into planeorder VALUES(ID,'{0}','{1}','{2}','{3}','{4}','{5}','{6}','{7}','{8}','{9}','{10}','{11}')", planeOrder.OrderUnitPrice, planeOrder.OrderLeaveCity, planeOrder.OrderArriveCity, planeOrder.OrderLeaveDate, planeOrder.OrderTypeID, planeOrder.OrderTicket, planeOrder.OrderLeaveTime, planeOrder.OrderArriveTime, planeOrder.OrderPhone, planeOrder.OrderState, planeOrder.OrderTotalsum, planeOrder.AccountName);
                 int result = conn.Execute(sql);
+
+                string sqlsel = "select * from plane where ID="+planeOrder.PlaneID;
+                Plane plane = conn.Query<Plane>(sqlsel).FirstOrDefault();
+                if (planeOrder.OrderTicket<=plane.Inventory)
+                {
+                    plane.Inventory = plane.Inventory - planeOrder.OrderTicket;
+                    string sqlUpd = "update plane set Inventory=" + plane.Inventory + " where ID=" + planeOrder.PlaneID;
+                    conn.Execute(sqlUpd);
+                }
+                else
+                {
+                    result = -1;
+                }
+                
+
+                
                 return result;
             }
         }
