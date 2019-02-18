@@ -17,7 +17,10 @@
     "pages/checkPlane/checkPlane",
     "pages/checkTrain/checkTrain",
     "pages/TrainTicketEnquiry/TrainTicketEnquiry",
-    "pages/Trainticketdetails/Trainticketdetails"
+    "pages/Trainticketdetails/Trainticketdetails",
+    "pages/QuicklyGrabTickets/QuicklyGrabTickets",
+    "pages/OnlineOptions/OnlineOptions",
+    "pages/Snatch/Snatch"
   ],
   "window": {
     "backgroundTextStyle": "light",

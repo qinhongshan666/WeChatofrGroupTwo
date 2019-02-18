@@ -91,6 +91,7 @@ Page({
 
   //订单支付
   toPay: function () {
+    var zt =0;
     var that = this.data;
     var username = app.globalData.userInfo;
     console.log(that.BeginTime);
@@ -108,7 +109,7 @@ Page({
         SumMoney: that.SumMoney,
         Iphone: that.Iphone,
         UserName: username.nickName,
-        OrdersState: that.OrdersState,
+        OrdersState: zt,
       },
       success(res) {
         var i = res.data;
@@ -119,12 +120,39 @@ Page({
         }
       }
     })
+  },
 
-
-
+  ToSave: function () {
+    var zt = 1;
+    var that = this.data;
+    var username = app.globalData.userInfo;
+    console.log(that.BeginTime);
+    wx.request({
+      url: 'http://localhost:61984/api/TrainInfo/TrainOrderInfo',
+      method: 'post',
+      data: {
+        TrainNumber: that.TrainNumber,
+        BeginTime: that.BeginTime,
+        BeginSite: that.BeginSite,
+        ArriveTime: that.ArriveTime,
+        ArriveSite: that.ArriveSite,
+        SeatGrade: that.SeatGrade,
+        Price: that.SumMoney,
+        SumMoney: that.SumMoney,
+        Iphone: that.Iphone,
+        UserName: username.nickName,
+        OrdersState: zt,
+      },
+      success(res) {
+        var i = res.data;
+        if (i == 1) {
+          wx.navigateTo({
+            url: '../checkTrain/checkTrain',
+          })
+        }
+      }
+    })
   }
-
-
 
 
 

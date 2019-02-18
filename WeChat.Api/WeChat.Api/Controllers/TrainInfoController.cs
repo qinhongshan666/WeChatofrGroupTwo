@@ -31,11 +31,11 @@ namespace WeChat.Api.Controllers
         /// <param name="BeginTime">出发日期</param>
         /// <returns></returns>
         [HttpGet]
-        public List<TrainTicketInfo> GetTrainInfo(string BeginSite, string ArriveSite)
+        public List<TrainTicketInfo> GetTrainInfo(string BeginSite, string ArriveSite,string Times)
         {
             List<TrainTicketInfo> trainInfos = Traininfo.ShowTrainInfo().ToList();
 
-            trainInfos = trainInfos.Where(m => !string.IsNullOrEmpty(BeginSite) ? m.BeginSite.Equals(BeginSite) : true).Where(m => !string.IsNullOrEmpty(ArriveSite) ? m.ArriveSite.Equals(ArriveSite) : true).ToList();
+            trainInfos = trainInfos.Where(m => !string.IsNullOrEmpty(BeginSite) ? m.BeginSite.Equals(BeginSite) : true).Where(m => !string.IsNullOrEmpty(ArriveSite) ? m.ArriveSite.Equals(ArriveSite) : true).Where(m => !string.IsNullOrEmpty(Times) ? m.Times.Equals(Times) : true).ToList();
             return trainInfos;
         }
 

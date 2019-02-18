@@ -62,6 +62,7 @@
   <view class="tabBar">
     <text class="name">套餐总价</text>
     <text class="totalPrice">{{SumMoney}}</text>
+      <view class="nextStep" bindtap='ToSave'>保存</view>
     <view class="nextStep" bindtap='toPay'>订单支付</view>
   </view>
 </view>

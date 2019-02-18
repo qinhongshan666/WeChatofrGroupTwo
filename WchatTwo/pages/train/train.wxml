@@ -15,7 +15,7 @@
     </swiper-item>
   </swiper>
 </view>
- 
+
 <view class="bg">
   <view class="container" style="z-index:1000;">
     <view class="query-head">
@@ -35,13 +35,13 @@
         </view>
 
 
-<view> 
-        <image class="changeCity_bg" src="../../image/switch.png" bindtap='rotate'></image>
+        <view>
+          <image class="changeCity_bg" src="../../image/switch.png" bindtap='rotate'></image>
 
 
 
-        </view> 
- 
+        </view>
+
         <view class="end-city">
           <text class="city-descript">到达城市</text>
           <picker mode="region" bindchange="bindRegionChange" value="{{ArriveSite}}" custom-item="{{customItem}}">
@@ -54,7 +54,7 @@
 
 
 
-      <view class="query-row">
+     <!-- <view class="query-row">
         <view class="train-checked">
           <text>高铁动车</text>
           <switch type="switch" />
@@ -64,6 +64,22 @@
           <switch type="switch" />
         </view>
       </view>
+-->
+
+      <view class="query-row query-date">
+        <view>
+          <text class="city-descript" bindtap='Departuredate'>出发日期</text>
+          <picker mode="date" value="{{Times}}" end="2019-2-18" bindchange="bindDateChange">
+            <view class="picker">
+              {{Times}}
+            </view>
+          </picker>
+        </view>
+        <view>
+          <text class="day" bindtap='Tomorrow'>明天</text>
+        </view>
+      </view>
+
       <view class="query-row btn-query">
         <button type="primary" style="background-color:#5495E6" bindtap='cha'>查询</button>
       </view>
@@ -71,19 +87,19 @@
     <view class="query-box extension">
       <view class="query-row">
         <view class="extension-item">
-          <image src="../../image/extension/train-extension1.png"></image>
+          <image src="../../image/extension/train-extension1.png" bindtap='QuicklyGrabTickets'></image>
           <text>极速抢票</text>
         </view>
         <view class="extension-item">
-          <image src="../../image/extension/train-extension2.png"></image>
+          <image src="../../image/extension/train-extension2.png" bindtap='OnlineOptions'></image>
           <text>在线选座</text>
         </view>
         <view class="extension-item">
-          <image src="../../image/extension/train-extension3.png"></image>
+          <image src="../../image/extension/train-extension3.png" bindtap='Snatch'></image>
           <text>一元夺宝</text>
         </view>
         <view class="extension-item">
-          <image src="../../image/extension/train-extension4.png"></image>
+          <image src="../../image/extension/train-extension4.png" bindtap='Hotel_info'></image>
           <text>超值酒店</text>
         </view>
       </view>
