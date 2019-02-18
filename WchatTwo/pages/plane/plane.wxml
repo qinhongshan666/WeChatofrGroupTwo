@@ -13,7 +13,7 @@
     </view>
   </picker>
       </view>
-      <view class="switch">
+      <view class="switch" bindtap='reverse'>
         <image class="switch-img" src="../../image/switch.png"></image>
       </view>
       <view class="end-city">

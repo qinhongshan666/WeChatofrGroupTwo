@@ -8,6 +8,7 @@ Page({
    * 页面的初始数据
    */
   data: {
+    planeID:0,
     ticket: 1,
     totalsum: '',
     phone: '',
@@ -19,7 +20,6 @@ Page({
     typeID: '',
     inventory: '',
     arriveTime: '',
-    orderState: 0,
   },
 
   /**
@@ -29,7 +29,6 @@ Page({
 
     var id = options.planeid;
     var that = this;
-
     wx.request({
       url: 'http://localhost:61984/api/Plane/GetPlane', // 仅为示例，并非真实的接口地址
       method: 'GET',
@@ -48,15 +47,16 @@ Page({
           leaveTime: list.LeaveTime,
           typeID: list.TypeID,
           totalsum: list.UnitPrice,
+          planeID:id
         })
       }
     })
   },
-  //订单支付
+  //付款
   toPay: function () {
     var that = this.data;
     var username = app.globalData.userInfo;
-
+    var orderState = 0;
     wx.request({
       url: 'http://localhost:61984/api/Plane/AddPlaneOrder', // 仅为示例，并非真实的接口地址
       method: 'post',
@@ -72,7 +72,8 @@ Page({
         OrderTicket: that.ticket,
         OrderPhone: that.phone,
         AccountName: username.nickName,
-        OrderState: that.orderState
+        OrderState: orderState,
+        PlaneID: that.planeID
       },
       success(res) {
         var i = res.data;
@@ -84,7 +85,38 @@ Page({
       }
     })
   },
-
+  toSave: function () {
+    var that = this.data;
+    var username = app.globalData.userInfo;
+    var orderState = 1;
+    wx.request({
+      url: 'http://localhost:61984/api/Plane/AddPlaneOrder', // 仅为示例，并非真实的接口地址
+      method: 'post',
+      data: {
+        OrderUnitPrice: that.unitPrice,
+        OrderLeaveCity: that.leaveCity,
+        OrderArriveCity: that.arriveCity,
+        OrderArriveTime: that.arriveTime,
+        OrderLeaveDate: that.leaveDate,
+        OrderLeaveTime: that.leaveTime,
+        OrderTypeID: that.typeID,
+        OrderTotalsum: that.totalsum,
+        OrderTicket: that.ticket,
+        OrderPhone: that.phone,
+        AccountName: username.nickName,
+        OrderState: orderState,
+        PlaneID: that.planeID
+      },
+      success(res) {
+        var i = res.data;
+        if (i == 1) {
+          wx.navigateTo({
+            url: '../checkPlane/checkPlane',
+          })
+        }
+      }
+    })
+  },
 
   Plus() {
     var tic = this.data.ticket + 1;

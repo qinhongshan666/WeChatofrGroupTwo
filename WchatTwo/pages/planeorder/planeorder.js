@@ -10,6 +10,7 @@ Page({
     leavecity: '',
     arrivecity: '',
     dateday: '',
+    nodata:'',
   },
 
   onLoad: function (options) {
@@ -26,9 +27,17 @@ Page({
         dateDay: dateday
       },
       success(res) {
-        that.setData({
-          list: res.data,
-        })
+        if(res.data.length==0){
+          that.setData({
+            nodata:'暂无数据'
+          })
+        }
+        else{
+          that.setData({
+            list: res.data,
+          })
+        }
+        
       }
     })
     this.setData({

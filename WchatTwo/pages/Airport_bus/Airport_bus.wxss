@@ -230,4 +230,9 @@ page {
 	height:0.533rem;
 	margin-top: 0.907rem;
 }
+.but{
+  margin-top: 0.5rem;
+ width: 2rem;
+ height: 0.1px;
+}
 
