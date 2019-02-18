@@ -1,6 +1,6 @@
 <!--pages/train/train.wxml-->
 <view class="page-top">
-  <swiper indicator-dots="{{indicatorDots}}" autoplay="{{autoplay}}" interval="{{interval}}" duration="{{duration}}" indicator-dots="true" style="width:100%;height:100%;">
+  <swiper indicator-dots="{{indicatorDots}}" autoplay="{{autoplay}}" interval="{{interval}}" duration="{{duration}}" indicator-dots="true" style="width:100%;height:100%;">     
     <swiper-item>
       <image src="../../image/top/train.jpg"></image>
     </swiper-item>
