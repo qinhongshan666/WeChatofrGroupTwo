@@ -31,6 +31,21 @@
       </view>
      
 </view>
+ <view>
+    <text>取票姓名:</text>
+    <input type='number' bindinput='ticName'></input>
+  </view>
+
+ <view>
+    <text>取票身份证号:</text>
+    <input type='number' maxlength='18'  bindinput='ticPhone'></input>
+  </view>
+
+
+ <view>
+    <text>取票手机号:</text>
+    <input type='number' maxlength='11'  bindinput='ticidnumber'></input>
+  </view>
 
 
   <view class="tabBar">
