@@ -30,7 +30,7 @@ namespace WeChat.Api.Controllers
         /// <param name="ArriveSite">终止站</param>
         /// <param name="BeginTime">出发日期</param>
         /// <returns></returns>
-        [HttpGet]
+        [HttpGet]     
         public List<TrainTicketInfo> GetTrainInfo(string BeginSite, string ArriveSite,string Times)
         {
             List<TrainTicketInfo> trainInfos = Traininfo.ShowTrainInfo().ToList();
