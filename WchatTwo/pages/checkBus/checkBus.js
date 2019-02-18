@@ -90,6 +90,38 @@ that.onLoad();
     that.setData({ currentTab: e.detail.current });
 
   },
+
+  Gopaid: function (e) {
+    var that = this;
+    console.log(e);
+    wx.request({
+      url: 'http://localhost:61984/api/ShoppingCart/UpdateBusPaid?ID=' + e.target.id,
+      dataType: 'json',
+      method: 'get',
+      success: function (options) {
+        if (options.data > 0) {
+          that.onLoad();
+        }
+
+      }
+
+    })
+  },
+  goNon: function (e) {
+    var that = this;
+    wx.request({
+      url: 'http://localhost:61984/api/ShoppingCart/UpdateBusNonPaymen?ID=' + e.target.id,
+      dataType: 'json',
+      method: 'get',
+      success: function (options) {
+        if (options.data > 0) {
+          that.onLoad();
+        }
+      }
+    })
+
+  },
+
   /**
    * 点击tab切换
    */
