@@ -86,7 +86,7 @@
     <view class="productCount">
     <image class='HW' src="../../image/删除.png" bindtap='del' id="{{item.ID}}" ></image>
 
-        <view>合计：￥<text>{{item.Count}}</text></view>
+        <view>合 计：￥<text>{{item.Count}}</text></view>
     </view>
 </view>
 </view>

@@ -12,7 +12,6 @@ Page({
     startTime: '',
     endTime: '',
     count: '',
-    orderState:'',
   },
 
   onLoad: function (options) {
@@ -28,8 +27,6 @@ Page({
 
       success(res) {
         var list = res.data;
-        console.log(list.StartDate);
-        console.log(list.Count);
         that.setData({
 
           busPrice: list.BusPrice,
@@ -46,10 +43,8 @@ Page({
   },
 
   toPay: function () {
+    var state=0;
     var that = this.data;
-
-    console.log(that.count),
-      console.log(that.busPrice)
     wx.request({
       url: 'http://localhost:61984/api/Bus/addbuss',
       method: 'POST',
@@ -61,7 +56,39 @@ Page({
         StartTime: that.startTime,
         EndTime: that.endTime,
         Count: that.count,
-        OrderState:that.orderState,
+        OrderState:state,
+
+      },
+      success(res) {
+        var i = res.data;
+        if (i == 1) {
+          wx.navigateTo({
+            url: '../checkBus/checkBus',
+          })
+        }
+
+      }
+    })
+  },
+
+
+
+ toPays: function () {
+   var state = 1;
+    var that = this.data;
+      console.log(that.startDate)
+    wx.request({
+      url: 'http://localhost:61984/api/Bus/addbuss',
+      method: 'POST',
+      data: {
+        BusPrice: that.busPrice,
+        StartingStation: that.startingStation,
+        DestinationStation: that.destinationStation,
+        StartDate: that.startDate,
+        StartTime: that.startTime,
+        EndTime: that.endTime,
+        Count: that.count,
+        OrderState: state,
 
       },
       success(res) {
@@ -75,6 +102,5 @@ Page({
       }
     })
   }
-
 
 })

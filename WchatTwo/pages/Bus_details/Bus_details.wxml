@@ -35,8 +35,8 @@
 
   <view class="tabBar">
     <text class="name">套餐总价</text>
-    <text class="totalPrice">￥{{busPrice}}</text>
-    <view class="nextStep"  bindtap='toPay'>保存</view>
+    <text class="totalPrice">￥{{busPrice}}</text> 
+    <view class="nextStep"  bindtap='toPays'>保存</view>
     <view class="nextStep"  bindtap='toPay'>付款</view>
   </view>
 </view>

@@ -7,7 +7,7 @@ Page({
    * 页面的初始数据
    */
   data: {
-    date: '2019-01-01',
+    date: '',
     region: ['北京市', '北京市', '海珠区'],
     regions: ['上海市', '上海市', '海珠区'],
 
@@ -62,5 +62,20 @@ Page({
     wx.navigateTo({
       url: '../Hotel/hotel'
     })
+  },
+ 
+  reverse:function(){
+     var that=this.data;
+     var item;
+     var items;
+     item=that.region;
+     items=that.regions;
+    this.setData({
+      region:items,
+      regions:item,
+    })
+
+
   }
+  
 })
