@@ -17,6 +17,32 @@
         public ITrainTicketRepository TrainTicketRepository { get; set; }
 
         /// <summary>
+        /// 汽车修改状态至已付款
+        /// </summary>
+        /// <param name="id"></param>
+        /// <returns></returns>
+        [HttpGet]
+        [ActionName("UpdateBusPaid")]
+        public int UpdateBusPaid(int id)
+        {
+            var i = this.BusTicketRepository.UpdateBusPaid(id);
+            return i;
+        }
+
+        /// <summary>
+        /// 汽车修改状态至退款
+        /// </summary>
+        /// <param name="id"></param>
+        /// <returns></returns>
+        [HttpGet]
+        [ActionName("UpdateBusNonPaymen")]
+        public int UpdateBusNonPaymen(int id)
+        {
+            var i = this.BusTicketRepository.UpdateBusNonPaymen(id);
+            return i;
+        }
+
+        /// <summary>
         /// 获取订单状态为已付款的汽车票订 单
         /// </summary>
         /// <returns>已付款returns>

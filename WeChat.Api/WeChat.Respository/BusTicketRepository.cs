@@ -71,5 +71,25 @@ namespace WeChat.Respository
                 return GetBusIndentsByState;
             }
         }
+
+        public int UpdateBusNonPaymen(int id)
+        {
+            using (IDbConnection con = new MySqlConnection(connStr))
+            {
+                string str = "Update  BusTicketInfo  set OrderState=2 where id = "+id;
+                var i = con.Execute(str);
+                return i;
+            }
+        }
+
+        public int UpdateBusPaid(int id)
+        {
+            using (IDbConnection con = new MySqlConnection(connStr))
+            {
+                string str = "Update  BusTicketInfo  set OrderState=0 where id = " + id;
+                var i = con.Execute(str);
+                return i;
+            }
+        }
     }
 }
