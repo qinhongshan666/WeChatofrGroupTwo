@@ -1,4 +1,4 @@
-// pages/plane/plane.js
+// pages/plane/plane.js                                  fsdfdsfsddsfsdffdsfsdfsdfdsdfsgfgvcvcdfsdfhsfgsersdfgsdfgsdfgsdfgsdfg446fd4fsddfasdadffadfasdfsdfdfdfasdfasdfadsfdfdf
 var util=require('../../utils/util.js');
 Page({
 
@@ -9,8 +9,8 @@ Page({
     
     //region: ['北京市', '北京市','全部'],
     //regions: ['北京市', '北京市','全部'],
-    region: ['', '', ''],
-    regions: ['', '', ''],
+    region: ['', '北京市', ''],
+    regions: ['', '上海市', ''],
 
 
     date: '',
@@ -34,10 +34,13 @@ Page({
    * 生命周期函数--监听页面加载
    */
   onLoad: function (options) {
-    //var time = util.formatDate(new Date());
-    //this.setData({
-      //date:time,
-    //});
+    var time = util.formatDate(new Date());
+    this.setData({
+      date:time,
+    });
+
+  },
+  onShow:function(){
 
   },
   
@@ -66,5 +69,16 @@ Page({
     wx.navigateTo({
       url: '../planeorder/planeorder?region=' + this.data.region[1] + "&regions=" + this.data.regions[1]+"&date="+this.data.date,
     })
+  },
+  reverse(){
+    var that=this.data;
+    var item;
+    var items;
+    item = that.region;
+    items = that.regions;
+    this.setData({
+      region:items,
+      regions:item
+      })
   }
 })
