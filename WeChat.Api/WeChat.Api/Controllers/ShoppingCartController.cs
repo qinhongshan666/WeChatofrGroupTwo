@@ -73,7 +73,7 @@
         [ActionName("GetPaid")]
         public List<PlaneOrder> GetPaid()
         {
-            var planeOrder = this.PlaneTicketRepository.Paid();
+            var planeOrder = this.PlaneTicketRepository.GetPaid();
             return planeOrder;
         }
 
@@ -82,12 +82,37 @@
         /// </summary>
         /// <param name="id"></param>
         /// <returns></returns>
-
         [HttpGet]
         [ActionName("Delete")]
         public int DeletePlaneById(int id)
         {
             var i = this.PlaneTicketRepository.DeletePlaneById(id);
+            return i;
+        }
+
+        /// <summary>
+        /// 修改状态至已付款
+        /// </summary>
+        /// <param name="id"></param>
+        /// <returns></returns>
+        [HttpGet]
+        [ActionName("UpdateOrderState")]
+        public int UpdateOrderState(int id)
+        {
+            var i = this.PlaneTicketRepository.UpdatePlaneById(id);
+            return i;
+        }
+
+        /// <summary>
+        /// 修改状态至退款
+        /// </summary>
+        /// <param name="id"></param>
+        /// <returns></returns>
+        [HttpGet]
+        [ActionName("UpdateOrderStateId")]
+        public int UpdateOrderStateId_2(int id)
+        {
+            var i = this.PlaneTicketRepository.UpdateNonPaymentById(id);
             return i;
         }
 
@@ -99,19 +124,19 @@
         [ActionName("GetObligation")]
         public List<PlaneOrder> GetObligation()
         {
-            var planeOrder = this.PlaneTicketRepository.Obligation();
+            var planeOrder = this.PlaneTicketRepository.GetObligation();
             return planeOrder;
         }
 
         /// <summary>
         /// 飞机票订单查询
         /// </summary>
-        /// <returns>未付款</returns>
+        /// <returns>退款</returns>
         [HttpGet]
         [ActionName("GetNonPayment")]
         public List<PlaneOrder> GetNonPayment()
         {
-            var planeOrder = this.PlaneTicketRepository.NonPayment();
+            var planeOrder = this.PlaneTicketRepository.GetNonPayment();
             return planeOrder;
         }
 
@@ -123,31 +148,31 @@
         [ActionName("GetPaidTrain")]
         public List<TrainTicketOrders> GetPaidTrain()
         {
-            var trainTicketInfo = this.TrainTicketRepository.Paid();
+            var trainTicketInfo = this.TrainTicketRepository.GetPaid();
             return trainTicketInfo;
         }
 
         /// <summary>
-        /// 待付款
+        /// 火车票待付款
         /// </summary>
         /// <returns>返回状态为1</returns>
         [HttpGet]
         [ActionName("GetObligationTrain")]
         public List<TrainTicketOrders> GetObligationTrain()
         {
-            var trainTicketInfo = this.TrainTicketRepository.Obligation();
+            var trainTicketInfo = this.TrainTicketRepository.GetObligation();
             return trainTicketInfo;
         }
 
         /// <summary>
-        /// 退款
+        /// 火车票退款
         /// </summary>
         /// <returns>返回状态 为2</returns>
         [HttpGet]
         [ActionName("GetNonPaymentTrain")]
         public List<TrainTicketOrders> GetNonPaymentTrain()
         {
-            var trainTicketInfo = this.TrainTicketRepository.NonPayment();
+            var trainTicketInfo = this.TrainTicketRepository.GetNonPayment();
             return trainTicketInfo;
         }
 
@@ -163,5 +188,32 @@
             int i = this.TrainTicketRepository.Delete(id);
             return i;
         }
+
+        /// <summary>
+        /// 火车票修改状态到退款
+        /// </summary>
+        /// <param name="id"></param>
+        /// <returns></returns>
+        [HttpGet]
+        [ActionName("UpdateTrainId")]
+        public int UpdateTrainId(int id)
+        {
+            int i = this.TrainTicketRepository.UpdateNonPaymentById(id);
+            return i;
+        }
+
+        /// <summary>
+        /// 火车票修改状态至已支付
+        /// </summary>
+        /// <param name="id"></param>
+        /// <returns></returns>
+        [HttpGet]
+        [ActionName("UpdatePaidById")]
+        public int UpdateId(int id)
+        {
+            int i = this.TrainTicketRepository.UpdatePaidById(id);
+            return i;
+        }
+
     }
 }

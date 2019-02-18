@@ -37,6 +37,7 @@
     <view class="productCount">
      <image class='HW' src="../../image/删除.png" bindtap='del' id="{{item.ID}}" ></image>
         <view>合计：￥<text>{{item.Count}}元</text></view>
+                <button bindtap='goNon' id='{{item.ID}}'>退款</button>
     </view>
 </view>
 </view>
@@ -60,7 +61,8 @@
 <text>购票数量:{{item.BusPrice}}张</text>
     <view class="productCount">
      <image class='HW' src="../../image/删除.png" bindtap='del' id="{{item.ID}}" ></image>
-        <view>合计：￥<text>{{item.Count}}</text></view>
+        <view>合计：￥<text>{{item.Count}}元</text></view>
+        <text bindtap='Gopaid' id='{{item.ID}}'>付款</text>
     </view>
 </view>
 </view>
