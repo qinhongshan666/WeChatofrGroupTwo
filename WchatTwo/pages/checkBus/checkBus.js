@@ -32,7 +32,7 @@ Page({
       method: 'get',
       async: false,
       success: function (options) {
-        console.log(options.data);
+       // console.log(options.data);
         that.setData({
           infos: options.data,
         })
@@ -45,7 +45,7 @@ Page({
           method: 'get',
           async: false,
           success: function (options) {
-            console.log(options.data);
+            //console.log(options.data);
             that.setData({
               NoPays: options.data,
             })
@@ -58,7 +58,6 @@ Page({
       method: 'get',
       async: false,
       success: function (options) {
-        console.log(options.data);
         that.setData({
           back: options.data,
         })
