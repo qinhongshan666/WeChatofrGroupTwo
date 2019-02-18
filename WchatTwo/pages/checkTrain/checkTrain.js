@@ -6,7 +6,7 @@ Page({
    */
   data: {
 
-    navbar: ["已完成", "代付款", "退款中"],
+    navbar: ["已完成", "待付款", "退款中"],
     currentTab: 0,
   },
 
@@ -70,12 +70,44 @@ Page({
       method: 'get',
       success: function (options) {
         if (options.data > 0) {
-          content: '删除成功',
             that.onLoad();
         }
       }
     })
   },
+  goNon:function(e){
+var that=this;
+wx.request({
+  url: 'http://localhost:61984/api/ShoppingCart/UpdateTrainId?ID=' + e.target.id,
+  dataType: 'json',
+  method: 'get',
+  success: function (options) {
+    if (options.data > 0) {
+      that.onLoad();
+    }
+  }
+})
+
+  },
+
+
+  Gopaid: function (e) {
+    var that = this;
+    console.log(e);
+    wx.request({
+      url: 'http://localhost:61984/api/ShoppingCart/UpdatePaidById?ID=' + e.target.id,
+      dataType: 'json',
+      method: 'get',
+      success: function (options) {
+        if (options.data > 0) {
+          that.onLoad();
+        }
+
+      }
+
+    })
+  },
+
   bindChange: function (e) {
 
     var that = this;
