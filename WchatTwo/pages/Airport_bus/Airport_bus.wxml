@@ -23,6 +23,7 @@
                         </view>
                         <view class="flight_info_b">
                              <text>{{item.StartingStation}}</text>
+                             <text>--------------------</text>
                               <view class="timeLine"></view>
 
                              <text>{{item.DestinationStation}}</text>
