@@ -67,22 +67,29 @@ Page({
   },
   del:function(e){
    var that=this;
-    console.log(e);
-wx.request({
-  url: 'http://localhost:61984/api/ShoppingCart/DeleteById?ID='+e.target.id,
-  dataType: 'json',
-  method: 'get',
-  success: function (options){
-console.log(options);
-if(options.data>0)
-{
-  content: '删除成功',
-that.onLoad();
-}
+    wx.showModal({
+      title: '提示',
+      content: '确认删除吗?',
+      success: function (res) {
+        if (res.confirm) {
+          console.log('用户点击确定')
+          wx.request({
+            url: 'http://localhost:61984/api/ShoppingCart/DeleteById?ID=' + e.target.id,
+            dataType: 'json',
+            method: 'get',
+            success: function (options) {
+              console.log(options);
+              if (options.data > 0) {
+                that.onLoad();
+              }
+            }
+          })
+        } else if (res.cancel) {
+          console.log('用户点击取消')
+        }
+      }
+    })  
 
-  }
-
-})
   },
   bindChange: function (e) {
 
@@ -98,7 +105,11 @@ that.onLoad();
 
   Gopaid: function (e) {
     var that = this;
-    console.log(e);
+    wx.showToast({
+      title: '成功',
+      icon: 'success',
+      duration: 2000
+    }) 
     wx.request({
       url: 'http://localhost:61984/api/ShoppingCart/UpdateBusPaid?ID=' + e.target.id,
       dataType: 'json',
@@ -119,35 +130,34 @@ that.onLoad();
     })
   },
 
-
-
-
-
-
-  
   goNon: function (e) {
     var that = this;
-    wx.request({
-      url: 'http://localhost:61984/api/ShoppingCart/UpdateBusNonPaymen?ID=' + e.target.id,
-      dataType: 'json',
-      method: 'get',
-      success: function (options) {
-        wx.showModal({
-          title: '提示',
-          content: '确认退款吗?',
-          success: function (res) {
-            if (res.confirm) {
-              console.log('用户点击确定')
-            } else if (res.cancel) {
-              console.log('用户点击取消')
+    wx.showModal({
+      title: '提示',
+      content: '确认退款吗?',
+      success: function (res) {
+        if (res.confirm) {
+          console.log('用户点击确定')
+          wx.request({
+            url: 'http://localhost:61984/api/ShoppingCart/UpdateBusNonPaymen?ID=' + e.target.id,
+            dataType: 'json',
+            method: 'get',
+            success: function (options) {
+              if (options.data > 0) {
+                that.onLoad();
+              }
             }
-          }
-        })
-        if (options.data > 0) {
-          that.onLoad();
+          })
+
+        } else if (res.cancel) {
+          console.log('用户点击取消')
         }
-      }
+
+
+      }      
     })
+   
+
 
   },
 
