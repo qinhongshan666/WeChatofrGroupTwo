@@ -1,5 +1,8 @@
 ﻿using System.Web.Mvc;
 
+using WeChat.Respository;
+using WeChat.Model;
+
 namespace WeChat.Api.Controllers
 {
     public class HomeController : Controller

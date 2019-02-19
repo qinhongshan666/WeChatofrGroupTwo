@@ -41,6 +41,10 @@
       <SpecificVersion>False</SpecificVersion>
       <HintPath>..\..\dll\MySql.Data.dll</HintPath>
     </Reference>
+    <Reference Include="Newtonsoft.Json, Version=6.0.0.0, Culture=neutral, PublicKeyToken=30ad4fe6b2a6aeed, processorArchitecture=MSIL">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>..\..\dll\Dlls\net45\Newtonsoft.Json.dll</HintPath>
+    </Reference>
     <Reference Include="System" />
     <Reference Include="System.ComponentModel" />
     <Reference Include="System.ComponentModel.DataAnnotations" />
@@ -61,6 +65,7 @@
   <ItemGroup>
     <Compile Include="BusRespository.cs" />
     <Compile Include="BusTicketRepository.cs" />
+    <Compile Include="GetRepository.cs" />
     <Compile Include="PlaneRespository.cs" />
     <Compile Include="PlaneTicketRepository.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
@@ -71,6 +76,10 @@
     <None Include="packages.config" />
   </ItemGroup>
   <ItemGroup>
+    <ProjectReference Include="..\WeChat.Cache\WeChat.Cache.csproj">
+      <Project>{cfed1aef-a1f1-4d7e-b4b8-b12adcff2b05}</Project>
+      <Name>WeChat.Cache</Name>
+    </ProjectReference>
     <ProjectReference Include="..\WeChat.Common\WeChat.Common.csproj">
       <Project>{4a6a86c3-7dcd-41e5-8dc1-86c60de05358}</Project>
       <Name>WeChat.Common</Name>

@@ -8,8 +8,29 @@ App({
 
     // 登录
     wx.login({
-      success: res => {
-        // 发送 res.code 到后台换取 openId, sessionKey, unionId
+      success: function(res)
+      {
+        console.log(res.code)
+        if(res.code)
+        {
+          wx.request({
+            url: 'http://localhost:61984/api/Bus/userlogin',
+           // method:"GET",
+            data:{code:res.code},
+            success:function(res)
+            {
+              var set = wx.setStorage({
+                key: 'token',
+                data: res.data.Session_key,
+                success: function (res) {
+                  console.log(res.data.Session_key)
+                },
+                fail: function (res) { },
+                complete: function (res) { },
+              });
+            }
+          })
+        }
       }
     })
     // 获取用户信息
