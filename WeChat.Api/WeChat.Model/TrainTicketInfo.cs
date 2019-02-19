@@ -11,6 +11,11 @@
         public int ID { get; set; }
 
         /// <summary>
+        /// 出发日期
+        /// </summary>
+        public string Times { get; set; }
+
+        /// <summary>
         /// 车次
         /// </summary>
         public string TrainNumber { get; set; }

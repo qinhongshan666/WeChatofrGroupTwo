@@ -21,9 +21,10 @@ namespace WeChat.Respository
         public int AddBus(BusTicketInfo busTicketInfo)
         {
             using (IDbConnection con = new MySqlConnection(connection))
-            {
-                string str = string.Format("insert into BusTicketInfo values(null,'{0}', '{1}', '{2}', '{3}', '{4}', '{5}', '{6}','{7}')", busTicketInfo.StartDate, busTicketInfo.StartTime, busTicketInfo.EndTime, busTicketInfo.StartingStation, busTicketInfo.DestinationStation, busTicketInfo.BusPrice, busTicketInfo.Count, busTicketInfo.OrderState);
-                return con.Execute(str);
+            {   
+                string str = string.Format("insert into BusTicketInfo values(null,'{0}', '{1}', '{2}', '{3}', '{4}', '{5}', '{6}','{7}','{8}','{9}','{10}')", busTicketInfo.StartDate, busTicketInfo.StartTime, busTicketInfo.EndTime, busTicketInfo.StartingStation, busTicketInfo.DestinationStation, busTicketInfo.BusPrice, busTicketInfo.Count, busTicketInfo.OrderState,busTicketInfo.Name,busTicketInfo.Phone,busTicketInfo.IDnumber);
+                int i = con.Execute(str);
+                return i;
             }
         }
 
@@ -51,8 +52,11 @@ namespace WeChat.Respository
             using (IDbConnection con = new MySqlConnection(connection))
             {
                 string str = "select * from busindent";
-                return con.Query<BusIndent>(str).ToList();
+                List<BusIndent> busIndents = con.Query<BusIndent>(str).ToList();
+                return busIndents;
             }
         }
+
+
     }
 }

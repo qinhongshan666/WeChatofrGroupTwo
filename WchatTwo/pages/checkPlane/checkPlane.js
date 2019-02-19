@@ -6,7 +6,7 @@ Page({
    */
   data: {
 
-    navbar: ["已完成", "代付款", "退款中"],
+    navbar: ["已完成", "待付款", "退款中"],
     currentTab: 0,
   },
 
@@ -62,20 +62,44 @@ that.setData({
           })
         }
       })
-
-
-
-
   },
   del: function (e) {
     var that = this;
+    wx.showModal({
+      title: '提示',
+      content: '确认删除吗?',
+      success: function (res) {
+        if (res.confirm) {
+          console.log('用户点击确定')
+          wx.request({
+            url: 'http://localhost:61984/api/ShoppingCart/Delete?ID=' + e.target.id,
+            dataType: 'json',
+            method: 'get',
+            success: function (options) {
+              if (options.data > 0) {
+                  that.onLoad();
+              }
+            }
+          })
+        } else if (res.cancel) {
+          console.log('用户点击取消')
+        }
+      }
+    })  
+  },
+  Gopaid:function(e){
+    var that=this;
+      wx.showToast({
+        title: '成功',
+        icon: 'success',
+        duration: 2000
+      }) 
     wx.request({
-      url: 'http://localhost:61984/api/ShoppingCart/Delete?ID=' + e.target.id,
+      url: 'http://localhost:61984/api/ShoppingCart/UpdateOrderState?ID=' + e.target.id,
       dataType: 'json',
       method: 'get',
       success: function (options) {
         if (options.data > 0) {
-          content: '删除成功',
             that.onLoad();
         }
 
@@ -84,16 +108,9 @@ that.setData({
     })
   },
 
-
-
-
-
-
   bindChange: function (e) {
-
     var that = this;
     that.setData({ currentTab: e.detail.current });
-
   },
   navbarTap: function (e) {
     this.setData({
@@ -115,7 +132,37 @@ that.setData({
       })
     }
   },
+  goNon: function (e) {
+    var that = this;
+    wx.showModal({
+      title: '提示',
+      content: '确认退款吗?',
+      success: function (res) {
+        if (res.confirm) {
+          console.log('用户点击确定')
+          wx.request({
+            url: 'http://localhost:61984/api/ShoppingCart/UpdateOrderStateId?ID=' + e.target.id,
+            dataType: 'json',
+            method: 'get',
+            success: function (options) {
+              if (options.data > 0) {
+                that.onLoad();
+              }
+            }
+          })
 
+        } else if (res.cancel) {
+          console.log('用户点击取消')
+        }
+      }
+    })  
+
+
+
+
+
+
+  },
 
 
 

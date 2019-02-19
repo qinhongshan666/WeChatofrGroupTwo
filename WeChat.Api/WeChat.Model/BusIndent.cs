@@ -57,6 +57,8 @@
         /// </summary>
         public string OrderState { get; set; }
 
+
+
         public int Count { get; set; }
     }
 }

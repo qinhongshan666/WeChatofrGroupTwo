@@ -7,13 +7,13 @@ using System.Linq;
 using WeChat.IRespository;
 using WeChat.Model;
 using WeChat.Common;
-
+ 
 namespace WeChat.Respository
 {
     public class BusTicketRepository : IBusTicketRepository
     {
         //private string connStr = "Data Source=169.254.240.201;Database=wechat;User ID=root;Pwd=10086";
-        private string connStr = ConfigHelper.GetConfigValue("sqlConnectionString");
+        private string connStr = ConfigHelper.GetConfigValue("sqlConnectionString"); 
 
         /// <summary>
         /// 获取 已经实现的汽车票订单
@@ -69,6 +69,26 @@ namespace WeChat.Respository
                 string str = "select * from BusTicketInfo where OrderState = 1";
                 var GetBusIndentsByState = con.Query<BusTicketInfo>(str).ToList();
                 return GetBusIndentsByState;
+            }
+        }
+
+        public int UpdateBusNonPaymen(int id)
+        {
+            using (IDbConnection con = new MySqlConnection(connStr))
+            {
+                string str = "Update  BusTicketInfo  set OrderState=2 where id = "+id;
+                var i = con.Execute(str);
+                return i;
+            }
+        }
+
+        public int UpdateBusPaid(int id)
+        {
+            using (IDbConnection con = new MySqlConnection(connStr))
+            {
+                string str = "Update  BusTicketInfo  set OrderState=0 where id = " + id;
+                var i = con.Execute(str);
+                return i;
             }
         }
     }

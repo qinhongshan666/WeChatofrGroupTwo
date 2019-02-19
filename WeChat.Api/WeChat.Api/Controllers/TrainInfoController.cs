@@ -30,15 +30,15 @@ namespace WeChat.Api.Controllers
         /// <param name="ArriveSite">终止站</param>
         /// <param name="BeginTime">出发日期</param>
         /// <returns></returns>
-        [HttpGet]
-        public List<TrainTicketInfo> GetTrainInfo(string BeginSite, string ArriveSite)
+        [HttpGet]     
+        public List<TrainTicketInfo> GetTrainInfo(string BeginSite, string ArriveSite,string Times)
         {
             List<TrainTicketInfo> trainInfos = Traininfo.ShowTrainInfo().ToList();
 
-            trainInfos = trainInfos.Where(m => !string.IsNullOrEmpty(BeginSite) ? m.BeginSite.Equals(BeginSite) : true).Where(m => !string.IsNullOrEmpty(ArriveSite) ? m.ArriveSite.Equals(ArriveSite) : true).ToList();
+            trainInfos = trainInfos.Where(m => !string.IsNullOrEmpty(BeginSite) ? m.BeginSite.Equals(BeginSite) : true).Where(m => !string.IsNullOrEmpty(ArriveSite) ? m.ArriveSite.Equals(ArriveSite) : true).Where(m => !string.IsNullOrEmpty(Times) ? m.Times.Equals(Times) : true).ToList();
             return trainInfos;
         }
-
+             
         /// <summary>
         /// 根据ID查询火车票 然后跳转到支付页面
         /// </summary>

@@ -11,6 +11,7 @@
       <text class="times">{{dateday}}</text>
   </view>
     <view class="wrap">
+        <text>{{nodata}}</text>
         <scroll-view scroll-y="true">
         <!--机票信息start-->
             <view class="ticketList" wx:for="{{list}}" wx:key="item.id" bindtap="go" id="{{item.ID}}">

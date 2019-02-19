@@ -41,7 +41,6 @@ namespace WeChat.Api.Controllers
             var busIndent = ibusrespostitory.GetBus(id);
             return busIndent;
         }
-
         [HttpGet]
         [ActionName("userlogin")]
         public ClientInfo logins(string code)

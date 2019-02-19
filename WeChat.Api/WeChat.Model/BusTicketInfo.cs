@@ -38,13 +38,28 @@
         public int Count { get; set; }
 
         /// <summary>
-        /// 单价
+        /// 单价 
         /// </summary>
         public decimal BusPrice { get; set; }
 
-        /// <summary>
+        /// <summary> 
         /// 购票状态
         /// </summary>
         public string OrderState { get; set; }
+
+        /// <summary>
+        /// 取票人姓名
+        /// </summary>
+        public string Name { get; set; }
+
+        /// <summary>
+        /// 取票人手机号
+        /// </summary>
+        public string Phone { get; set; }
+
+        /// <summary>
+        /// 取票人身份证号
+        /// </summary>
+        public string IDnumber { get; set; }
     }
 }

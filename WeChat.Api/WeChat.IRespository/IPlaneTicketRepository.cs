@@ -6,12 +6,43 @@ namespace WeChat.IRespository
 {
     public interface IPlaneTicketRepository
     {
-        List<PlaneOrder> Paid();
+        /// <summary>
+        /// 获取已支付订单
+        /// </summary>
+        /// <returns></returns>
+        List<PlaneOrder> GetPaid();
 
-        List<PlaneOrder> Obligation();
+        /// <summary>
+        /// 获取待支付订单
+        /// </summary>
+        /// <returns></returns>
+        List<PlaneOrder> GetObligation();
 
-        List<PlaneOrder> NonPayment();
+        /// <summary>
+        /// 获取未支付订单
+        /// </summary>
+        /// <returns></returns>
+        List<PlaneOrder> GetNonPayment();
 
+        /// <summary>
+        /// 删除订单
+        /// </summary>
+        /// <param name="id"></param>
+        /// <returns></returns>
         int DeletePlaneById(int id);
+
+        /// <summary>
+        /// 修改订单至已付款
+        /// </summary>
+        /// <param name="id"></param>
+        /// <returns></returns>
+        int UpdatePlaneById(int id);
+
+        /// <summary>
+        /// 修改状态至退款
+        /// </summary>
+        /// <param name="id"></param>
+        /// <returns></returns>
+        int UpdateNonPaymentById(int id);
     }
 }

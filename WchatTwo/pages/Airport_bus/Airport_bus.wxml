@@ -13,7 +13,6 @@
   </view>
     <view class="wrap">
         <scroll-view scroll-y="true">
-        <!--机票信息start-->
             <view class="ticketList" wx:for="{{list}}" wx:key="item.id" bindtap="go" id="{{item.ID}}">
                 <view class="ticketList_top">
                     <view class="flight_info">
@@ -24,6 +23,7 @@
                         </view>
                         <view class="flight_info_b">
                              <text>{{item.StartingStation}}</text>
+                             <text>--------------------</text>
                               <view class="timeLine"></view>
 
                              <text>{{item.DestinationStation}}</text>
@@ -38,6 +38,7 @@
                             <text>起</text>
                         </view>
                     </view>
+                     
                 </view>
                 <view class="ticketList_btm">
                 <view>

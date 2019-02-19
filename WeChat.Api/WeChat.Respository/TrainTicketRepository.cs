@@ -13,6 +13,12 @@ namespace WeChat.Respository
     {
         private string connStr = ConfigHelper.GetConfigValue("sqlConnectionString");
 
+
+        /// <summary>
+        /// 删除订单
+        /// </summary>
+        /// <param name="id"></param>
+        /// <returns></returns>
         public int Delete(int id)
         {
             using (IDbConnection con = new MySqlConnection(connStr))
@@ -25,10 +31,9 @@ namespace WeChat.Respository
 
         /// <summary>
         /// 退款
-        /// 获取所有火车票信息
         /// </summary>
         /// <returns></returns>
-        public List<TrainTicketOrders> NonPayment()
+        public List<TrainTicketOrders> GetNonPayment()
 
         {
             using (IDbConnection con = new MySqlConnection(connStr))
@@ -41,11 +46,10 @@ namespace WeChat.Respository
 
         /// <summary>
         /// 待支付
-        /// 根据ID查询火车票 然后跳转到支付页面
         /// </summary>
         /// <param name="id"></param>
         /// <returns></returns>
-        public List<TrainTicketOrders> Obligation()
+        public List<TrainTicketOrders> GetObligation()
         {
             using (IDbConnection conn = new MySqlConnection(connStr))
             {
@@ -56,17 +60,45 @@ namespace WeChat.Respository
         }
 
         /// <summary>
-        /// 添加订单信息
+        /// 已支付
         /// </summary>
         /// <param name="m"></param>
         /// <returns></returns>
-        public List<TrainTicketOrders> Paid()
+        public List<TrainTicketOrders> GetPaid()
         {
             using (IDbConnection conn = new MySqlConnection(connStr))
             {
                 string str = "select * from trainticketorders where OrdersState = 0";
                 var lists = conn.Query<TrainTicketOrders>(str).ToList();
                 return lists;
+            }
+        }
+        /// <summary>
+        /// 修改到退款
+        /// </summary>
+        /// <param name="id"></param>
+        /// <returns></returns>
+        public int UpdateNonPaymentById(int id)
+        {
+            using (IDbConnection conn = new MySqlConnection(connStr))
+            {
+                string str = "update  trainticketorders set OrdersState=2 where id = "+id;
+                int i = conn.Execute(str);
+                return i;
+            }
+        }
+        /// <summary>
+        /// 修改到已付款
+        /// </summary>
+        /// <param name="id"></param>
+        /// <returns></returns>
+        public int UpdatePaidById(int id)
+        {
+            using (IDbConnection conn = new MySqlConnection(connStr))
+            {
+                string str = "update  trainticketorders set OrdersState=0 where id = " + id;
+                int i = conn.Execute(str);
+                return i;
             }
         }
     }
