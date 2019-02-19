@@ -58,6 +58,10 @@ background-color: #eee;
     font-weight:bold;
     font-size:28rpx;  
 }
+.btn{
+  height: 50Px;
+width: 50px;
+}
 .HW{
 height: 30Px;
 width: 30px;
