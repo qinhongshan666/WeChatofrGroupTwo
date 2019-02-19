@@ -48,7 +48,9 @@
     <view class="productCount">
 <image class='HW' src="../../image/删除.png" bindtap='del' id="{{item.ID}}" ></image>
         <view>合计：￥<text>{{item.OrderTotalsum}}元</text></view>
-        <button bindtap='goNon' id='{{item.ID}}'>退款</button>
+               <view>
+        <button class='btn'  bindtap='goNon' id='{{item.ID}}'>退款</button>
+        </view>
     </view>
 </view>  
 
