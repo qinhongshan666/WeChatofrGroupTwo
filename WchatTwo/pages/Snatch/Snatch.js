@@ -1,4 +1,4 @@
-// pages/inquire.js
+// pages/Snatch/Snatch.js
 Page({
 
   /**

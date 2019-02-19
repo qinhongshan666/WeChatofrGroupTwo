@@ -1,4 +1,4 @@
-// pages/inquire.js
+// pages/QuicklyGrabTickets/QuicklyGrabTickets.js
 Page({
 
   /**

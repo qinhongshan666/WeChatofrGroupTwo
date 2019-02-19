@@ -4,11 +4,15 @@ using System.Web.Http;
 using WeChat.IRespository;
 using WeChat.Model;
 
+using WebApiTokendemo;
+using WeChat.Respository;
+
 namespace WeChat.Api.Controllers
 {
     public class BusController : ApiController
     {
         public IBusRespository ibusrespostitory { get; set; }
+        private GetRepository getRepository = new GetRepository();
 
         //显示车票的时间日期
         [HttpGet]
@@ -21,6 +25,7 @@ namespace WeChat.Api.Controllers
         }
 
         //添加汽车票的订单
+        [RequestAuthorize]
         [HttpPost]
         [ActionName("addbuss")]
         public int AddBus(BusTicketInfo busTicketInfo)
@@ -36,6 +41,12 @@ namespace WeChat.Api.Controllers
             var busIndent = ibusrespostitory.GetBus(id);
             return busIndent;
         }
-
+        [HttpGet]
+        [ActionName("userlogin")]
+        public ClientInfo logins(string code)
+        {
+            var client = getRepository.logins(code);
+            return client;
+        }
     }
 }

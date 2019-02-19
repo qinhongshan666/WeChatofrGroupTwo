@@ -7,9 +7,10 @@ Page({
    * 页面的初始数据
    */
   data: {
-    date: '',
+    date: '2019-02-01',
     region: ['北京市', '北京市', '海珠区'],
     regions: ['上海市', '上海市', '海珠区'],
+   
 
   },
   bindDateChange: function (e) {
@@ -76,6 +77,24 @@ Page({
     })
 
 
-  }
+  },
+   Tomorrow: function () {
+     var dd = this.data.date;
+    var d = new Date(dd);
+    d.setDate(d.getDate() + 1);
+    var year = d.getFullYear()
+    var month = d.getMonth() + 1
+    var day = d.getDate()
+    if (month < 10) {
+      month = '0' + month;
+    }
+    if (day < 10) {
+      day = '0' + day;
+    }
+    var de = year + '-' + month + '-' + day
+    this.setData({
+      date: de,
+    });
+  },
   
 })

@@ -42,7 +42,7 @@
                   </picker>
                 </view>
                 <view>
-                    <text class="day">明天</text>
+                     <text class="day" bindtap='Tomorrow'>明天</text>
                 </view>
             </view>
             <view class="query-row btn-query">

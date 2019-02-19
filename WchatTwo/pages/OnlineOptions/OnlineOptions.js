@@ -1,4 +1,4 @@
-// pages/inquire.js
+// pages/OnlineOptions/OnlineOptions.js
 Page({
 
   /**
