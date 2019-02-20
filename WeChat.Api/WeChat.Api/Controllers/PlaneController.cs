@@ -5,6 +5,7 @@
     using System.Web.Http;
     using WeChat.IRespository;
     using WeChat.Model;
+    using WebApiTokendemo;
 
     public class PlaneController : ApiController
     {
@@ -15,6 +16,7 @@
         /// </summary>
         /// <param name="planeOrder">订单表</param>
         /// <returns>受影响行数</returns>
+        [RequestAuthorize]
         [HttpPost]
         public int AddPlaneOrder(PlaneOrder planeOrder)
         {
