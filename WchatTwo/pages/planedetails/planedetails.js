@@ -74,7 +74,6 @@ Page({
             OrderTotalsum: that.totalsum,
             OrderTicket: that.ticket,
             OrderPhone: that.phone,
-            AccountName: username.nickName,
             OrderState: orderState,
             PlaneID: that.planeID
           },
@@ -116,7 +115,6 @@ Page({
             OrderTotalsum: that.totalsum,
             OrderTicket: that.ticket,
             OrderPhone: that.phone,
-            AccountName: username.nickName,
             OrderState: orderState,
             PlaneID: that.planeID
           },
