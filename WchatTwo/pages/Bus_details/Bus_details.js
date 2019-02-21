@@ -62,7 +62,7 @@ Page({
           url: 'http://localhost:61984/api/Bus/addbuss',
           method: 'POST',
           data: {
-            BusPric: that.busPrice,
+            BusPrice: that.busPrice,
             StartingStation: that.startingStation,
             DestinationStation: that.destinationStation,
             StartDate: that.startDate,
