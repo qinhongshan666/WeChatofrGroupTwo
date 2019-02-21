@@ -95,14 +95,16 @@ Page({
   toPays: function () {
     var state = 1;
     var that = this.data;
+    console.log(that.busPrice),
     wx.getStorage({
       key: 'token',
       success: function (res) {
         wx.request({
           url: 'http://localhost:61984/api/Bus/addbuss',
           method: 'POST',
+          
           data: {
-            BusPric: that.busPrice,
+            BusPrice: that.busPrice,
             StartingStation: that.startingStation,
             DestinationStation: that.destinationStation,
             StartDate: that.startDate,
