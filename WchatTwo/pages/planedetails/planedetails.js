@@ -75,6 +75,7 @@ Page({
             OrderTicket: that.ticket,
             OrderPhone: that.phone,
             OrderState: orderState,
+            AccountName: username.nickName,
             PlaneID: that.planeID
           },
           header: {
@@ -116,6 +117,7 @@ Page({
             OrderTicket: that.ticket,
             OrderPhone: that.phone,
             OrderState: orderState,
+            AccountName: username.nickName,
             PlaneID: that.planeID
           },
           header: {

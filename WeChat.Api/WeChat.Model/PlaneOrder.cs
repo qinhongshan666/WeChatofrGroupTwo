@@ -60,6 +60,11 @@
         public decimal OrderTotalsum { get; set; }
 
         /// <summary>
+        /// 用户名称
+        /// </summary>
+        public string AccountName { get; set; }
+
+        /// <summary>
         /// 飞机票ID
         /// </summary>
         public int PlaneID { get; set; }
