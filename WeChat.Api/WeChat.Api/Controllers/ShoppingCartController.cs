@@ -5,8 +5,11 @@
     using WeChat.IRespository;
     using WeChat.Model;
 
+    using WebApiTokendemo;
+    
     public class ShoppingCartController : ApiController
     {
+
         /// <summary>
         /// 属性注入
         /// </summary>
@@ -21,6 +24,8 @@
         /// </summary>
         /// <param name="id"></param>
         /// <returns></returns>
+        
+        
         [HttpGet]
         [ActionName("UpdateBusPaid")]
         public int UpdateBusPaid(int id)
@@ -34,6 +39,7 @@
         /// </summary>
         /// <param name="id"></param>
         /// <returns></returns>
+       
         [HttpGet]
         [ActionName("UpdateBusNonPaymen")]
         public int UpdateBusNonPaymen(int id)
@@ -46,6 +52,7 @@
         /// 获取订单状态为已付款的汽车票订 单
         /// </summary>
         /// <returns>已付款returns>
+        
         [HttpGet]
         [ActionName("busIndents")]
         public List<BusTicketInfo> BusIndents()
@@ -58,6 +65,8 @@
         /// 获取订单为待付款状态的汽车票订 单
         /// </summary>
         /// <returns>待付款</returns>
+        /// 
+       
         [HttpGet]
         [ActionName("getBusIndents")]
         public List<BusTicketInfo> GetBusIndents()
@@ -70,6 +79,7 @@
         /// 汽车票退款
         /// </summary>
         /// <returns>退款中</returns>
+      
         [HttpGet]
         [ActionName("getBusIndent")]
         public List<BusTicketInfo> GetBusIndent()
@@ -83,6 +93,8 @@
         /// </summary>
         /// <param name="id"></param>
         /// <returns></returns>
+        /// 
+        
         [HttpGet]
         [ActionName("DeleteById")]
         public int DeleteBusById(int id)
@@ -95,6 +107,8 @@
         /// 飞机票订单查询
         /// </summary>
         /// <returns>已付款</returns>
+        /// 
+        [RequestAuthorize]
         [HttpGet]
         [ActionName("GetPaid")]
         public List<PlaneOrder> GetPaid()
@@ -108,6 +122,8 @@
         /// </summary>
         /// <param name="id"></param>
         /// <returns></returns>
+        /// 
+        [RequestAuthorize]
         [HttpGet]
         [ActionName("Delete")]
         public int DeletePlaneById(int id)
@@ -121,6 +137,8 @@
         /// </summary>
         /// <param name="id"></param>
         /// <returns></returns>
+        /// 
+        
         [HttpGet]
         [ActionName("UpdateOrderState")]
         public int UpdateOrderState(int id)
@@ -134,6 +152,8 @@
         /// </summary>
         /// <param name="id"></param>
         /// <returns></returns>
+        /// 
+   
         [HttpGet]
         [ActionName("UpdateOrderStateId")]
         public int UpdateOrderStateId_2(int id)
@@ -146,6 +166,8 @@
         /// 飞机票订单查询
         /// </summary>
         /// <returns>待付款</returns>
+        /// 
+        [RequestAuthorize]
         [HttpGet]
         [ActionName("GetObligation")]
         public List<PlaneOrder> GetObligation()
@@ -158,6 +180,8 @@
         /// 飞机票订单查询
         /// </summary>
         /// <returns>退款</returns>
+        /// 
+        [RequestAuthorize]
         [HttpGet]
         [ActionName("GetNonPayment")]
         public List<PlaneOrder> GetNonPayment()
@@ -170,6 +194,8 @@
         /// 火车已付款
         /// </summary>
         /// <returns>状态为0</returns>
+        /// 
+       
         [HttpGet]
         [ActionName("GetPaidTrain")]
         public List<TrainTicketOrders> GetPaidTrain()
@@ -182,6 +208,8 @@
         /// 火车票待付款
         /// </summary>
         /// <returns>返回状态为1</returns>
+        /// 
+       
         [HttpGet]
         [ActionName("GetObligationTrain")]
         public List<TrainTicketOrders> GetObligationTrain()
@@ -194,6 +222,8 @@
         /// 火车票退款
         /// </summary>
         /// <returns>返回状态 为2</returns>
+        /// 
+       
         [HttpGet]
         [ActionName("GetNonPaymentTrain")]
         public List<TrainTicketOrders> GetNonPaymentTrain()
@@ -207,6 +237,8 @@
         /// </summary>
         /// <param name="id"></param>
         /// <returns></returns>
+        /// 
+     
         [HttpGet]
         [ActionName("DeleteTrainId")]
         public int DeleteTrainById(int id)
@@ -220,6 +252,8 @@
         /// </summary>
         /// <param name="id"></param>
         /// <returns></returns>
+        /// 
+        
         [HttpGet]
         [ActionName("UpdateTrainId")]
         public int UpdateTrainId(int id)
@@ -233,6 +267,8 @@
         /// </summary>
         /// <param name="id"></param>
         /// <returns></returns>
+        /// 
+        
         [HttpGet]
         [ActionName("UpdatePaidById")]
         public int UpdateId(int id)

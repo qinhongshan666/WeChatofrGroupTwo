@@ -48,21 +48,24 @@ Page({
   toPay: function () {
     var state=0;
     var that = this.data;
+wx.getStorage({
+  key: 'token',
+  success: function(res) {
     wx.request({
       url: 'http://localhost:61984/api/Bus/addbuss',
       method: 'POST',
       data: {
-        BusPrice: that.busPrice,
+        BusPric: that.busPrice,
         StartingStation: that.startingStation,
         DestinationStation: that.destinationStation,
         StartDate: that.startDate,
         StartTime: that.startTime,
         EndTime: that.endTime,
-        Count: that.count,
-        OrderState:state,
-        Name:that.name,
-        Phone:that.phone,
-        IDnumber:that.idnumber,
+        Count: that.count
+      },
+      header: {
+        'content-type': 'application/json',
+        'Authorization': 'BasicAuth ' + res.data
       },
       success(res) {
         var i = res.data;
@@ -71,17 +74,19 @@ Page({
             url: '../checkBus/checkBus',
           })
         }
-
       }
     })
+  }
+})
   },
-
+  toPays: function () {
+    var state = 1;
+    var that = this.data;
     wx.getStorage({
       key: 'token',
       success: function (res) {
-        console.log(res.data)
-        console.log(111111111111)
         wx.request({
+          
           url: 'http://localhost:61984/api/Bus/addbuss',
           method: 'POST',
           data: {
@@ -104,26 +109,9 @@ Page({
                 url: '../checkBus/checkBus',
               })
             }
-
- toPays: function () {
-   var state = 1;
-    var that = this.data;
-      console.log(that.startDate)
-    wx.request({
-      url: 'http://localhost:61984/api/Bus/addbuss',
-      method: 'POST',
-      data: {
-        BusPrice: that.busPrice,
-        StartingStation: that.startingStation,
-        DestinationStation: that.destinationStation,
-        StartDate: that.startDate,
-        StartTime: that.startTime,
-        EndTime: that.endTime,
-        Count: that.count,
-        OrderState: state,
           }
         })
-      },
+      }
     })
   },
   ticPhone: function (e) {

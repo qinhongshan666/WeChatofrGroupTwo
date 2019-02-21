@@ -56,6 +56,9 @@ Page({
   toPay: function () {
     var that = this.data;
     var username = app.globalData.userInfo;
+    console.log(444444444444);
+    console.log(username.nickName);
+
     var orderState = 0;
     wx.request({
       url: 'http://localhost:61984/api/Plane/AddPlaneOrder', // 仅为示例，并非真实的接口地址
