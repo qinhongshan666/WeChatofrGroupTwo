@@ -2,12 +2,7 @@
 const app = getApp();
 Page({
 
-
-
-
   data: {
-
-
 
 
     ticket: 1,
@@ -24,17 +19,9 @@ Page({
     state: '',
 
   },
-
-
-
-
   onLoad: function (options) {
     var id = options.busid;
     var that = this;
-
-
-
-
     wx.request({
       url: 'http://localhost:61984/api/Bus/GetBus',
       method: 'GET',
@@ -101,10 +88,6 @@ Page({
       }
     })
   },
-
-
-
-
   toPays: function () {
     var state = 1;
     var that = this.data;
@@ -152,14 +135,17 @@ Page({
       phone: e.detail.value,
     })
   },
+
   ticName: function (e) {
     this.setData({
       name: e.detail.value,
     })
   },
+
   ticidnumber: function (e) {
     this.setData({
       idnumber: e.detail.value,
     })
-  }
-})
+  },
+    
+    })

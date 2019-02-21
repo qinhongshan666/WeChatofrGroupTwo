@@ -36,8 +36,11 @@ Page({
    * 生命周期函数--监听页面加载
    */
   onLoad: function (options) {
-
-
+    //获取当前系统时间
+    var time = util.formatDate(new Date());
+    this.setData({
+      date: time,
+    });
   },
 
   //购票信息
