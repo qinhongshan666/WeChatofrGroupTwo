@@ -27,8 +27,11 @@ namespace WeChat.Respository
                 ClientInfo clientInfo = new ClientInfo();
                 HttpClient httpClient = new HttpClient();
 
-                string appid = "wx9b3e7836bb821361";
-                string secret = "8d2bdd1da7843e77b73ce3341c0a4a7f";
+
+                string appid = "wx6859219bc7ed1ff9";
+                string secret = "9bb8d194cf840cbb93746240e4f6f566";
+
+
                 httpClient.DefaultRequestHeaders.Accept.Add(new System.Net.Http.Headers.MediaTypeWithQualityHeaderValue("application/json"));
                 HttpResponseMessage response = httpClient.PostAsync("https://api.weixin.qq.com/sns/jscode2session?appid=" + appid + "&secret=" + secret + "&js_code=" + code.ToString() + "&grant_type=authorization_code", null).Result;
                 var result = "";

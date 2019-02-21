@@ -15,6 +15,8 @@ Page({
     name: '',
     phone: '',
     idnumber: '',
+    state:'',
+    
   },
 
   onLoad: function (options) {
@@ -47,46 +49,12 @@ Page({
   toPay: function () {
     var state = 0;
     var that = this.data;
-wx.getStorage({
-  key: 'token',
-  success: function(res) {
-    wx.request({
-      url: 'http://localhost:61984/api/Bus/addbuss',
-      method: 'POST',
-      data: {
-        BusPric: that.busPrice,
-        StartingStation: that.startingStation,
-        DestinationStation: that.destinationStation,
-        StartDate: that.startDate,
-        StartTime: that.startTime,
-        EndTime: that.endTime,
-        Count: that.count
-      },
-      header: {
-        'content-type': 'application/json',
-        'Authorization': 'BasicAuth ' + res.data
-      },
-      success(res) {
-        var i = res.data;
-        if (i == 1) {
-          wx.navigateTo({
-            url: '../checkBus/checkBus',
-          })
-        }
-      }
-    })
-  }
-})
-  },
-  toPays: function () {
-    var state = 1;
-    var that = this.data;
-
+ 
+    console.log(that.count);
     wx.getStorage({
       key: 'token',
       success: function (res) {
         wx.request({
-          
           url: 'http://localhost:61984/api/Bus/addbuss',
           method: 'POST',
           data: {
@@ -96,7 +64,11 @@ wx.getStorage({
             StartDate: that.startDate,
             StartTime: that.startTime,
             EndTime: that.endTime,
-            Count: that.count
+            Count: that.count,
+            OrderState: state,
+            Name:that.name,
+            Phone:that.phone,
+            IDnumber:that.idnumber
           },
           header: {
             'content-type': 'application/json',
@@ -115,6 +87,45 @@ wx.getStorage({
     })
   },
 
+
+  toPays: function () {
+    var state = 1;
+    var that = this.data;
+    wx.getStorage({
+      key: 'token',
+      success: function (res) {
+        wx.request({
+          url: 'http://localhost:61984/api/Bus/addbuss',
+          method: 'POST',
+          data: {
+            BusPric: that.busPrice,
+            StartingStation: that.startingStation,
+            DestinationStation: that.destinationStation,
+            StartDate: that.startDate,
+            StartTime: that.startTime,
+            EndTime: that.endTime,
+            Count: that.count,
+            OrderState: state,
+            Name: that.name,
+            Phone: that.phone,
+            IDnumber: that.idnumber
+          },
+          header: {
+            'content-type': 'application/json',
+            'Authorization': 'BasicAuth ' + res.data
+          },
+          success(res) {
+            var i = res.data;
+            if (i == 1) {
+              wx.navigateTo({
+                url: '../checkBus/checkBus',
+              })
+            }
+          }
+        })
+      }
+    })
+  },
 
   ticPhone: function (e) {
     this.setData({
