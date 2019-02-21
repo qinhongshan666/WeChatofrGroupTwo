@@ -56,6 +56,9 @@ Page({
   toPay: function () {
     var that = this.data;
     var username = app.globalData.userInfo;
+    console.log(444444444444);
+    console.log(username.nickName);
+
     var orderState = 0;
     wx.getStorage({
       key: 'token',
@@ -75,6 +78,7 @@ Page({
             OrderTicket: that.ticket,
             OrderPhone: that.phone,
             OrderState: orderState,
+            AccountName: username.nickName,
             PlaneID: that.planeID
           },
           header: {
@@ -116,6 +120,7 @@ Page({
             OrderTicket: that.ticket,
             OrderPhone: that.phone,
             OrderState: orderState,
+            AccountName: username.nickName,
             PlaneID: that.planeID
           },
           header: {

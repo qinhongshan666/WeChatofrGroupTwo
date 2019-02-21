@@ -24,7 +24,7 @@ namespace WeChat.Respository
         {
             using (IDbConnection conn = new MySqlConnection(connection))
             {
-                string sql = string.Format("INSERT into planeorder VALUES(ID,'{0}','{1}','{2}','{3}','{4}','{5}','{6}','{7}','{8}','{9}','{10}')", planeOrder.OrderUnitPrice, planeOrder.OrderLeaveCity, planeOrder.OrderArriveCity, planeOrder.OrderLeaveDate, planeOrder.OrderTypeID, planeOrder.OrderTicket, planeOrder.OrderLeaveTime, planeOrder.OrderArriveTime, planeOrder.OrderPhone, planeOrder.OrderState, planeOrder.OrderTotalsum);
+                string sql = string.Format("INSERT into planeorder VALUES(null,'{0}','{1}','{2}','{3}','{4}','{5}','{6}','{7}','{8}','{9}','{10}','{11}')", planeOrder.OrderUnitPrice, planeOrder.OrderLeaveCity, planeOrder.OrderArriveCity, planeOrder.OrderLeaveDate, planeOrder.OrderTypeID, planeOrder.OrderTicket, planeOrder.OrderLeaveTime, planeOrder.OrderArriveTime, planeOrder.OrderPhone, planeOrder.OrderState, planeOrder.OrderTotalsum, planeOrder.AccountName);
                 int result = conn.Execute(sql);
 
                 string sqlsel = "select * from plane where ID="+planeOrder.PlaneID;
