@@ -2,7 +2,9 @@
 const app = getApp();
 Page({
 
+
   data: {
+
 
     ticket: 1,
     busPrice: '',
@@ -12,14 +14,16 @@ Page({
     startTime: '',
     endTime: '',
     count: '',
-    name:'',
-    phone:'',
-    idnumber:'',
+    name: '',
+    phone: '',
+    idnumber: '',
   },
+
 
   onLoad: function (options) {
     var id = options.busid;
     var that = this;
+
 
     wx.request({
       url: 'http://localhost:61984/api/Bus/GetBus',
@@ -27,11 +31,9 @@ Page({
       data: {
         id: id
       },
-
       success(res) {
         var list = res.data;
         that.setData({
-
           busPrice: list.BusPrice,
           startingStation: list.StartingStation,
           destinationStation: list.DestinationStation,
@@ -39,14 +41,15 @@ Page({
           startTime: list.StartTime,
           endTime: list.EndTime,
           count: list.Count,
-          
+
         })
       }
     })
   },
 
+
   toPay: function () {
-    var state=0;
+    var state = 0;
     var that = this.data;
 wx.getStorage({
   key: 'token',
@@ -82,6 +85,7 @@ wx.getStorage({
   toPays: function () {
     var state = 1;
     var that = this.data;
+
     wx.getStorage({
       key: 'token',
       success: function (res) {
@@ -114,6 +118,8 @@ wx.getStorage({
       }
     })
   },
+
+
   ticPhone: function (e) {
     this.setData({
       phone: e.detail.value,
