@@ -17,6 +17,8 @@ Page({
     name: '',
     phone: '',
     idnumber: '',
+    state:'',
+    
   },
 
 
@@ -64,7 +66,8 @@ Page({
             StartDate: that.startDate,
             StartTime: that.startTime,
             EndTime: that.endTime,
-            Count: that.count
+            Count: that.count,
+            OrderState: state
           },
           header: {
             'content-type': 'application/json',
@@ -83,6 +86,41 @@ Page({
     })
   },
 
+  toPays: function () {
+    var state = 1;
+    var that = this.data;
+    wx.getStorage({
+      key: 'token',
+      success: function (res) {
+        wx.request({
+          url: 'http://localhost:61984/api/Bus/addbuss',
+          method: 'POST',
+          data: {
+            BusPric: that.busPrice,
+            StartingStation: that.startingStation,
+            DestinationStation: that.destinationStation,
+            StartDate: that.startDate,
+            StartTime: that.startTime,
+            EndTime: that.endTime,
+            Count: that.count,
+            OrderState: state
+          },
+          header: {
+            'content-type': 'application/json',
+            'Authorization': 'BasicAuth ' + res.data
+          },
+          success(res) {
+            var i = res.data;
+            if (i == 1) {
+              wx.navigateTo({
+                url: '../checkBus/checkBus',
+              })
+            }
+          }
+        })
+      }
+    })
+  },
 
   ticPhone: function (e) {
     this.setData({
