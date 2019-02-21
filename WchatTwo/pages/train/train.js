@@ -13,7 +13,7 @@ Page({
     duration: 2000,
 
     Times: '',
-    BeginSite: ['', '北京西', ''],
+    BeginSite: ['', '北京西', ''],   
     ArriveSite: ['', '临汾', ''],
 
   },

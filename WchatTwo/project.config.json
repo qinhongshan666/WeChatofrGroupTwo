@@ -13,7 +13,9 @@
 	},
 	"compileType": "miniprogram",
 	"libVersion": "2.5.2",
-	"appid": "wx9b3e7836bb821361",
+	"appid": "wx6859219bc7ed1ff9",
+	"projectname": "wx9",
+	"appid": "wx9d811fa9164d692c",
 	"projectname": "wx2",
 	"debugOptions": {
 		"hidedInDevtools": []

@@ -60,7 +60,7 @@
         public decimal OrderTotalsum { get; set; }
 
         /// <summary>
-        /// 用户ID
+        /// 用户名称
         /// </summary>
         public string AccountName { get; set; }
 
