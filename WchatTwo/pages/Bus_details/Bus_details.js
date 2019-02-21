@@ -2,9 +2,7 @@
 const app = getApp();
 Page({
 
-
   data: {
-
 
     ticket: 1,
     busPrice: '',
@@ -21,11 +19,9 @@ Page({
     
   },
 
-
   onLoad: function (options) {
     var id = options.busid;
     var that = this;
-
 
     wx.request({
       url: 'http://localhost:61984/api/Bus/GetBus',
@@ -138,14 +134,17 @@ Page({
       phone: e.detail.value,
     })
   },
+
   ticName: function (e) {
     this.setData({
       name: e.detail.value,
     })
   },
+
   ticidnumber: function (e) {
     this.setData({
       idnumber: e.detail.value,
     })
-  }
-})
+  },
+    
+    })
