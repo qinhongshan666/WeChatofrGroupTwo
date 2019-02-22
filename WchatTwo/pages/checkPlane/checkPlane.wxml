@@ -16,10 +16,7 @@
 </view> 
     <view hidden="{{currentTab!==0}}">
     <view bindtap="toOrderDetail" class="orderDetails" wx:for="{{infos}}" >
-
     <view class="orderListTitle">
-
-
         <text class="userName" >{{item.OrderLeaveCity}}</text>
         <text class="userName" >---到达---</text>
 

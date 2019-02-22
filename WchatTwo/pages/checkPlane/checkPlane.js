@@ -129,7 +129,6 @@ Page({
    * 点击tab切换
    */
   swichNav: function (e) {
-
     var that = this;
 
     if (this.data.currentTab === e.target.dataset.current) {
