@@ -48,6 +48,10 @@ Page({
   },
 
   bindDateChange: function (e) {
+    this.setData({
+      dateday: e.detail.value
+    })
+    var that=this;
     wx.request({
       url: 'http://localhost:61984/api/Plane/GetPlanes', // 仅为示例，并非真实的接口地址
       method: 'GET',
@@ -57,13 +61,19 @@ Page({
         dateDay: this.data.dateday
       },
       success(res) {
-        that.setData({
-          list: res.data,
-        })
+        if (res.data.length == 0) {
+          that.setData({
+            nodata: '暂无数据',
+            list: res.data,
+          })
+        }
+        else {
+          that.setData({
+            nodata: '',
+            list: res.data,
+          })
+        }
       }
-    })
-    this.setData({
-      dateday: e.detail.value
     })
   },
   onReady: function () {
