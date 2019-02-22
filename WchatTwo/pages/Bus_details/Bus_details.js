@@ -92,6 +92,36 @@ Page({
     var state = 1;
     var that = this.data;
     console.log(that.busPrice),
+    wx.getStorage({
+      key: 'token',
+      success: function (res) {
+        wx.request({
+          url: 'http://localhost:61984/api/Bus/addbuss',
+          method: 'POST',
+          
+          data: {
+            BusPrice: that.busPrice,
+            StartingStation: that.startingStation,
+            DestinationStation: that.destinationStation,
+            StartDate: that.startDate,
+            StartTime: that.startTime,
+            EndTime: that.endTime,
+            Count: that.count,
+            OrderState: state,
+            Name: that.name,
+            Phone: that.phone,
+            IDnumber: that.idnumber
+          },
+          header: {
+            'content-type': 'application/json',
+            'Authorization': 'BasicAuth ' + res.data
+          },
+          success(res) {
+            var i = res.data;
+            if (i == 1) {
+              wx.navigateTo({
+                url: '../checkBus/checkBus',
+              })
       wx.getStorage({
         key: 'token',
         success: function (res) {
